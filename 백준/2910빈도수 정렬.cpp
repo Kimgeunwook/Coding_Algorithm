@@ -6,36 +6,36 @@ using namespace std;
 int num, limit_num, n, flag = 0;
 bool sortbycnt(const tuple<int, int, int> & a, const tuple<int, int, int> & b)
 {
-	if (get<2>(a) == get<2>(b)) //tuple ¼¼¹øÂ° ÀÎÀÚÀÎ Ä«¿îÆ® °¡ °°À»°æ¿ì 
+	if (get<2>(a) == get<2>(b)) //tuple ì„¸ë²ˆì§¸ ì¸ìì¸ ì¹´ìš´íŠ¸ ê°€ ê°™ì„ê²½ìš° 
 	{
-		return get<1>(a) < get<1>(b);  //tuple µÎ¹øÂ° ÀÎÀÚÀÎ ¸ÕÀú µé¾î¿Â ÀÎÀÚ¿¡°Ô ¿ì¼±¼øÀ§¸¦ ÁØ´Ù
+		return get<1>(a) < get<1>(b);  //tuple ë‘ë²ˆì§¸ ì¸ìì¸ ë¨¼ì € ë“¤ì–´ì˜¨ ì¸ìì—ê²Œ ìš°ì„ ìˆœìœ„ë¥¼ ì¤€ë‹¤
 	}
 	else
 	{
-		return get<2>(a) > get<2>(b); //tuple¼¼¹øÂ° ÀÎÀÚÀÎ Ä«¿îÆ®·Î Á¤·Ä
+		return get<2>(a) > get<2>(b); //tupleì„¸ë²ˆì§¸ ì¸ìì¸ ì¹´ìš´íŠ¸ë¡œ ì •ë ¬
 	}
 }
 int main()
 {
 	vector<tuple<int, int, int>> v;
-	//¹«½¼¼ıÀÚ, ¸î¹øÂ°·Î µé¿ÂÁö ,Ä«¿îÆ®
+	//ë¬´ìŠ¨ìˆ«ì, ëª‡ë²ˆì§¸ë¡œ ë“¤ì˜¨ì§€ ,ì¹´ìš´íŠ¸
 	cin >> num >> limit_num;
 	cin >> n;
-	v.push_back(make_tuple(n, 0, 1)); //¹Ø¹ØÆ÷¹®¿¡¼­ º¤ÅÍ¿À·ù ¾È³ª·Á¸é ÇÑ°³´Â ³Ö¾îÁÖ±â
+	v.push_back(make_tuple(n, 0, 1)); //ë°‘ë°‘í¬ë¬¸ì—ì„œ ë²¡í„°ì˜¤ë¥˜ ì•ˆë‚˜ë ¤ë©´ í•œê°œëŠ” ë„£ì–´ì£¼ê¸°
 	for (int i = 1; i < num; i++)
 	{
 		flag = 0;
 		cin >> n;
 		for (int j = 0; j < v.size(); j++)
 		{
-			if (n == get<0>(v[j])) //ÀÌ¹Ì ÀÖ´Â ¼ıÀÚ¸é
+			if (n == get<0>(v[j])) //ì´ë¯¸ ìˆëŠ” ìˆ«ìë©´
 			{
-				get<2>(v[j])++; //Ä«¿îÆ® ´Ã·ÁÁÖ°í
-				flag = 1;//ÇÃ·¡±× ÁöÁ¤
+				get<2>(v[j])++; //ì¹´ìš´íŠ¸ ëŠ˜ë ¤ì£¼ê³ 
+				flag = 1;//í”Œë˜ê·¸ ì§€ì •
 				break;
 			}
 		}
-		if (flag == 0) //Ã³À½ ³ª¿Â ¼ıÀÚ¸é
+		if (flag == 0) //ì²˜ìŒ ë‚˜ì˜¨ ìˆ«ìë©´
 		{
 			v.push_back(make_tuple(n, v.size(), 1)); 
 		}

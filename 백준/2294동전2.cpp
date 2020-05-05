@@ -1,9 +1,9 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-////https://jaemin8852.tistory.com/163 Âü°í
+////https://jaemin8852.tistory.com/163 ì°¸ê³ 
 int main() {
-	int coin_num, object_money, coin[101], dp[10001];//µ¿Àü °³¼ö, ¸ñÇ¥ µ· , µ¿Àü¹è¿­, ´ä ¹è¿­
+	int coin_num, object_money, coin[101], dp[10001];//ë™ì „ ê°œìˆ˜, ëª©í‘œ ëˆ , ë™ì „ë°°ì—´, ë‹µ ë°°ì—´
 
 	cin >> coin_num >> object_money;
 

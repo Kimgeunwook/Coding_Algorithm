@@ -7,7 +7,7 @@ class point
 public:
 	int x;
 	int y;
-	int weight; //±×ÀÚ¸®±îÁö °¥¶§ÀÇ count°ª
+	int weight; //ê·¸ìë¦¬ê¹Œì§€ ê°ˆë•Œì˜ countê°’
 	point(int _x, int _y, int _weight)
 	{
 		x = _x;
@@ -17,7 +17,7 @@ public:
 };
 queue<point> q;
 bool map[101][101];
-bool is_visit[101][101];//¹æ¹®ÇÑ°÷ Ç¥½Ã
+bool is_visit[101][101];//ë°©ë¬¸í•œê³³ í‘œì‹œ
 int N, M;
 int _count, flag = 0;
 void visit(int x, int y, int count)
@@ -25,18 +25,18 @@ void visit(int x, int y, int count)
 
 	for (int i = 1; i>-2; i--)
 		for (int j = 1; j>-2; j--)
-			if ((i*j == 0) && !(i == 0 && j == 0)) //4¹æÇâ Ã¼Å©
-				if (map[x + i][y + j] == 1 && is_visit[x + i][y + j] == 0) //1ÀÎ°÷&&¹æ¹®¾ÈÇÑ°÷
+			if ((i*j == 0) && !(i == 0 && j == 0)) //4ë°©í–¥ ì²´í¬
+				if (map[x + i][y + j] == 1 && is_visit[x + i][y + j] == 0) //1ì¸ê³³&&ë°©ë¬¸ì•ˆí•œê³³
 				{
-					if (x + i == N && y + j == M) //µµÂøÁ¡ÀÌ¸é
+					if (x + i == N && y + j == M) //ë„ì°©ì ì´ë©´
 					{
-						flag = 1;   //flag=1¼³Á¤
+						flag = 1;   //flag=1ì„¤ì •
 						_count = count + 1;
 						return;
 					}
 					else
 					{
-						q.push(point(x + i, y + j, count + 1)); //µµÂøÁ¡ ¾Æ´Ï¸é queue¿¡ Ãß°¡
+						q.push(point(x + i, y + j, count + 1)); //ë„ì°©ì  ì•„ë‹ˆë©´ queueì— ì¶”ê°€
 						is_visit[x + i][y + j] = 1;
 					}
 				}

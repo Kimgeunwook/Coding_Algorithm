@@ -3,7 +3,7 @@ using namespace std;
 #include <vector>
 #include <algorithm>
 int counts = 0;
-int map[101][101]; //ÀüÃ¼¸Ê(map[col][row])
+int map[101][101]; //ì „ì²´ë§µ(map[col][row])
 void search(int x, int y)
 {
 
@@ -41,8 +41,8 @@ void search(int x, int y)
 int main()
 {
 
-	int row, col; // row´Â °¡·Î colÀº ¼¼·Î
-	int num;//Á÷»ç°¢Çü ¸î°³ ¹ŞÀ»°ÇÁö
+	int row, col; // rowëŠ” ê°€ë¡œ colì€ ì„¸ë¡œ
+	int num;//ì§ì‚¬ê°í˜• ëª‡ê°œ ë°›ì„ê±´ì§€
 	int left_x, left_y, right_x, right_y;
 
 	vector<int> pq;
