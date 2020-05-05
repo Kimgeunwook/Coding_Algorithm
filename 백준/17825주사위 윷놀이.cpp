@@ -11,15 +11,15 @@ int map[2][61] = { { 0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,-
 
 	,{ 0, } };
 
-//1.¸»ÀÌ ÀÌ¹Ì µµÂøÇßÀ»¶§ 
-//2.½ÃÀÛÁ¡ »ï°¢Á¡ÀÌ¸é ¾îµð·Î°¡°ÔÇÒÁö
-//3.°ãÃÆÀ»¶§ 
-//4.ÀÌµ¿ÇÏ±âÀü¿¡ ÀüÃ¼¹è¿­¿¡¼­ locationÀ§Ä¡ Ã¼Å©ÇØÁÖ°í location°ªµµ ¹Ù²ãÁÖ±â
+//1.ë§ì´ ì´ë¯¸ ë„ì°©í–ˆì„ë•Œ 
+//2.ì‹œìž‘ì  ì‚¼ê°ì ì´ë©´ ì–´ë””ë¡œê°€ê²Œí• ì§€
+//3.ê²¹ì³¤ì„ë•Œ 
+//4.ì´ë™í•˜ê¸°ì „ì— ì „ì²´ë°°ì—´ì—ì„œ locationìœ„ì¹˜ ì²´í¬í•´ì£¼ê³  locationê°’ë„ ë°”ê¿”ì£¼ê¸°
 int cnt = 0;
 void dfs(int depth)
 {
 	if (R == depth) 
-	{// ¸ðµÎ ¼±ÅÃ µÇ¾úÀ½
+	{// ëª¨ë‘ ì„ íƒ ë˜ì—ˆìŒ
 		cnt++;
 		for (int i = 0; i < 5; i++)
 			location[i] = 0;
@@ -27,13 +27,13 @@ void dfs(int depth)
 		int now_score = 0;
 		for (int i = 1; i <= R; i++)
 		{
-			if (map[0][location[selected[i]]] == -1)//ÀÌ¹Ì µµÂøÁ¡ÀÏ¶§
+			if (map[0][location[selected[i]]] == -1)//ì´ë¯¸ ë„ì°©ì ì¼ë•Œ
 			{
-				cout << "ÀÌ¹Ì µµÂøÁ¡" <<location[selected[i]]<< endl;
+				cout << "ì´ë¯¸ ë„ì°©ì " <<location[selected[i]]<< endl;
 				return;
 			}
 				
-			if (map[0][location[selected[i]]] == 10) //¿ø·¡Á¡ÀÌ 10,20,30ÀÌ¸é check=0ÇØÁÖ°í Ãâ¹ßÁ¡ ¹Ù²ãÁÖ±â
+			if (map[0][location[selected[i]]] == 10) //ì›ëž˜ì ì´ 10,20,30ì´ë©´ check=0í•´ì£¼ê³  ì¶œë°œì  ë°”ê¿”ì£¼ê¸°
 			{
 				map[1][location[selected[i]]] = 0;
 				location[selected[i]] += 20;
@@ -48,16 +48,16 @@ void dfs(int depth)
 				map[1][location[selected[i]]] = 0;
 				location[selected[i]] += 33;
 			}
-			if (map[1][location[selected[i]] + dice[i]] == 1)//°ãÄ£ °æ¿ì
+			if (map[1][location[selected[i]] + dice[i]] == 1)//ê²¹ì¹œ ê²½ìš°
 			{
-				cout << "¿©±â" << endl;
+				cout << "ì—¬ê¸°" << endl;
 				return;
 			}
 				
 			else
 			{
-				map[1][location[selected[i]]] = 0;//ÀÌµ¿Àü À§Ä¡ ÀÚ¸®ÇÃ·¡±× 0À¸·Î ¸¸µé¾îÁÖ±â
-				if (map[0][location[selected[i]] + dice[i]] != -1) //ÀÌµ¿ÇÒ ÀÚ¸®°¡ µµÂøÁ¡ÀÌ ¾Æ´Ï¸é
+				map[1][location[selected[i]]] = 0;//ì´ë™ì „ ìœ„ì¹˜ ìžë¦¬í”Œëž˜ê·¸ 0ìœ¼ë¡œ ë§Œë“¤ì–´ì£¼ê¸°
+				if (map[0][location[selected[i]] + dice[i]] != -1) //ì´ë™í•  ìžë¦¬ê°€ ë„ì°©ì ì´ ì•„ë‹ˆë©´
 				{
 					now_score += map[0][location[selected[i]] + dice[i]];
 					location[selected[i]] += dice[i];
