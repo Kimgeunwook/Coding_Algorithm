@@ -27,4 +27,5 @@ int main()
 	}
 	cout << min(min(dp[num - 1][0], dp[num - 1][1]), dp[num - 1][2]) << endl;
 	return 0;
+	//
 }
