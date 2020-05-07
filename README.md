@@ -1,2 +1,2 @@
-# Coding_Algorithm
-# 알고리즘 문제풀이 repository
+# 알고리즘 문제풀이 
+# 사이트별 정리
