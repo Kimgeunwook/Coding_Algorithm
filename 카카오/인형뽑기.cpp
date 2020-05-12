@@ -5,10 +5,10 @@ using namespace std;
 
 int solution(vector<vector<int>> board, vector<int> moves) {
 	int answer = 0;
-	vector<int> basket; // ¿À¸¥ÂÊ ¹Ù±¸´Ï
-	vector<vector<int>> map; //¿ŞÂÊ ¸Ê
+	vector<int> basket; // ì˜¤ë¥¸ìª½ ë°”êµ¬ë‹ˆ
+	vector<vector<int>> map; //ì™¼ìª½ ë§µ
 	map.resize(board.size());
-	for (int i = board.size() - 1; i >= 0; i--) //¸Ê ¸¸µé±â
+	for (int i = board.size() - 1; i >= 0; i--) //ë§µ ë§Œë“¤ê¸°
 	{
 		for (int j = 0; j < board[i].size(); j++)
 		{
@@ -19,13 +19,13 @@ int solution(vector<vector<int>> board, vector<int> moves) {
 
 	for (int i = 0; i < moves.size(); i++)
 	{
-		if (map[moves[i] - 1].size() > 0) //²¨³¾ ÀÎÇüÀÌ ÀÖÀ¸¸é
+		if (map[moves[i] - 1].size() > 0) //êº¼ë‚¼ ì¸í˜•ì´ ìˆìœ¼ë©´
 		{
 			if (basket.size() > 0)
 			{
-				if (basket.back() == map[moves[i] - 1].back()) //¹Ù±¸´Ï Á¦ÀÏ À§¿¡ÀÎÇüÀÌ¶û Áö±İ ³Ö´Â ÀÎÇüÀÌ¶û °°À¸¸é ÅÍÆ®¸®±â
+				if (basket.back() == map[moves[i] - 1].back()) //ë°”êµ¬ë‹ˆ ì œì¼ ìœ„ì—ì¸í˜•ì´ë‘ ì§€ê¸ˆ ë„£ëŠ” ì¸í˜•ì´ë‘ ê°™ìœ¼ë©´ í„°íŠ¸ë¦¬ê¸°
 				{
-					answer += 2; // ÀÎÇü ÅÍÁö¸é 2°³ ´õÇØÁÖ±â
+					answer += 2; // ì¸í˜• í„°ì§€ë©´ 2ê°œ ë”í•´ì£¼ê¸°
 					basket.pop_back();
 					map[moves[i] - 1].pop_back();
 				}
@@ -35,10 +35,10 @@ int solution(vector<vector<int>> board, vector<int> moves) {
 					map[moves[i] - 1].pop_back();
 				}
 			}
-			else // ¹Ù±¸´Ï¿¡ ¾Æ¹«°Íµµ ¾øÀ¸¸é
+			else // ë°”êµ¬ë‹ˆì— ì•„ë¬´ê²ƒë„ ì—†ìœ¼ë©´
 			{
-				basket.push_back(map[moves[i] - 1].back());//±×³É ³Ö±â
-				map[moves[i] - 1].pop_back(); // ¸Ê¿¡¼­´Â »©±â
+				basket.push_back(map[moves[i] - 1].back());//ê·¸ëƒ¥ ë„£ê¸°
+				map[moves[i] - 1].pop_back(); // ë§µì—ì„œëŠ” ë¹¼ê¸°
 			}
 		}
 	}
