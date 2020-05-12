@@ -4,9 +4,9 @@
 #include <algorithm>
 using namespace std;
 //struct Node {
-//	int point_cnt; //¸î¹ø °ÅÃÄ°£Áö
-//	struct Node* next; //´ÙÀ½ ³ëµå
-//	int remain_cnt; //³²Àº±ÛÀÚ Ä«¿îÆ®
+//	int point_cnt; //ëª‡ë²ˆ ê±°ì³ê°„ì§€
+//	struct Node* next; //ë‹¤ìŒ ë…¸ë“œ
+//	int remain_cnt; //ë‚¨ì€ê¸€ì ì¹´ìš´íŠ¸
 //	string data;
 //
 //};
@@ -33,7 +33,7 @@ vector<int> solution(vector<string> words, vector<string> queries) {
 		string a_cnt = "";
 		string z_cnt = "";
 		string original = "";
-		if (queries[i][0] == '?') //¸®¹ö½º
+		if (queries[i][0] == '?') //ë¦¬ë²„ìŠ¤
 		{
 			for (int j = queries[i].size()-1; j >= 0; j--)
 			{
@@ -47,7 +47,7 @@ vector<int> solution(vector<string> words, vector<string> queries) {
 			start = lower_bound(rwords.begin(), rwords.end(), original + a_cnt, compare) - rwords.begin();
 			end = upper_bound(rwords.begin(), rwords.end(), original + z_cnt, compare) - rwords.begin();
 		}
-		else { //Á¤ÁÖÇà
+		else { //ì •ì£¼í–‰
 			for (int j = 0; j < queries[i].size(); j++)
 			{
 				if (queries[i][j] == '?')
