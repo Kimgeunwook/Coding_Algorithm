@@ -4,7 +4,7 @@
 using namespace std;
 int map[102][102];
 queue<pair<int, char>> q;
-int  snake_dir = 2; //1ºÏ 2µ¿ 3³² 4¼­
+int  snake_dir = 2; //1ë¶ 2ë™ 3ë‚¨ 4ì„œ
 list<pair<int, int>> snake_body;
 auto it = snake_body.begin();
 
@@ -15,86 +15,86 @@ int search()
 		
 		if (snake_dir == 1)
 		{
-			for (it = snake_body.begin(); it != snake_body.end() ; it++) //ÀÚ±âÀÚ½Å ¸ö
+			for (it = snake_body.begin(); it != snake_body.end() ; it++) //ìê¸°ìì‹  ëª¸
 			{
-				if (snake_body.front().first - 1 == it->first && snake_body.front().second == it->second)//@@@@@@@@@@°Ë»ç
+				if (snake_body.front().first - 1 == it->first && snake_body.front().second == it->second)//@@@@@@@@@@ê²€ì‚¬
 					return i;
 			}
-			if (map[snake_body.front().first - 1][snake_body.front().second] == 0) //º®
+			if (map[snake_body.front().first - 1][snake_body.front().second] == 0) //ë²½
 				return i;
-			else if (map[snake_body.front().first - 1][snake_body.front().second] == 2) //»ç°ú
+			else if (map[snake_body.front().first - 1][snake_body.front().second] == 2) //ì‚¬ê³¼
 			{
 				map[snake_body.front().first - 1][snake_body.front().second] = 1;
 				snake_body.push_front(make_pair(snake_body.front().first - 1, snake_body.front().second));
 			}
-			else //ºó°ø°£
+			else //ë¹ˆê³µê°„
 			{
 				snake_body.push_front(make_pair(snake_body.front().first - 1, snake_body.front().second));
-				snake_body.pop_back(); //±æÀÌ ÁÙ¿©ÁÖ±â
+				snake_body.pop_back(); //ê¸¸ì´ ì¤„ì—¬ì£¼ê¸°
 			}
 		}
 		else if (snake_dir == 2)
 		{
-			for (it = snake_body.begin(); it != snake_body.end(); it++) //ÀÚ±âÀÚ½Å ¸ö
+			for (it = snake_body.begin(); it != snake_body.end(); it++) //ìê¸°ìì‹  ëª¸
 			{
-				if (snake_body.front().first  == it->first && snake_body.front().second + 1 == it->second)//@@@@@@@@@@°Ë»ç
+				if (snake_body.front().first  == it->first && snake_body.front().second + 1 == it->second)//@@@@@@@@@@ê²€ì‚¬
 					return i;
 			}
-			if (map[snake_body.front().first][snake_body.front().second + 1] == 0) //º®
+			if (map[snake_body.front().first][snake_body.front().second + 1] == 0) //ë²½
 				return i;
-			else if (map[snake_body.front().first][snake_body.front().second + 1] == 2) //»ç°ú
+			else if (map[snake_body.front().first][snake_body.front().second + 1] == 2) //ì‚¬ê³¼
 			{
 				map[snake_body.front().first][snake_body.front().second + 1] = 1;
 				snake_body.push_front(make_pair(snake_body.front().first, snake_body.front().second + 1));
 			}
-			else //ºó°ø°£
+			else //ë¹ˆê³µê°„
 			{
 				snake_body.push_front(make_pair(snake_body.front().first, snake_body.front().second + 1));
-				snake_body.pop_back(); //±æÀÌ ÁÙ¿©ÁÖ±â
+				snake_body.pop_back(); //ê¸¸ì´ ì¤„ì—¬ì£¼ê¸°
 			}
 		}
 		else if (snake_dir == 3)
 		{
-			for (it = snake_body.begin(); it != snake_body.end(); it++) //ÀÚ±âÀÚ½Å ¸ö
+			for (it = snake_body.begin(); it != snake_body.end(); it++) //ìê¸°ìì‹  ëª¸
 			{
-				if (snake_body.front().first + 1 == it->first && snake_body.front().second == it->second)//@@@@@@@@@@°Ë»ç
+				if (snake_body.front().first + 1 == it->first && snake_body.front().second == it->second)//@@@@@@@@@@ê²€ì‚¬
 					return i;
 			}
-			if (map[snake_body.front().first + 1][snake_body.front().second] == 0) //º®
+			if (map[snake_body.front().first + 1][snake_body.front().second] == 0) //ë²½
 				return i;
-			else if (map[snake_body.front().first + 1][snake_body.front().second] == 2) //»ç°ú
+			else if (map[snake_body.front().first + 1][snake_body.front().second] == 2) //ì‚¬ê³¼
 			{
 				map[snake_body.front().first + 1][snake_body.front().second] = 1;
 				snake_body.push_front(make_pair(snake_body.front().first + 1, snake_body.front().second));
 			}
-			else //ºó°ø°£
+			else //ë¹ˆê³µê°„
 			{
 				snake_body.push_front(make_pair(snake_body.front().first + 1, snake_body.front().second));
-				snake_body.pop_back(); //±æÀÌ ÁÙ¿©ÁÖ±â
+				snake_body.pop_back(); //ê¸¸ì´ ì¤„ì—¬ì£¼ê¸°
 			}
 		}
 		else
 		{
-			for (it = snake_body.begin(); it != snake_body.end(); it++) //ÀÚ±âÀÚ½Å ¸ö
+			for (it = snake_body.begin(); it != snake_body.end(); it++) //ìê¸°ìì‹  ëª¸
 			{
-				if (snake_body.front().first == it->first && snake_body.front().second - 1 == it->second)//@@@@@@@@@@°Ë»ç
+				if (snake_body.front().first == it->first && snake_body.front().second - 1 == it->second)//@@@@@@@@@@ê²€ì‚¬
 					return i;
 			}
-			if (map[snake_body.front().first][snake_body.front().second - 1] == 0) //º®
+			if (map[snake_body.front().first][snake_body.front().second - 1] == 0) //ë²½
 				return i;
-			else if (map[snake_body.front().first][snake_body.front().second - 1] == 2) //»ç°ú
+			else if (map[snake_body.front().first][snake_body.front().second - 1] == 2) //ì‚¬ê³¼
 			{
 				map[snake_body.front().first][snake_body.front().second - 1] = 1;
 				snake_body.push_front(make_pair(snake_body.front().first, snake_body.front().second - 1));
 			}
-			else //ºó°ø°£
+			else //ë¹ˆê³µê°„
 			{
 				snake_body.push_front(make_pair(snake_body.front().first, snake_body.front().second - 1));
-				snake_body.pop_back(); //±æÀÌ ÁÙ¿©ÁÖ±â
+				snake_body.pop_back(); //ê¸¸ì´ ì¤„ì—¬ì£¼ê¸°
 			}
 		}
 		if (!q.empty())
-			if (i == q.front().first) //¹ì ¹æÇâ ¹Ù²Ù±â
+			if (i == q.front().first) //ë±€ ë°©í–¥ ë°”ê¾¸ê¸°
 			{
 				if (q.front().second == 'D')
 				{
@@ -122,14 +122,14 @@ int main()
 	cin >> N;
 	for (int i = 1; i <= N; i++)
 		for (int j = 1; j <= N; j++)
-			map[i][j] = 1; //1Àº ºóÄ­À» ÀÇ¹Ì 0Àº º®
+			map[i][j] = 1; //1ì€ ë¹ˆì¹¸ì„ ì˜ë¯¸ 0ì€ ë²½
 	
 	cin >> K;
 	for (int i = 0; i < K; i++)
 	{
 		int apple_x, apple_y;
 		cin >> apple_x >> apple_y;
-		map[apple_x][apple_y] = 2; // 2´Â »ç°ú¸¦ ÀÇ¹Ì
+		map[apple_x][apple_y] = 2; // 2ëŠ” ì‚¬ê³¼ë¥¼ ì˜ë¯¸
 	}
 
 	cin >> L;
