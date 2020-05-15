@@ -13,12 +13,12 @@ int bfs()
 	while (!q.empty())
 	{
 		
-	//	cout<<"q ÁÂÇ¥:" << q.front().r_x<<"," << q.front().r_y << "," << q.front().b_x << "," << q.front().b_y  << endl;
+	//	cout<<"q ì¢Œí‘œ:" << q.front().r_x<<"," << q.front().r_y << "," << q.front().b_x << "," << q.front().b_y  << endl;
 		for (int i = -1; i < 2; i++)
 			for (int j = -1; j < 2; j++)
-				if (!(i == 0 && j == 0) && i * j == 0) //4¹æÇâ Å½»ö
+				if (!(i == 0 && j == 0) && i * j == 0) //4ë°©í–¥ íƒìƒ‰
 				{
-					if (q.front().answer > 10)//10¹øÀÌ»ó µ¹¾ÒÀ¸¸é
+					if (q.front().answer > 10)//10ë²ˆì´ìƒ ëŒì•˜ìœ¼ë©´
 						return -1;
 
 					int cur_r_x = q.front().r_x;
@@ -62,7 +62,7 @@ int bfs()
 						}
 					}
 			//		cout << i << "," << j << endl;
-				//	cout<<"¶¯±â°í ³ª¼­" << cur_r_x << "," << cur_r_y << "," << cur_b_x << "," << cur_b_y << endl;
+				//	cout<<"ë•¡ê¸°ê³  ë‚˜ì„œ" << cur_r_x << "," << cur_r_y << "," << cur_b_x << "," << cur_b_y << endl;
 					if (map[cur_r_x][cur_r_y] == 'O')
 					{
 						if (map[cur_b_x][cur_b_y] != 'O')
@@ -72,7 +72,7 @@ int bfs()
 					}
 					if (map[cur_b_x][cur_b_y] == 'O')
 						continue;
-					if (cur_r_x == cur_b_x && cur_r_y == cur_b_y) //À§Ä¡ °ãÄ¡¸é
+					if (cur_r_x == cur_b_x && cur_r_y == cur_b_y) //ìœ„ì¹˜ ê²¹ì¹˜ë©´
 					{
 						if (abs(cur_r_x - q.front().r_x) + abs(cur_r_y - q.front().r_y)
 							> abs(cur_b_x - q.front().b_x) + abs(cur_b_y - q.front().b_y))
@@ -88,7 +88,7 @@ int bfs()
 					}
 
 
-				//	cout << "ÃÖÁ¾Á¶Á¤" << cur_r_x << "," << cur_r_y << "," << cur_b_x << "," << cur_b_y << endl;
+				//	cout << "ìµœì¢…ì¡°ì •" << cur_r_x << "," << cur_r_y << "," << cur_b_x << "," << cur_b_y << endl;
 					
 					if (visit[cur_r_x][cur_r_y][cur_b_x][cur_b_y] == 0)
 					{
@@ -99,7 +99,7 @@ int bfs()
 					}
 				}
 		q.pop();
-	//	cout << "q ÁÂÇ¥:" << q.front().r_x << "," << q.front().r_y << "," << q.front().b_x << "," << q.front().b_y << endl;
+	//	cout << "q ì¢Œí‘œ:" << q.front().r_x << "," << q.front().r_y << "," << q.front().b_x << "," << q.front().b_y << endl;
 	}
 	return -1;
 }
