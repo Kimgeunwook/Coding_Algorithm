@@ -7,7 +7,7 @@ struct info
 };
 int opposite_dir[4] = {2, 3, 0, 1};
 int map[50][50];
-int dir[2][4] = { { -1, 0, 1, 0 },{ 0, 1, 0, -1 } }; //∫œ 0   µø 1   ≥≤ 2  º≠ 3
+int dir[2][4] = { { -1, 0, 1, 0 },{ 0, 1, 0, -1 } }; //Î∂Å 0   Îèô 1   ÎÇ® 2  ÏÑú 3
 int N, M;
 vector<info> v;
 int calc()
@@ -53,14 +53,14 @@ void dfs()
 		
 			if (_cnt == 4)
 			{
-				if (map[cur_x - dir[0][cur_dir]][cur_y - dir[1][cur_dir]] != 1) //∫Ûƒ≠¿Ã∏È
+				if (map[cur_x - dir[0][cur_dir]][cur_y - dir[1][cur_dir]] != 1) //ÎπàÏπ∏Ïù¥Î©¥
 				{
 					info next;
 					next = { cur_x - dir[0][cur_dir], cur_y - dir[1][cur_dir], cur_dir };
 					v.push_back(next);
 					break;
 				}
-				else { //∫Æ¿Ã∏È
+				else { //Î≤ΩÏù¥Î©¥
 					return;
 				}
 			}
@@ -70,7 +70,7 @@ void dfs()
 }
 int main()
 {
-	int first_x, first_y, first_dir; //√≥¿Ω ∑Œ∫ø x, y, πÊ«‚
+	int first_x, first_y, first_dir; //Ï≤òÏùå Î°úÎ¥á x, y, Î∞©Ìñ•
 	info first;
 
 	cin >> N >> M;
