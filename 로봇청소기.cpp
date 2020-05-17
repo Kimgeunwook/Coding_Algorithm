@@ -84,6 +84,5 @@ int main()
 	
 	map[first_x][first_y] = 2;
 	dfs();
-		
 	cout<< calc() <<endl;
 }
