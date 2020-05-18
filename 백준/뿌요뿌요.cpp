@@ -13,7 +13,7 @@ void calc(int cur_x, int cur_y, char cur_char)
 	visit[cur_x][cur_y] = 1;
 	for(int i = -1; i < 2; i++)
 		for(int j = -1;j < 2; j++)
-			if (!(i == 0 && j == 0) && i * j == 0) //4���� Ž��
+			if (!(i == 0 && j == 0) && i * j == 0) //4¹æÇâ Å½»ö
 				if (cur_x + i >= 0 && cur_x + i < 12 && cur_y + j >= 0 && cur_y + j < 6 && visit[cur_x + i][cur_y + j] == 0)
 					if (map[cur_x + i][cur_y + j] == cur_char)
 					{
@@ -85,12 +85,12 @@ int dfs()
 			cout << endl;
 		}*/
 		
-		for (int i = 0; i < 12; i++) //visit �迭 �ʱ�ȭ
+		for (int i = 0; i < 12; i++) //visit ¹è¿­ ÃÊ±âÈ­
 			for (int j = 0; j < 6; j++)
 				visit[i][j] = 0;
 
 		pull_down();
-		/*cout << "pull-down��" << endl;
+		/*cout << "pull-downÈÄ" << endl;
 		for (int i = 0; i < 12; i++)
 		{
 			for (int j = 0; j < 6; j++)
