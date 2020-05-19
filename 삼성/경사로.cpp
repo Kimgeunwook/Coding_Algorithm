@@ -20,7 +20,7 @@ int search(int map[100][100])
 
 		for (int j = 0; j < N; j++)
 		{
-			if (j != 0 && abs(cur_hol - map[i][j]) > 1) //³ôÀÌÂ÷°¡ 2ÀÌ»óÀÌ¸é
+			if (j != 0 && abs(cur_hol - map[i][j]) > 1) //ë†’ì´ì°¨ê°€ 2ì´ìƒì´ë©´
 				break;
 			if (map[i][j] == cur_hol)
 			{
@@ -28,10 +28,10 @@ int search(int map[100][100])
 			}
 			else
 			{
-				if (map[i][j] > cur_hol) //³·À½ -> ³ôÀ½
+				if (map[i][j] > cur_hol) //ë‚®ìŒ -> ë†’ìŒ
 				{
 					cur_hol = map[i][j];
-					if (cur_hol_cnt >= L) //´Ù¸® ³õÀ» ¼ö ÀÖÀ¸¸é
+					if (cur_hol_cnt >= L) //ë‹¤ë¦¬ ë†“ì„ ìˆ˜ ìˆìœ¼ë©´
 					{
 						for(int k = j - 1; k >= j - L; k--)
 							if (visit_hol[i][k] == 1)
@@ -43,7 +43,7 @@ int search(int map[100][100])
 							break;
 						cur_hol_cnt = 1;
 					}
-					else //´Ù¸® ³õÀ» °³¼ö°¡ Lº¸´ÙÀÛÀ¸¸é
+					else //ë‹¤ë¦¬ ë†“ì„ ê°œìˆ˜ê°€ Lë³´ë‹¤ì‘ìœ¼ë©´
 					{
 						if( j != 0)
 							break;
@@ -51,7 +51,7 @@ int search(int map[100][100])
 							cur_hol_cnt = 1;
 					}	
 				}
-				else //³ôÀ½ -> ³·À½
+				else //ë†’ìŒ -> ë‚®ìŒ
 				{
 					cur_hol = map[i][j];
 					cur_hol_cnt = 1;
