@@ -144,7 +144,6 @@ int calc()
 }
 void dfs(int cnt)
 {
-
 	int cur_x = 0, cur_y = 0, cctv_num = 0;
 	if (!q.empty())
 	{
@@ -157,7 +156,6 @@ void dfs(int cnt)
 		_min = calc();
 		return;
 	}
-	int next_flag = 0;
 	for (int i = -1; i < 2; i++)//네방향 for문
 			for (int j = -1; j < 2; j++)
 				if (!(i == 0 && j == 0) && i * j == 0)
@@ -179,13 +177,6 @@ void dfs(int cnt)
 						map[temp.back().first][temp.back().second] = 0;
 						temp.pop_back();
 					}
-					/*if ((cctv_num == 5 && i == 0 && j == -1) || (cctv_num == 2 && i == 0 && j == 1) )
-					{
-						next_flag = 1;
-						break;
-					}
-					if (next_flag)
-						break;*/
 				}
 }
 int main()
