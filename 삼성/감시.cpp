@@ -78,14 +78,14 @@ void move(int cur_x, int cur_y, int dir)
 }
 void spread(int cur_x, int cur_y, int dx, int dy, int cctv_num)
 {
-	int dir; // 0:ºÏ    1:µ¿     2:³²      3:¼­
-	if (dx == -1 && dy == 0) //ºÏ
+	int dir; // 0:ë¶    1:ë™     2:ë‚¨      3:ì„œ
+	if (dx == -1 && dy == 0) //ë¶
 		dir = 0;
-	else if (dx == 0 && dy == 1) //µ¿
+	else if (dx == 0 && dy == 1) //ë™
 		dir = 1;
-	else if (dx == 1 && dy == 0) //³²
+	else if (dx == 1 && dy == 0) //ë‚¨
 		dir = 2;
-	else if (dx == 0 && dy == -1) //¼­
+	else if (dx == 0 && dy == -1) //ì„œ
 		dir = 3;
 
 	int left, right, opp;
@@ -156,18 +156,23 @@ void dfs(int cnt)
 		_min = calc();
 		return;
 	}
+<<<<<<< HEAD:ê°ì‹œ.cpp
 	for (int i = -1; i < 2; i++)//³×¹æÇâ for¹®
+=======
+	int next_flag = 0;
+	for (int i = -1; i < 2; i++)//ë„¤ë°©í–¥ forë¬¸
+>>>>>>> 9ddb38be9bae8ff0d8306ed9e9ca49f038319649:ì‚¼ì„±/ê°ì‹œ.cpp
 			for (int j = -1; j < 2; j++)
 				if (!(i == 0 && j == 0) && i * j == 0)
 				{
 					int check_size = temp.size();
-					spread(cur_x, cur_y, i, j, cctv_num); //cctv °¨½Ã ÇÔ¼ö
+					spread(cur_x, cur_y, i, j, cctv_num); //cctv ê°ì‹œ í•¨ìˆ˜
 					if (cnt == num_camera)
 					{
-						if (_min > calc())// »ç°¢Áö´ë °³¼ö¼¼±â ÇÔ¼ö
+						if (_min > calc())// ì‚¬ê°ì§€ëŒ€ ê°œìˆ˜ì„¸ê¸° í•¨ìˆ˜
 							_min = calc();
 					}
-					else //Àç±Í
+					else //ì¬ê·€
 					{
 						dfs(cnt + 1);
 					}
