@@ -9,23 +9,23 @@ struct info {
 int N;
 int map[101][101];
 int dy[4] = {0 , -1, 0, 1};
-int dx[4] = {1, 0, -1, 0}; //µø ∫œ º≠ ≥≤
+int dx[4] = {1, 0, -1, 0}; //Îèô Î∂Å ÏÑú ÎÇ®
 
 vector<info> v;
 void simul()
 {
 	vector<int> v_cur;
 	vector<int> temp;
-	for (int i = 0; i < v.size(); i++) //¿‘∑¬ ∞≥ºˆ ∏∏≈≠
+	for (int i = 0; i < v.size(); i++) //ÏûÖÎ†• Í∞úÏàò ÎßåÌÅº
 	{
 		v_cur.clear();
 		temp.clear();
-		v_cur.push_back(v[i].dir); //√≥¿Ω πÊ«‚¿∫ ≥÷æÓ¡÷±‚
+		v_cur.push_back(v[i].dir); //Ï≤òÏùå Î∞©Ìñ•ÏùÄ ÎÑ£Ïñ¥Ï£ºÍ∏∞
 		int cur_y = v[i].y, cur_x = v[i].x;
 		map[cur_y][cur_x] = 1;
-		for (int j = 0; j <= v[i].gen; j++) //∏Óºº¥Î ∏∏≈≠ π›∫π«“¡ˆ
+		for (int j = 0; j <= v[i].gen; j++) //Î™áÏÑ∏ÎåÄ ÎßåÌÅº Î∞òÎ≥µÌï†ÏßÄ
 		{
-			//cout << "ºº¥Î" << j << endl;
+			//cout << "ÏÑ∏ÎåÄ" << j << endl;
 			int f;
 			if (j) f = pow(2, j - 1);
 			else f = 0;
@@ -37,7 +37,7 @@ void simul()
 				cur_y += dy[v_cur[k]];
 				cur_x += dx[v_cur[k]];
 			}
-			//temp ø° v_Cur≥÷∞Ì
+			//temp Ïóê v_CurÎÑ£Í≥†
 			temp = v_cur;
 			reverse(temp.begin(), temp.end());
 			for (int p = 0; p < temp.size(); p++)
