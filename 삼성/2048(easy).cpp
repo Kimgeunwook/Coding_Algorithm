@@ -7,7 +7,7 @@ int _max = 2;
 
 void move(int dx, int dy)
 {
-	if ((dx == -1 && dy == 0)) //ºÏ
+	if ((dx == -1 && dy == 0)) //ë¶
 	{
 		for (int j = 0; j < N; j++)
 		{
@@ -16,27 +16,27 @@ void move(int dx, int dy)
 					visit[a][b] = 0;
 			for (int i = 1; i < N; i++)
 			{
-				if (map[i][j] == 0) continue; //ÁÖÃ¼°¡ ºóÄ­ÀÌ¸é
+				if (map[i][j] == 0) continue; //ì£¼ì²´ê°€ ë¹ˆì¹¸ì´ë©´
 				int k;
 				for (k = 1; ; k++)
 				{
 					if (i - k == 0 || map[i - k][j] != 0)
-						break; //¹üÀ§
+						break; //ë²”ìœ„
 				}
-				if (map[i - k][j] == 0) //¸ñÇ¥°¡ ºóÄ­ÀÌ¸é
+				if (map[i - k][j] == 0) //ëª©í‘œê°€ ë¹ˆì¹¸ì´ë©´
 				{
 					map[i - k][j] = map[i][j];
 					map[i][j] = 0;
 				}
-				else //¸ñÇ¥°¡ ¼ıÀÚ¸é
+				else //ëª©í‘œê°€ ìˆ«ìë©´
 				{
-					if (map[i - k][j] == map[i][j] && visit[i - k][j] == 0) //°°Àº ¼ıÀÚ¸é
+					if (map[i - k][j] == map[i][j] && visit[i - k][j] == 0) //ê°™ì€ ìˆ«ìë©´
 					{
 						visit[i - k][j] = 1;
 						map[i - k][j] *= 2;
 						map[i][j] = 0;
 					}
-					else // ¼ıÀÚ°¡ ´Ù¸£°Å³ª ÇÕÃÄÁø ÀÚ¸®¸é
+					else // ìˆ«ìê°€ ë‹¤ë¥´ê±°ë‚˜ í•©ì³ì§„ ìë¦¬ë©´
 					{
 						map[i - k + 1][j] = map[i][j];
 						if (k != 1)
@@ -47,7 +47,7 @@ void move(int dx, int dy)
 			}
 		}
 	}
-	else if ((dx == 0 && dy == 1) ) // µ¿
+	else if ((dx == 0 && dy == 1) ) // ë™
 	{
 		for (int i = 0; i < N; i++)
 		{
@@ -56,12 +56,12 @@ void move(int dx, int dy)
 					visit[a][b] = 0;
 			for (int j = N - 2; j >= 0; j--)
 			{
-				if (map[i][j] == 0) continue; // ÁÖÃ¼°¡ ºóÄ­ÀÌ¸é
+				if (map[i][j] == 0) continue; // ì£¼ì²´ê°€ ë¹ˆì¹¸ì´ë©´
 				int k;
 				for (k = 1; ; k++)
 				{
 					if (j + k == N - 1 || map[i][j + k] != 0)
-						break; //¹üÀ§
+						break; //ë²”ìœ„
 				}
 				if (map[i][j + k] == 0)
 				{
@@ -70,13 +70,13 @@ void move(int dx, int dy)
 				}
 				else
 				{
-					if (map[i][j + k] == map[i][j] && visit[i][j + k] == 0) // ÇÕÃÄÁö´Â °æ¿ì
+					if (map[i][j + k] == map[i][j] && visit[i][j + k] == 0) // í•©ì³ì§€ëŠ” ê²½ìš°
 					{
 						visit[i][j + k] = 1;
 						map[i][j + k] *= 2;
 						map[i][j] = 0;
 					}
-					else // ¾ÈÇÕÃÄÁö´Â °æ¿ì
+					else // ì•ˆí•©ì³ì§€ëŠ” ê²½ìš°
 					{
 						map[i][j + k - 1] = map[i][j];
 						if (k != 1)
@@ -86,7 +86,7 @@ void move(int dx, int dy)
 			}
 		}
 	}
-	else if ((dx == 1 && dy == 0)) //³²
+	else if ((dx == 1 && dy == 0)) //ë‚¨
 	{
 		for (int j = 0; j < N; j++)
 		{
@@ -95,21 +95,21 @@ void move(int dx, int dy)
 					visit[a][b] = 0;
 			for (int i = N - 2; i >= 0; i--)
 			{
-				if (map[i][j] == 0) continue; // ÁÖÃ¼°¡ ºóÄ­ÀÌ¸é
+				if (map[i][j] == 0) continue; // ì£¼ì²´ê°€ ë¹ˆì¹¸ì´ë©´
 				int k;
 				for (k = 1; ; k++)
 				{
 					if (i + k == N -1 || map[i + k][j] != 0)
-						break; //¹üÀ§
+						break; //ë²”ìœ„
 				}
-				if (map[i + k][j] == 0) //ºóÄ­ÀÌ¸é
+				if (map[i + k][j] == 0) //ë¹ˆì¹¸ì´ë©´
 				{
 					map[i + k][j] = map[i][j];
 					map[i][j] = 0;
 				}
 				else
 				{
-					if (map[i + k][j] == map[i][j] && visit[i + k][j] == 0) //ÇÕÃÄÁö´Â°æ¿ì
+					if (map[i + k][j] == map[i][j] && visit[i + k][j] == 0) //í•©ì³ì§€ëŠ”ê²½ìš°
 					{
 						visit[i + k][j] = 1;
 						map[i + k][j] *= 2;
@@ -126,7 +126,7 @@ void move(int dx, int dy)
 			}
 		}
 	}
-	else if ((dx == 0 && dy == -1)) // ¼­
+	else if ((dx == 0 && dy == -1)) // ì„œ
 	{
 		for (int i = 0; i < N; i++)
 		{
@@ -135,12 +135,12 @@ void move(int dx, int dy)
 					visit[a][b] = 0;
 			for (int j = 1; j < N; j++)
 			{
-				if (map[i][j] == 0) continue; // ÁÖÃ¼°¡ ºóÄ­ÀÌ¸é
+				if (map[i][j] == 0) continue; // ì£¼ì²´ê°€ ë¹ˆì¹¸ì´ë©´
 				int k;
 				for (k = 1; ; k++)
 				{
 					if (j - k == 0 || map[i][j - k] != 0)
-						break; //¹üÀ§
+						break; //ë²”ìœ„
 				}
 				if (map[i][j - k] == 0)
 				{
@@ -149,13 +149,13 @@ void move(int dx, int dy)
 				}
 				else
 				{
-					if (map[i][j - k] == map[i][j] && visit[i][j - k] == 0) // ÇÕÃÄÁö´Â °æ¿ì
+					if (map[i][j - k] == map[i][j] && visit[i][j - k] == 0) // í•©ì³ì§€ëŠ” ê²½ìš°
 					{
 						visit[i][j - k] = 1;
 						map[i][j - k] *= 2;
 						map[i][j] = 0;
 					}
-					else // ¾ÈÇÕÃÄÁö´Â °æ¿ì
+					else // ì•ˆí•©ì³ì§€ëŠ” ê²½ìš°
 					{
 						map[i][j - k + 1] = map[i][j];
 						if (k != 1)
