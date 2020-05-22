@@ -63,8 +63,7 @@ vector<int> solution(vector<string> words, vector<string> queries) {
 		answer.push_back(end - start);
 	}
 	
-	for (int i = 0; i < answer.size(); i++)
-		cout << answer[i] << " ";
+	
 	return answer;
 }
 int main()
