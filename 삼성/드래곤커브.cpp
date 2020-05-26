@@ -9,23 +9,31 @@ struct info {
 int N;
 int map[101][101];
 int dy[4] = {0 , -1, 0, 1};
-int dx[4] = {1, 0, -1, 0}; //µ¿ ºÏ ¼­ ³²
+int dx[4] = {1, 0, -1, 0}; //ë™ ë¶ ì„œ ë‚¨
 
 vector<info> v;
 void simul()
 {
 	vector<int> v_cur;
 	vector<int> temp;
-	for (int i = 0; i < v.size(); i++) //ÀÔ·Â °³¼ö ¸¸Å­
+	for (int i = 0; i < v.size(); i++) //ì…ë ¥ ê°œìˆ˜ ë§Œí¼
 	{
 		v_cur.clear();
 		temp.clear();
+<<<<<<< HEAD:ë“œë˜ê³¤ì»¤ë¸Œ.cpp
 		v_cur.push_back(v[i].dir); //Ã³À½ ¹æÇâÀº ³Ö¾îÁÖ±â
 
+=======
+		v_cur.push_back(v[i].dir); //ì²˜ìŒ ë°©í–¥ì€ ë„£ì–´ì£¼ê¸°
+>>>>>>> b57c5d8666ad35cabedee4dea10f8419fa7822c5:ì‚¼ì„±/ë“œë˜ê³¤ì»¤ë¸Œ.cpp
 		int cur_y = v[i].y, cur_x = v[i].x;
 		map[cur_y][cur_x] = 1;
-		for (int j = 0; j <= v[i].gen; j++) //¸î¼¼´ë ¸¸Å­ ¹İº¹ÇÒÁö
+		for (int j = 0; j <= v[i].gen; j++) //ëª‡ì„¸ëŒ€ ë§Œí¼ ë°˜ë³µí• ì§€
 		{
+<<<<<<< HEAD:ë“œë˜ê³¤ì»¤ë¸Œ.cpp
+=======
+			//cout << "ì„¸ëŒ€" << j << endl;
+>>>>>>> b57c5d8666ad35cabedee4dea10f8419fa7822c5:ì‚¼ì„±/ë“œë˜ê³¤ì»¤ë¸Œ.cpp
 			int f;
 			if (j) f = pow(2, j - 1);
 			else f = 0;
@@ -37,6 +45,10 @@ void simul()
 				cur_y += dy[v_cur[k]];
 				cur_x += dx[v_cur[k]];
 			}
+<<<<<<< HEAD:ë“œë˜ê³¤ì»¤ë¸Œ.cpp
+=======
+			//temp ì— v_Curë„£ê³ 
+>>>>>>> b57c5d8666ad35cabedee4dea10f8419fa7822c5:ì‚¼ì„±/ë“œë˜ê³¤ì»¤ë¸Œ.cpp
 			temp = v_cur;
 			reverse(temp.begin(), temp.end());
 			for (int p = 0; p < temp.size(); p++)
