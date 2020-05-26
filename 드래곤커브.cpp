@@ -21,23 +21,22 @@ void simul()
 		v_cur.clear();
 		temp.clear();
 		v_cur.push_back(v[i].dir); //처음 방향은 넣어주기
+
 		int cur_y = v[i].y, cur_x = v[i].x;
 		map[cur_y][cur_x] = 1;
 		for (int j = 0; j <= v[i].gen; j++) //몇세대 만큼 반복할지
 		{
-			//cout << "세대" << j << endl;
 			int f;
 			if (j) f = pow(2, j - 1);
 			else f = 0;
 			for (int k = f; k < v_cur.size(); k++)
 			{
-				/*cout << v_cur[k] << endl;
-				cout << cur_y + dy[v_cur[k]] << "," << cur_x + dx[v_cur[k]] << endl;*/
+				if (cur_y + dy[v_cur[k]] > 100)
+					cout << "sjaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" << endl;
 				map[cur_y + dy[v_cur[k]]][cur_x + dx[v_cur[k]]] = 1;
 				cur_y += dy[v_cur[k]];
 				cur_x += dx[v_cur[k]];
 			}
-			//temp 에 v_Cur넣고
 			temp = v_cur;
 			reverse(temp.begin(), temp.end());
 			for (int p = 0; p < temp.size(); p++)
