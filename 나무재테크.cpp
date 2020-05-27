@@ -3,11 +3,9 @@
 #include <vector>
 #include <functional>
 #include <queue>
-#include <time.h>
 using namespace std;
 int N, M, K;
 int map[10][10], vitamin[10][10]; // 주맵   입력양분맵
-vector<pair<int, int>> five;
 
 struct tree
 {
@@ -21,68 +19,11 @@ struct compare {
 		return a.age > b.age;
 	}
 };
-
+queue<tree> newbie, curyear, mother,dead, nextyear; //번식 올해 엄마 내년
 priority_queue<tree, vector<tree>, compare> pqtree;
-priority_queue<tree, vector<tree>, compare> temp;
-int visit[10][10];
-void spring_summer()
-{
-	for (int i = 0; i < N; i++)
-		for (int j = 0; j < N; j++)
-			visit[i][j] = 0;
-	five.clear();
-	while (!pqtree.empty())
-	{
-		int cur_x = pqtree.top().x;
-		int cur_y = pqtree.top().y;
-		int cur_age = pqtree.top().age;
-		if (cur_age <= map[cur_x][cur_y] && visit[cur_x][cur_y] == 0) // 양분 먹을수있으면
-		{
-			map[cur_x][cur_y] -= cur_age;
-			cur_age += 1;
-			if (cur_age % 5 == 0)
-				five.push_back(make_pair(cur_x,cur_y));
-			tree next = { cur_x,cur_y,cur_age };
-			temp.push(next);
-		}
-		else // 양분 못먹으면
-		{
-			visit[cur_x][cur_y] = 1;
-			map[cur_x][cur_y] += (cur_age / 2);
-		}
-		pqtree.pop();
-	}
-	pqtree = temp;
-	while (!temp.empty())
-		temp.pop();
-}
-void fall()
-{
-	int size = five.size();
-	for (int i = 0; i < size; i++)
-	{
-		int cur_x = five[i].first;
-		int cur_y = five[i].second;
-		for(int a = -1; a < 2; a++)
-			for(int b = -1; b < 2; b++)
-				if (!(a == 0 && b == 0) && cur_x + a >= 0 && cur_x + a < N && cur_y + b >= 0 && cur_y + b < N)
-				{
-					tree add = {cur_x + a, cur_y + b,1};
-					pqtree.push(add);
-				}
-	}
-}
-void winter()
-{
-	for (int i = 0; i < N; i++)
-		for (int j = 0; j < N; j++)
-			map[i][j] += vitamin[i][j];
-}
+
 int main()
 {
-	time_t start, end;
-	double result; 
-	start = time(NULL);
 	cin >> N >> M >> K; //맵크기   나무개수   몇년지날건지
 
 	for (int i = 0; i < N; i++) //처음 나무 양분5로 초기화
@@ -101,16 +42,136 @@ int main()
 		pqtree.push(a);
 	}
 
-	
-
-	for (int i = 0; i < K; i++)////////K번반복
+	//올해 큐 만들기
+	while (!pqtree.empty())
 	{
-		spring_summer();
-		fall();
-		winter();
+		curyear.push(pqtree.top());
+		pqtree.pop();
+	} 
+	
+	for (int p = 0; p < K; p++)////////K번반복
+	{
+		int curx, cury, curage;
+		tree temp;
+
+		//뉴비들 돌리는타임
+		/*cout << "뉴비돌리는중"<<p << endl;
+		cout << newbie.size() << endl;
+		cout << curyear.size() << endl;
+		cout << nextyear.size() << endl;*/
+		while (!nextyear.empty())
+		{
+			nextyear.pop();
+		}
+		while (!dead.empty())
+		{
+			dead.pop();
+		}
+		while (!newbie.empty())
+		{
+			curx = newbie.front().x;
+			cury = newbie.front().y;
+			curage = newbie.front().age;
+			///////////////////
+			if (curage <= map[curx][cury]) //양분 먹을수있다.
+			{
+				map[curx][cury] -= 1;
+				curage += 1;
+				temp = { curx,cury,curage };
+				nextyear.push(temp);
+			}
+			else //양분 먹을수 없다.
+			{
+				temp = { curx, cury, curage };
+				dead.push(temp);
+			}
+			////////////////
+			newbie.pop();
+		}
+
+		//올해애들 돌리기
+		/*cout << "올해애들돌리는중"<<p << endl;
+		cout << newbie.size() << endl;
+		cout << curyear.size() << endl;
+		cout << nextyear.size() << endl;*/
+		while (!mother.empty())
+		{
+			mother.pop();
+		}
+		while (!curyear.empty())
+		{
+			curx = curyear.front().x;
+			cury = curyear.front().y;
+			curage = curyear.front().age;
+			if (curage <= map[curx][cury]) //양분 먹을수있다.
+			{
+				map[curx][cury] -= curage;
+				curage += 1;
+				temp = {curx,cury,curage};
+				if (curage % 5 == 0)
+				{
+					mother.push(temp);
+				}
+				nextyear.push(temp);
+			}
+			else //양분 먹을수 없다.
+			{
+				temp = { curx, cury, curage};
+				dead.push(temp);
+			}
+			curyear.pop();
+		}
+
+		//번식엄마타임
+		/*cout << "번식돌리는중" <<p<< endl;
+		cout << newbie.size() << endl;
+		cout << curyear.size() << endl;
+		cout << nextyear.size() << endl;*/
+		while (!newbie.empty())
+		{
+			newbie.pop();
+		}
+		while (!mother.empty())
+		{
+			curx = mother.front().x;
+			cury = mother.front().y;
+			for (int a = -1; a < 2; a++)
+				for (int b = -1; b < 2; b++)
+					if (!(a == 0 && b == 0) && curx + a >= 0 && curx + a < N && cury + b >= 0 && cury + b < N)
+					{
+						tree add = { curx + a, cury + b,1 };
+						newbie.push(add);
+					}
+
+			mother.pop();
+		}
+
+		//죽은애들->양분타임
+		/*cout << "죽은애들 부활타임"<<p << endl;
+		cout << newbie.size() << endl;
+		cout << curyear.size() << endl;
+		cout << nextyear.size() << endl;*/
+		while (!dead.empty())
+		{
+			curx = dead.front().x;
+			cury = dead.front().y;
+			curage = dead.front().age;
+			map[curx][cury] += curage / 2;
+			dead.pop();
+		}
+
+		//보충타임
+		/*cout << "겨울보충타임" <<p<< endl;
+		cout << newbie.size() << endl;
+		cout << curyear.size() << endl;
+		cout << nextyear.size() << endl;*/
+		for (int i = 0; i < N; i++)
+			for (int j = 0; j < N; j++)
+				map[i][j] += vitamin[i][j];
+
+		curyear = nextyear;
 	}
-	cout << pqtree.size() << endl;
-	end = time(NULL);
-	cout << double(end - start) << endl;
+
+	cout <<newbie.size() +  curyear.size() << endl;
 	return 0;
 }
