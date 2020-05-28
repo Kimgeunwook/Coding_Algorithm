@@ -26,15 +26,14 @@ map<int, int>::iterator it;
 priority_queue<NUM, vector<NUM>, compare> pq;
 int main()
 {
+	//입력
 	cin >> r >> c >> k;
 	for (int i = 1; i <= 3; i++)
 		for (int j = 1; j <= 3; j++)
 			cin >> arr[i][j];
 	
-	
 	while (1)
 	{
-		//cout<<"시작" << row_size << "," << col_size << endl;
 		//조건만족
 		if (arr[r][c] == k)
 		{
@@ -49,10 +48,9 @@ int main()
 			max_col= 0;
 			for (int i = 1; i <= row_size; i++)
 			{
-				
+				// 숫자 몇번나오는지 카운팅
 				for (int j = 1; j <= col_size; j++)
 				{
-					// 숫자 몇번나오는지 카운팅
 					if(arr[i][j] != 0)
 						cnt_map[arr[i][j]]++;
 					arr[i][j] = 0;
@@ -87,17 +85,11 @@ int main()
 					arr[i][idx] = pq.top().cnt;
 					idx++;
 
-					if (idx > 100)
-					{
-						pq.pop();
-						continue;
-					}
 					pq.pop();
 				}
 				if (idx - 1 > max_col)
 				{
 					max_col = idx - 1;
-					//cout << "col사이즈" << max_col << "로 바꿈" << endl;
 				}
 					
 				cnt_map.clear();
@@ -146,17 +138,11 @@ int main()
 					arr[idx][j] = pq.top().cnt;
 					idx++;
 
-					if (idx > 100)
-					{
-						pq.pop();
-						continue;
-					}
 					pq.pop();
 				}
 				if (idx - 1 > max_row)
 				{
 					max_row = idx - 1;
-					//cout << "row사이즈" << max_row << "로 바꿈" << endl;
 				}
 
 				cnt_map.clear();
@@ -167,14 +153,6 @@ int main()
 		if(max_col)
 			col_size = max_col;
 
-		/*for (int i = 1; i < 10; i++)
-		{
-			for (int j = 1; j < 10; j++)
-				cout << arr[i][j]<<" ";
-			cout << endl;
-		}*/
-		//cout << row_size << "<" << col_size << endl;
-		//100번넘으면 -1 출력
 		if (answer > 100)
 		{
 			cout << -1 << endl;
