@@ -28,7 +28,7 @@ struct compare2 {
 
 priority_queue <SHARK, vector<SHARK>, compare> pq; //사이즈 내림차순
 queue<SHARK> temp; //사이즈 내림차순
-queue<SHARK> pqcol; //열 크기로 정렬(열 같으면 행보기)
+priority_queue <SHARK, vector<SHARK>, compare2> pqcol; //열 크기로 정렬(열 같으면 행보기)
 
 int main()
 {
@@ -47,15 +47,15 @@ int main()
 		//answer더해줄거 더해주고 pqcol -> pq
 		while (!pqcol.empty())
 		{
-			if (k == pqcol.front().c && flag == 0)
+			if (k == pqcol.top().c && flag == 0)
 			{
-				//cout << "상어잡음" << pqcol.top().r << "," << pqcol.top().r << "," << pqcol.top().z << endl;
+				//cout << "상어잡음" << pqcol.top().r << "," << pqcol.top().c << "," << pqcol.top().z << endl;
 				flag = 1;
-				answer += pqcol.front().z;
+				answer += pqcol.top().z;
 				pqcol.pop();
 				continue;
 			}
-			temp.push(pqcol.front());
+			temp.push(pqcol.top());
 			pqcol.pop();
 		}
 
@@ -75,6 +75,7 @@ int main()
 			cur_size = temp.front().z;
 			//@@@@@@@@@@@@@@여기서 어떤 조치로 x,y좌표 바꾸고
 			int temp_speed = cur_speed;
+			//cout << cur_x << "," << cur_y << "," << cur_speed << "," << cur_dir << "," << cur_size << endl;
 			while (temp_speed)
 			{
 				if (cur_dir == 1)//위
@@ -99,7 +100,7 @@ int main()
 				}
 				else if (cur_dir == 3)//오
 				{
-					if (cur_y == R)
+					if (cur_y == C)
 					{
 						cur_dir = 4;
 						cur_y -= 1;
@@ -117,8 +118,12 @@ int main()
 					else
 						cur_y -= 1;
 				}
+				
 				temp_speed--;
 			}
+			//	cout << "이동후" << endl;
+			//cout << cur_x << "," << cur_y << "," << cur_speed << "," << cur_dir << "," << cur_size << endl;
+			//cout<<endl;
 
 			SHARK newbie = { cur_x, cur_y , cur_speed, cur_dir, cur_size };
 			pq.push(newbie);
