@@ -43,6 +43,7 @@ int main()
 
 	for (int k = 1; k <= C; k++)
 	{
+		//cout << "@@@@@@@@@@@@@@@@@@@" << k << endl;
 		flag = 0;
 		//answer더해줄거 더해주고 pqcol -> pq
 		while (!pqcol.empty())
@@ -73,57 +74,94 @@ int main()
 			cur_speed = temp.front().s;
 			cur_dir = temp.front().d;
 			cur_size = temp.front().z;
-			//@@@@@@@@@@@@@@여기서 어떤 조치로 x,y좌표 바꾸고
-			int temp_speed = cur_speed;
 			//cout << cur_x << "," << cur_y << "," << cur_speed << "," << cur_dir << "," << cur_size << endl;
-			while (temp_speed)
+			int next_location;
+			if (cur_dir == 1)//위
 			{
-				if (cur_dir == 1)//위
+				if (cur_x - cur_speed < 1)
 				{
-					if (cur_x == 1)
+					cur_x = R - cur_x + 1;
+					next_location = (cur_x + cur_speed - R) % (R - 1);
+					if (((cur_x + cur_speed - R) / (R - 1)) % 2 == 0)
 					{
+						cur_x = next_location + 1;
 						cur_dir = 2;
-						cur_x += 1;
 					}
 					else
-						cur_x -= 1;
-				}
-				else if (cur_dir == 2)//아래
-				{
-					if (cur_x == R)
 					{
+						cur_x = R - next_location;
+					}
+				}
+				else
+				{
+					cur_x -= cur_speed;
+				}
+			}
+			else if (cur_dir == 2)//아래
+			{
+				if (cur_x + cur_speed > R)
+				{
+					next_location = (cur_x + cur_speed - R) % (R - 1);
+					if (((cur_x + cur_speed - R) / (R - 1)) % 2 == 0) //역
+					{
+						cur_x = R - next_location;
 						cur_dir = 1;
-						cur_x -= 1;
 					}
 					else
-						cur_x += 1;
-				}
-				else if (cur_dir == 3)//오
-				{
-					if (cur_y == C)
 					{
+						cur_x = next_location + 1;
+					}
+				}
+				else
+				{
+					cur_x = cur_x + cur_speed;
+				}
+			}
+			else if (cur_dir == 3)//오
+			{
+				if (cur_y + cur_speed > C)
+				{
+					next_location = (cur_y + cur_speed - C) % (C - 1);
+					if (((cur_y + cur_speed - C) / (C - 1)) % 2 == 0) // 역방향
+					{
+						cur_y = C - next_location;
 						cur_dir = 4;
-						cur_y -= 1;
 					}
 					else
-						cur_y += 1;
-				}
-				else if (cur_dir == 4)//왼
-				{
-					if (cur_y == 1)
 					{
-						cur_dir = 3;
-						cur_y += 1;
+						cur_y = next_location + 1;
 					}
-					else
-						cur_y -= 1;
+				}
+				else
+				{
+					cur_y = cur_y + cur_speed;
 				}
 				
-				temp_speed--;
 			}
-			//	cout << "이동후" << endl;
-			//cout << cur_x << "," << cur_y << "," << cur_speed << "," << cur_dir << "," << cur_size << endl;
-			//cout<<endl;
+			else if (cur_dir == 4)//왼
+			{
+				if (cur_y - cur_speed < 1)
+				{
+					cur_y = C - cur_y + 1;
+					next_location = (cur_y + cur_speed - C) % (C - 1);
+					if (((cur_y + cur_speed - C) / (C - 1)) % 2 == 0) 
+					{
+						cur_y = next_location + 1;
+						cur_dir = 3;
+					}
+					else
+					{
+						cur_y = C - next_location;
+					}
+				}
+				else
+				{
+					cur_y -= cur_speed;
+				}
+			}
+				/*cout << "이동후" << endl;
+			cout << cur_x << "," << cur_y << "," << cur_speed << "," << cur_dir << "," << cur_size << endl;
+			cout<<endl;*/
 
 			SHARK newbie = { cur_x, cur_y , cur_speed, cur_dir, cur_size };
 			pq.push(newbie);
