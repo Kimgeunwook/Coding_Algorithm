@@ -43,9 +43,8 @@ int main()
 
 	for (int k = 1; k <= C; k++)
 	{
-		//cout << "@@@@@@@@@@@@@@@@@@@" << k << endl;
 		flag = 0;
-		//answer더해줄거 더해주고 pqcol -> pq
+		//상어 잡는 부분
 		while (!pqcol.empty())
 		{
 			if (k == pqcol.top().c && flag == 0)
@@ -74,7 +73,6 @@ int main()
 			cur_speed = temp.front().s;
 			cur_dir = temp.front().d;
 			cur_size = temp.front().z;
-			//cout << cur_x << "," << cur_y << "," << cur_speed << "," << cur_dir << "," << cur_size << endl;
 			int next_location;
 			if (cur_dir == 1)//위
 			{
@@ -159,10 +157,6 @@ int main()
 					cur_y -= cur_speed;
 				}
 			}
-				/*cout << "이동후" << endl;
-			cout << cur_x << "," << cur_y << "," << cur_speed << "," << cur_dir << "," << cur_size << endl;
-			cout<<endl;*/
-
 			SHARK newbie = { cur_x, cur_y , cur_speed, cur_dir, cur_size };
 			pq.push(newbie);
 			temp.pop();
