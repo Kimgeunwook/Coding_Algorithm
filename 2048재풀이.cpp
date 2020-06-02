@@ -25,7 +25,7 @@ void bfs()
 		int temp[20][20];
 		if (cur.cnt == 6)//종료조건
 			return;
-		//4방향 탐색하고 맵바꿔준다음
+
 		for(int i = -1; i < 2; i++)
 			for (int j = -1; j < 2; j++)
 				if (!(i == 0 && j == 0) && (i * j == 0))
@@ -33,40 +33,28 @@ void bfs()
 					
 					if (i == -1 && j == 0) //북
 					{
-						//cout << "북" << endl;
 						for (int a = 0; a < N; a++) //현재 원본 복사
 							for (int b = 0; b < N; b++)
 								temp[a][b] = cur.original[a][b];
 					}
 					else if (i == 0 && j == -1) //서
 					{
-						//cout << "서" << endl;
 						for (int a = 0; a < N; a++) //현재 원본 복사
 							for (int b = 0; b < N; b++)
 								temp[a][b] = cur.original[N - 1 - b][a];
 					}
 					else if (i == 0 && j == 1) // 동
 					{
-						//cout << "동" << endl;
 						for (int a = 0; a < N; a++) //현재 원본 복사
 							for (int b = 0; b < N; b++)
 								temp[a][b] = cur.original[b][N - 1 - a];
 					}
 					else if (i == 1 && j == 0) //남
 					{
-						//cout << "남" << endl;
 						for (int a = 0; a < N; a++) //현재 원본 복사
 							for (int b = 0; b < N; b++)
 								temp[a][b] = cur.original[N - 1 - a][b];
 					}
-					/*cout << "이동전" << endl;
-					for (int a = 0; a < N; a++)
-					{
-						for (int b = 0; b < N; b++)
-							cout << temp[a][b] << " ";
-						cout << endl;
-					}
-					cout << "이동후" << endl;*/
 					for (int b = 0; b < N; b++)
 					{
 						int check[20] = { 0, }; // 합쳐진거 체크
@@ -106,15 +94,6 @@ void bfs()
 							
 						}
 					}
-
-					//for (int a = 0; a < N; a++)
-					//{
-					//	for (int b = 0; b < N; b++)
-					//		cout << temp[a][b]<<" ";
-					//	cout << endl;
-					//}
-						
-
 					find_max(temp);
 					info next;
 					next.cnt = cur.cnt + 1;
