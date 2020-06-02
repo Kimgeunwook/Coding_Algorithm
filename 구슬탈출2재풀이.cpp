@@ -18,9 +18,9 @@ int bfs()
 		q.pop();
 		if (cur.cnt == 10)
 			return -1;
-		
-		for(int i = -1; i < 2; i++)
-			for(int j = -1; j < 2; j++)
+
+		for (int i = -1; i < 2; i++)
+			for (int j = -1; j < 2; j++)
 				if (!(i == 0 && j == 0) && (i * j == 0))
 				{
 					int rx = cur.redx;
@@ -71,7 +71,7 @@ int bfs()
 					{
 						continue;
 					}
-					else if(map[rx][ry] == 'O')
+					else if (map[rx][ry] == 'O')
 					{
 						return cur.cnt + 1;
 					}
@@ -99,9 +99,9 @@ int bfs()
 					{
 						continue;
 					}
-							
+
 				}
-		
+
 	}
 	return -1;
 }
@@ -109,7 +109,7 @@ int main()
 {
 	BALL init;
 	cin >> N >> M;
-	for(int i = 0; i < N; i++)
+	for (int i = 0; i < N; i++)
 		for (int j = 0; j < M; j++)
 		{
 			cin >> map[i][j];
@@ -129,6 +129,6 @@ int main()
 
 	visit[init.redx][init.redy][init.bluex][init.bluey] = 1;
 	cout << bfs() << endl;
-			
+
 	return 0;
 }
