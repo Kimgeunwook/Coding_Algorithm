@@ -8,14 +8,17 @@ int fmap[8][8];
 int visit[8][8];
 pair<int,int> temp[3];
 vector<pair<int,int>> v;
-queue<pair<int, int>>  virus_temp;
+queue<pair<int, int>> virus, virus_temp;
 int _max = -987654321;
 void simulation()
 {
+
 	while (!virus_temp.empty())
 	{
 		int curx = virus_temp.front().first;
 		int cury = virus_temp.front().second;
+		
+		
 		for (int i = -1; i < 2; i++)
 			for (int j = -1; j < 2; j++)
 			{
@@ -57,15 +60,9 @@ void dfs(int cnt,int idx)
 		{
 			fmap[temp[a].first][temp[a].second] = 1;
 		}
-
-		for (int a = 0; a < N; a++) 
-			for (int b = 0; b < M; b++)
-				if (visit[a][b] == 0 && map[a][b] == 2)
-				{
-					visit[a][b] = 1;
-					virus_temp.push(make_pair(a, b));
-					simulation();
-				}
+		virus_temp = virus;
+		visit[virus_temp.front().first][virus_temp.front().second] = 1;
+		simulation();
 			
 		int ret = answer();
 		if (ret > _max)
@@ -90,6 +87,8 @@ int main()
 			scanf("%d", &map[i][j]);
 			if (map[i][j] == 0)
 				v.push_back(make_pair(i,j));
+			if (map[i][j] == 2)
+				virus.push(make_pair(i, j));
 		}
 	dfs(0,0);
 	printf("%d", _max);
