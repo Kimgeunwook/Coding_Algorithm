@@ -6,8 +6,6 @@ char temp[10];
 int visit[10];
 vector<char> op;
 int _max = -999999999, _min = 987654321;
-
-
 void dfs(int cnt)
 {
 	if (cnt == N - 1)
