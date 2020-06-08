@@ -23,7 +23,7 @@ void bfs()
 		
 		info cur = q.front();
 		int temp[20][20];
-		if (cur.cnt == 6)//Á¾·áÁ¶°Ç
+		if (cur.cnt == 6)//ì¢…ë£Œì¡°ê±´
 			return;
 
 		for(int i = -1; i < 2; i++)
@@ -31,44 +31,44 @@ void bfs()
 				if (!(i == 0 && j == 0) && (i * j == 0))
 				{
 					
-					if (i == -1 && j == 0) //ºÏ
+					if (i == -1 && j == 0) //ë¶
 					{
-						for (int a = 0; a < N; a++) //ÇöÀç ¿øº» º¹»ç
+						for (int a = 0; a < N; a++) //í˜„ì¬ ì›ë³¸ ë³µì‚¬
 							for (int b = 0; b < N; b++)
 								temp[a][b] = cur.original[a][b];
 					}
-					else if (i == 0 && j == -1) //¼­
+					else if (i == 0 && j == -1) //ì„œ
 					{
-						for (int a = 0; a < N; a++) //ÇöÀç ¿øº» º¹»ç
+						for (int a = 0; a < N; a++) //í˜„ì¬ ì›ë³¸ ë³µì‚¬
 							for (int b = 0; b < N; b++)
 								temp[a][b] = cur.original[N - 1 - b][a];
 					}
-					else if (i == 0 && j == 1) // µ¿
+					else if (i == 0 && j == 1) // ë™
 					{
-						for (int a = 0; a < N; a++) //ÇöÀç ¿øº» º¹»ç
+						for (int a = 0; a < N; a++) //í˜„ì¬ ì›ë³¸ ë³µì‚¬
 							for (int b = 0; b < N; b++)
 								temp[a][b] = cur.original[b][N - 1 - a];
 					}
-					else if (i == 1 && j == 0) //³²
+					else if (i == 1 && j == 0) //ë‚¨
 					{
-						for (int a = 0; a < N; a++) //ÇöÀç ¿øº» º¹»ç
+						for (int a = 0; a < N; a++) //í˜„ì¬ ì›ë³¸ ë³µì‚¬
 							for (int b = 0; b < N; b++)
 								temp[a][b] = cur.original[N - 1 - a][b];
 					}
 					for (int b = 0; b < N; b++)
 					{
-						int check[20] = { 0, }; // ÇÕÃÄÁø°Å Ã¼Å©
+						int check[20] = { 0, }; // í•©ì³ì§„ê±° ì²´í¬
 						for (int a = 1; a < N; a++)
 						{
 							int k = 1;
 							int flag = 0;
 							while (a - k >= 0)
 							{
-								if (temp[a - k][b] == 0) //ºóÄ­ÀÌ¸é
+								if (temp[a - k][b] == 0) //ë¹ˆì¹¸ì´ë©´
 								{
 									k++;
 								}
-								else if (temp[a - k][b] == temp[a][b] && check[a - k] == 0) // °°°í ÇÕÄ£±â·ÏÀÌ ¾ø´Â¾Ö¸é
+								else if (temp[a - k][b] == temp[a][b] && check[a - k] == 0) // ê°™ê³  í•©ì¹œê¸°ë¡ì´ ì—†ëŠ”ì• ë©´
 								{
 									temp[a][b] = 0;
 									temp[a - k][b] *= 2;
