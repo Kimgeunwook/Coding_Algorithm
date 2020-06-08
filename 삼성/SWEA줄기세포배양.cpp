@@ -2,7 +2,7 @@
 #include <queue>
 using namespace std;
 struct info {
-	int state, life, acttime, unacttime; // »óÅÂ(-1ºóÄ­ 0ºñÈ°¼º 1È°¼º 2Á×À½)  /   »ý¸í¼öÄ¡   /  È°¼º½Ã°£   / ºñÈ°¼º½Ã°£
+	int state, life, acttime, unacttime; // ìƒíƒœ(-1ë¹ˆì¹¸ 0ë¹„í™œì„± 1í™œì„± 2ì£½ìŒ)  /   ìƒëª…ìˆ˜ì¹˜   /  í™œì„±ì‹œê°„   / ë¹„í™œì„±ì‹œê°„
 };
 struct acting {
 	int x, y, life;
@@ -17,7 +17,7 @@ int main()
 	cin >> T;
 	for (int test_case = 1; test_case <= T; test_case++)
 	{
-		for (int i = 0; i < 350; i++)   //¸Ê ÃÊ±âÈ­
+		for (int i = 0; i < 350; i++)   //ë§µ ì´ˆê¸°í™”
 			for (int j = 0; j < 350; j++)
 			{
 				info newbie = { -1,0,0,0 };
@@ -25,7 +25,7 @@ int main()
 			}
 
 		cin >> N >> M >> K;
-		for (int i = 150; i < 150 + N; i++)  //ÃÊ±â ÀÔ·Â¹ÞÀº ¾Öµé ³Ö¾îÁÖ±â
+		for (int i = 150; i < 150 + N; i++)  //ì´ˆê¸° ìž…ë ¥ë°›ì€ ì• ë“¤ ë„£ì–´ì£¼ê¸°
 		{
 			for (int j = 150; j < 150 + M; j++)
 			{
@@ -41,17 +41,17 @@ int main()
 		int time = 0;
 		while (time < K)
 		{
-			for (int i = 0; i < 350; i++)  //ºñÈ°¼ºÈ­ ¾Öµé ½Ã°£ ±ð¾ÆÁÖ°í ½Ã°£0µÇ¸é È°¼ºÈ­¿¡ ³Ö¾îÁÖ±â
+			for (int i = 0; i < 350; i++)  //ë¹„í™œì„±í™” ì• ë“¤ ì‹œê°„ ê¹Žì•„ì£¼ê³  ì‹œê°„0ë˜ë©´ í™œì„±í™”ì— ë„£ì–´ì£¼ê¸°
 				for (int j = 0; j < 350; j++)
 				{
-					if (map[i][j].state == 0) //ºñÈ°¼ºÈ­¸é
+					if (map[i][j].state == 0) //ë¹„í™œì„±í™”ë©´
 					{
 						if (map[i][j].unacttime > 0)
 							map[i][j].unacttime--;
 						if (map[i][j].unacttime == 0)
 							map[i][j].state = 1;
 					}
-					else if (map[i][j].state == 1) //È°¼ºÈ­¸é
+					else if (map[i][j].state == 1) //í™œì„±í™”ë©´
 					{
 						if (map[i][j].acttime > 0)
 						{
@@ -73,14 +73,14 @@ int main()
 						if (!(i == 0 && j == 0) && (i * j == 0))
 							if (cur.x + i >= 0 && cur.y + i < 350 && cur.x + j >= 0 && cur.y + j < 350)
 							{
-								if (map[cur.x + i][cur.y + j].state == -1) // 4¹æÇâ Å½»öÇßÀ»¶§ ºóÄ­ÀÌ¸é
+								if (map[cur.x + i][cur.y + j].state == -1) // 4ë°©í–¥ íƒìƒ‰í–ˆì„ë•Œ ë¹ˆì¹¸ì´ë©´
 								{
 									map[cur.x + i][cur.y + j].state = 0;
 									map[cur.x + i][cur.y + j].life = map[cur.x][cur.y].life;
 									map[cur.x + i][cur.y + j].acttime = map[cur.x][cur.y].life;
 									map[cur.x + i][cur.y + j].unacttime = map[cur.x][cur.y].life;
 								}
-								else if (map[cur.x + i][cur.y + j].state == 0 && map[cur.x + i][cur.y + j].life == map[cur.x + i][cur.y + j].unacttime) // ¹æ±Ý ¸· ºñÈ°¼ºÈ­ »óÅÂ¿¡ µé¾î°£¾Ö¸é
+								else if (map[cur.x + i][cur.y + j].state == 0 && map[cur.x + i][cur.y + j].life == map[cur.x + i][cur.y + j].unacttime) // ë°©ê¸ˆ ë§‰ ë¹„í™œì„±í™” ìƒíƒœì— ë“¤ì–´ê°„ì• ë©´
 								{
 									if (map[cur.x][cur.y].life > map[cur.x + i][cur.y + j].life)
 									{
