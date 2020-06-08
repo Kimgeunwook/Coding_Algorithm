@@ -3,7 +3,7 @@
 using namespace std;
 struct HORSE
 {
-	int x, y, dir,original, cnt; // ÁÂÇ¥ / ¹æÇâ / Ã·¿¡ ¸î¹øÂ°¿´´ÂÁö /°Å±â¼­ ¸î¹øÂ°ÀÎÁö
+	int x, y, dir,original, cnt; // ì¢Œí‘œ / ë°©í–¥ / ì²¨ì— ëª‡ë²ˆì§¸ì˜€ëŠ”ì§€ /ê±°ê¸°ì„œ ëª‡ë²ˆì§¸ì¸ì§€
 };
 int N,K;
 int map[12][12];
@@ -42,7 +42,7 @@ int simulation()
 
 		if (cur.x + dx >= 0 && cur.x + dx < N && cur.y + dy >= 0 && cur.y + dy < N)
 		{
-			int SIZE = v[cur.x][cur.y].size() - cur.cnt; //¿Å°Ü¾ß ÇÏ´Â °³¼ö
+			int SIZE = v[cur.x][cur.y].size() - cur.cnt; //ì˜®ê²¨ì•¼ í•˜ëŠ” ê°œìˆ˜
 			if (map[cur.x + dx][cur.y + dy] == 0)
 			{
 				for (int a = cur.cnt; a < v[cur.x][cur.y].size(); a++)
@@ -77,7 +77,7 @@ int simulation()
 			}
 			else if (map[cur.x + dx][cur.y + dy] == 2)
 			{
-				//¹æÇâ ¹Ý´ë·Î ÇØÁÖ°í
+				//ë°©í–¥ ë°˜ëŒ€ë¡œ í•´ì£¼ê³ 
 				if (visit[cur.x][cur.y] == 0)
 				{
 					visit[cur.x][cur.y] = 1;
@@ -140,20 +140,20 @@ int main()
 
 	while (ret <= 1000)
 	{
-		//cout << "½Ã¹Ä" << endl;
-		//½Ã¹Äµ¹¸®°í
+		//cout << "ì‹œë®¬" << endl;
+		//ì‹œë®¬ëŒë¦¬ê³ 
 		flag = simulation();
 
-		//4°³ ¾ñÇô¼­ ³¡³µÀ¸¸é ret Ãâ·Â
+		//4ê°œ ì–¹í˜€ì„œ ëë‚¬ìœ¼ë©´ ret ì¶œë ¥
 		if (flag == 1)
 		{
 			cout << ret << endl;
 			return 0;
 		}
-		//¾Æ´Ï¸é ret++
+		//ì•„ë‹ˆë©´ ret++
 		ret++;
 	}
-	//retÀÌ 1000³Ñ¾î¼­ ³¡³µÀ¸¸é -1Ãâ·Â
+	//retì´ 1000ë„˜ì–´ì„œ ëë‚¬ìœ¼ë©´ -1ì¶œë ¥
 	cout << -1 << endl;
 	return 0;
 }
