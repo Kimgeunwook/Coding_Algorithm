@@ -24,7 +24,7 @@ void spread()
 }
 void robot()
 {
-	//À§ÂÊ
+	//Ã€Â§Ã‚ÃŠ
 	for (int i = robot_up - 1; i >= 1; i--)
 		map[i][0] = map[i - 1][0];
 	for (int i = 0; i < C - 1; i++)
@@ -35,7 +35,7 @@ void robot()
 		map[robot_up][i] = map[robot_up][i - 1];
 	map[robot_up][1] = 0;
 
-	//¾Æ·¡ÂÊ
+	//Â¾Ã†Â·Â¡Ã‚ÃŠ
 	for (int i = robot_down + 1; i < R - 1; i++)
 		map[i][0] = map[i + 1][0];
 	for (int i = 0; i < C - 1; i++)
@@ -83,7 +83,7 @@ int main()
 			}
 			cout << endl;
 		}
-		cout << "ÀÌµ¿ÈÄ" << endl;*/
+		cout << "Ã€ÃŒÂµÂ¿ÃˆÃ„" << endl;*/
 		spread();
 		robot();
 		/*for (int i = 0; i < R; i++)
