@@ -31,9 +31,9 @@ int bfs()
 					while (1)
 					{
 
-						if (map[rx + i][ry + j] == '#') //º® ¸¸³µÀ¸¸é
+						if (map[rx + i][ry + j] == '#') //ë²½ ë§Œë‚¬ìœ¼ë©´
 							break;
-						else if (map[rx + i][ry + j] == 'O') //±¸¸Û¿¡ °ñÀÎ
+						else if (map[rx + i][ry + j] == 'O') //êµ¬ë©ì— ê³¨ì¸
 						{
 							rx = rx + i;
 							ry = ry + j;
@@ -50,16 +50,16 @@ int bfs()
 
 					while (1)
 					{
-						if (map[bx + i][by + j] == '#') //º® ¸¸³µÀ¸¸é
+						if (map[bx + i][by + j] == '#') //ë²½ ë§Œë‚¬ìœ¼ë©´
 							break;
-						else if (map[bx + i][by + j] == 'O') //±¸¸Û¿¡ °ñÀÎ
+						else if (map[bx + i][by + j] == 'O') //êµ¬ë©ì— ê³¨ì¸
 						{
 							bx = bx + i;
 							by = by + j;
 							bcnt++;
 							break;
 						}
-						else //ºóÄ­ÀÌ°Å³ª »ó´ë±¸½½ÀÌ¸é
+						else //ë¹ˆì¹¸ì´ê±°ë‚˜ ìƒëŒ€êµ¬ìŠ¬ì´ë©´
 						{
 							bcnt++;
 							bx = bx + i;
@@ -76,9 +76,9 @@ int bfs()
 						return cur.cnt + 1;
 					}
 
-					if (rx == bx && ry == by && map[rx][ry] != 'O')//µÎÁöÁ¡ÀÌ ¸ñÇ¥Á¡ÀÌ ¾Æ´Ï¸é¼­ °°À¸¸é ¿òÁ÷ÀÎ°Å¸® ºñ±³ÇØ¼­ Á¶Á¤
+					if (rx == bx && ry == by && map[rx][ry] != 'O')//ë‘ì§€ì ì´ ëª©í‘œì ì´ ì•„ë‹ˆë©´ì„œ ê°™ìœ¼ë©´ ì›€ì§ì¸ê±°ë¦¬ ë¹„êµí•´ì„œ ì¡°ì •
 					{
-						if (abs(rx - cur.redx) + abs(ry - cur.redy) > abs(bx - cur.bluex) + abs(by - cur.bluey)) //»¡°­ÀÌ ´õ ¸¹ÀÌ ¿òÁ÷¿´À¸¸é == ºñÄÑ¾ßµÇ¸é
+						if (abs(rx - cur.redx) + abs(ry - cur.redy) > abs(bx - cur.bluex) + abs(by - cur.bluey)) //ë¹¨ê°•ì´ ë” ë§ì´ ì›€ì§ì˜€ìœ¼ë©´ == ë¹„ì¼œì•¼ë˜ë©´
 						{
 							rx -= i;
 							ry -= j;
