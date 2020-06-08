@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-int dice[7]; //ÁÖ»çÀ§ °¡·Î, ¼¼·Î
+int dice[7]; //ì£¼ì‚¬ìœ„ ê°€ë¡œ, ì„¸ë¡œ
 int map[20][20];
 int N, M, x, y, K;
 int order[1000];
@@ -21,7 +21,7 @@ int main()
 	for (int i = 0; i < K; i++)
 	{
 		int temp;
-		if (order[i] == 1) //µ¿
+		if (order[i] == 1) //ë™
 		{
 			if (y + 1 >= M)
 				continue;
@@ -32,7 +32,7 @@ int main()
 			dice[4] = dice[6];
 			dice[6] = temp;
 		}
-		else if (order[i] == 2) //¼­
+		else if (order[i] == 2) //ì„œ
 		{
 			if (y - 1 < 0)
 				continue;
@@ -43,7 +43,7 @@ int main()
 			dice[4] = dice[1];
 			dice[1] = temp;
 		}
-		else if (order[i] == 3) //ºÏ
+		else if (order[i] == 3) //ë¶
 		{
 			if (x - 1 < 0)
 				continue;
@@ -54,7 +54,7 @@ int main()
 			dice[6] = dice[2];
 			dice[2] = temp;
 		}
-		else if (order[i] == 4) //³²
+		else if (order[i] == 4) //ë‚¨
 		{
 			if (x + 1 >= N)
 			{
