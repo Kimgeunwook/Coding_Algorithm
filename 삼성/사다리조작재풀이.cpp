@@ -47,10 +47,10 @@ int answer()
 					
 			}
 		}
-		if (cur != j) //½ÃÀÛÁ¡ µµÂøÁ¡ ´Ù¸£¸é
+		if (cur != j) //ì‹œì‘ì  ë„ì°©ì  ë‹¤ë¥´ë©´
 			return -1;
 	}
-	if (ret == 0) return 1; //´Ù ÀÚ±â°¥±æ °¬À¸¸é
+	if (ret == 0) return 1; //ë‹¤ ìê¸°ê°ˆê¸¸ ê°”ìœ¼ë©´
 }
 void dfs(int ob, int cnt,int idx)
 {
@@ -60,16 +60,16 @@ void dfs(int ob, int cnt,int idx)
 			for (int b = 1; b < N; b++)
 				fmap[a][b] = map[a][b];
 
-		for (int i = 0; i < ob; i++) //°¡·Î¼±±ß±â
+		for (int i = 0; i < ob; i++) //ê°€ë¡œì„ ê¸‹ê¸°
 		{
-			if (fmap[v[temp[i]].x][v[temp[i]].y] == 1) //ÀÌ¹Ì ÇØº» Á¶ÇÕ
+			if (fmap[v[temp[i]].x][v[temp[i]].y] == 1) //ì´ë¯¸ í•´ë³¸ ì¡°í•©
 			{
 				return;
 			}
 				
 			fmap[v[temp[i]].x][v[temp[i]].y] = 1;
 		}
-		if (answer() == 1)//i°¡ i³ª¿À¸é
+		if (answer() == 1)//iê°€ ië‚˜ì˜¤ë©´
 			flag = 1;
 	}
 	else {
@@ -108,7 +108,7 @@ int main()
 		if (i > v.size())
 			break;
 		flag = 0;
-		dfs(i, 0, 0); // i , ¸î°³Ã¤¿îÁö, ¸î¹øÂ°²¨ °¡Á®°£Áö
+		dfs(i, 0, 0); // i , ëª‡ê°œì±„ìš´ì§€, ëª‡ë²ˆì§¸êº¼ ê°€ì ¸ê°„ì§€
 		if (flag == 1)
 		{
 			cout << i << endl;
