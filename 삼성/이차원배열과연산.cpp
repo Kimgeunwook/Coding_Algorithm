@@ -26,7 +26,7 @@ map<int, int>::iterator it;
 priority_queue<NUM, vector<NUM>, compare> pq;
 int main()
 {
-	//ÀÔ·Â
+	//ì…ë ¥
 	cin >> r >> c >> k;
 	for (int i = 1; i <= 3; i++)
 		for (int j = 1; j <= 3; j++)
@@ -34,7 +34,7 @@ int main()
 	
 	while (1)
 	{
-		//Á¶°Ç¸¸Á·
+		//ì¡°ê±´ë§Œì¡±
 		if (arr[r][c] == k)
 		{
 			cout << answer << endl;
@@ -42,13 +42,13 @@ int main()
 		}
 		answer++;
 		
-		//row»çÀÌÁî°¡ °°°Å³ª ¸¹À¸¸é
+		//rowì‚¬ì´ì¦ˆê°€ ê°™ê±°ë‚˜ ë§ìœ¼ë©´
 		if (row_size >= col_size) 
 		{
 			max_col= 0;
 			for (int i = 1; i <= row_size; i++)
 			{
-				// ¼ıÀÚ ¸î¹ø³ª¿À´ÂÁö Ä«¿îÆÃ
+				// ìˆ«ì ëª‡ë²ˆë‚˜ì˜¤ëŠ”ì§€ ì¹´ìš´íŒ…
 				for (int j = 1; j <= col_size; j++)
 				{
 					if(arr[i][j] != 0)
@@ -56,14 +56,14 @@ int main()
 					arr[i][j] = 0;
 				}
 
-				//pq¿¡ ³Ö¾îÁÖ±â
+				//pqì— ë„£ì–´ì£¼ê¸°
 				for (it = cnt_map.begin(); it != cnt_map.end(); it++)
 				{
 					NUM temp = { it->first,it->second };
 					pq.push(temp);
 				}
 					
-				//pq¿¡ ÀÖ´Â°Å arr¿¡ ³Ö¾îÁÖ±â(100³Ñ¾î°¡´Â°Íµµ °ü¸®)
+				//pqì— ìˆëŠ”ê±° arrì— ë„£ì–´ì£¼ê¸°(100ë„˜ì–´ê°€ëŠ”ê²ƒë„ ê´€ë¦¬)
 				int idx = 1;
 				while (!pq.empty())
 				{
@@ -103,20 +103,20 @@ int main()
 				
 				for (int i = 1; i <= row_size; i++)
 				{
-					// ¼ıÀÚ ¸î¹ø³ª¿À´ÂÁö Ä«¿îÆÃ
+					// ìˆ«ì ëª‡ë²ˆë‚˜ì˜¤ëŠ”ì§€ ì¹´ìš´íŒ…
 					if (arr[i][j] != 0)
 						cnt_map[arr[i][j]]++;
 					arr[i][j] = 0;
 				}
 
-				//pq¿¡ ³Ö¾îÁÖ±â
+				//pqì— ë„£ì–´ì£¼ê¸°
 				for (it = cnt_map.begin(); it != cnt_map.end(); it++)
 				{
 					NUM temp = { it->first,it->second };
 					pq.push(temp);
 				}
 
-				//pq¿¡ ÀÖ´Â°Å arr¿¡ ³Ö¾îÁÖ±â(100³Ñ¾î°¡´Â°Íµµ °ü¸®)
+				//pqì— ìˆëŠ”ê±° arrì— ë„£ì–´ì£¼ê¸°(100ë„˜ì–´ê°€ëŠ”ê²ƒë„ ê´€ë¦¬)
 				int idx = 1;
 				while (!pq.empty())
 				{
