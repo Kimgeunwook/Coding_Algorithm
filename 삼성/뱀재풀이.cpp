@@ -16,11 +16,11 @@ int play()
 		int curx = dq.front().first;
 		int cury = dq.front().second;
 		
-		if (snake_dir == 0)//∫œ
+		if (snake_dir == 0)//Î∂Å
 		{
 			if (visit[curx - 1][cury] == 1 || curx - 1 < 1)
 				return k;
-			else if (map[curx - 1][cury] == 5) //ªÁ∞˙∏È
+			else if (map[curx - 1][cury] == 5) //ÏÇ¨Í≥ºÎ©¥
 			{
 				dq.push_front(make_pair(curx - 1, cury));
 				map[curx - 1][cury] = 0;
@@ -34,11 +34,11 @@ int play()
 				dq.pop_back();
 			}
 		}
-		else if (snake_dir == 1)//µø
+		else if (snake_dir == 1)//Îèô
 		{
 			if (visit[curx][cury + 1] == 1 || cury + 1 > N)
 				return k;
-			else if(map[curx][cury + 1] == 5) //ªÁ∞˙∏È
+			else if(map[curx][cury + 1] == 5) //ÏÇ¨Í≥ºÎ©¥
 			{
 				dq.push_front(make_pair(curx, cury + 1));
 				map[curx][cury + 1] = 0;
@@ -52,11 +52,11 @@ int play()
 				dq.pop_back();
 			}
 		}
-		else if (snake_dir == 2) // ≥≤
+		else if (snake_dir == 2) // ÎÇ®
 		{
 			if (visit[curx + 1][cury] == 1 || curx + 1 > N)
 				return k;
-			else if (map[curx + 1][cury] == 5) //ªÁ∞˙∏È
+			else if (map[curx + 1][cury] == 5) //ÏÇ¨Í≥ºÎ©¥
 			{
 				visit[curx + 1][cury] = 1;
 				dq.push_front(make_pair(curx + 1, cury));
@@ -70,14 +70,14 @@ int play()
 				dq.pop_back();
 			}
 		}
-		else if (snake_dir == 3) //º≠
+		else if (snake_dir == 3) //ÏÑú
 		{
 			
 			if (visit[curx][cury - 1] == 1 || cury - 1 < 1)
 			{
 				return k;
 			}	
-			else if (map[curx][cury - 1] == 5) //ªÁ∞˙∏È
+			else if (map[curx][cury - 1] == 5) //ÏÇ¨Í≥ºÎ©¥
 			{
 				dq.push_front(make_pair(curx, cury - 1));
 				map[curx][cury - 1] = 0;
@@ -94,7 +94,7 @@ int play()
 		}
 		k++;
 		if(!q.empty())
-			if (q.front().first == k) //πÊ«‚¿¸»Ø≈∏¿”
+			if (q.front().first == k) //Î∞©Ìñ•Ï†ÑÌôòÌÉÄÏûÑ
 			{
 				if (q.front().second == 'D')
 					snake_dir = (snake_dir + 1) % 4;
@@ -114,7 +114,7 @@ int main()
 	{
 		int x, y;
 		cin >> x >> y;
-		map[x][y] = 5;//5¥¬ ªÁ∞˙∏¶ ¿«πÃ
+		map[x][y] = 5;//5Îäî ÏÇ¨Í≥ºÎ•º ÏùòÎØ∏
 	}
 	cin >> dirnum;
 	for (int i = 0; i < dirnum; i++)
