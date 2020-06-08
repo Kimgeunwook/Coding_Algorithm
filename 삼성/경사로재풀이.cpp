@@ -8,14 +8,14 @@ int sum = 0;
 int visit[100];
 void simulation(int map[100][100])
 {
-	//°¡·Î
+	//ê°€ë¡œ
 	for (int row = 0; row < N; row++)
 	{
-		int temp = map[row][0]; //ÇöÀç³ôÀÌ
+		int temp = map[row][0]; //í˜„ì¬ë†’ì´
 		int life = 1 ;
 		for (int k = 1; k < N; k++)
 		{
-			if (abs(temp - map[row][k] > 1)) // ³ôÀÌÂ÷°¡ 1Ä­ÃÊ°ú¸é º¼°Íµµ¾ø´Ù
+			if (abs(temp - map[row][k] > 1)) // ë†’ì´ì°¨ê°€ 1ì¹¸ì´ˆê³¼ë©´ ë³¼ê²ƒë„ì—†ë‹¤
 			{
 				life = -1;
 				break;
