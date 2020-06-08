@@ -21,13 +21,13 @@ void checkmap(int n, int x, int y, int size, int p)
 		{
 			if (abs(i - x) + abs(j - y) <= size)
 			{
-				if (p > map[i][j].max) // »õ·Îµé¿Â³ğÀÌ Á©¾Õ¿¡¾Öº¸´Ù Å©¸é
+				if (p > map[i][j].max) // ìƒˆë¡œë“¤ì˜¨ë†ˆì´ ì ¤ì•ì—ì• ë³´ë‹¤ í¬ë©´
 				{
 					map[i][j].apnum = n;
 					map[i][j].nextmax = map[i][j].max;
 					map[i][j].max = p;
 				}
-				else if (p > map[i][j].nextmax) // »õ·Îµé¿Â³ğÀÌ µÎ¹øÂ°¾Öº¸´Ù Å©¸é
+				else if (p > map[i][j].nextmax) // ìƒˆë¡œë“¤ì˜¨ë†ˆì´ ë‘ë²ˆì§¸ì• ë³´ë‹¤ í¬ë©´
 				{
 					map[i][j].nextmax = p;
 				}
@@ -41,7 +41,7 @@ void dfs(int cnt)
 		int ret = 0;
 		for (int i = 0; i <= M; i++)
 		{
-			if (routeA[i].apnum == routeB[i].apnum && routeB[i].apnum != 0) // °ãÄ¡¸é
+			if (routeA[i].apnum == routeB[i].apnum && routeB[i].apnum != 0) // ê²¹ì¹˜ë©´
 			{
 				ret += max(map[routeA[i].x][routeA[i].y].max + map[routeB[i].x][routeB[i].y].nextmax, map[routeB[i].x][routeB[i].y].max + map[routeA[i].x][routeA[i].y].nextmax);
 			}
