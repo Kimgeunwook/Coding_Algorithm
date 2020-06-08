@@ -16,12 +16,12 @@ priority_queue<info, vector<info>, compare> pq;
 queue<info> q;
 int N;
 int map[20][20];
-int current_size = 2; //»ó¾î ÇöÀçÅ©±â
-int feed_size = 0; // ¸î¹ø ¸ÔÀºÁö
-int time = 0; //´ä
+int current_size = 2; //ìƒì–´ í˜„ì¬í¬ê¸°
+int feed_size = 0; // ëª‡ë²ˆ ë¨¹ì€ì§€
+int time = 0; //ë‹µ
 int flag = -1; 
 int visit[20][20];
-int now_x, now_y; //»ó¾î ÇöÀç À§Ä¡
+int now_x, now_y; //ìƒì–´ í˜„ì¬ ìœ„ì¹˜
 void bfs()
 {
 	for (int i = 0; i < N; i++)
@@ -38,27 +38,27 @@ void bfs()
 		x = q.front().x;
 		y = q.front().y;
 		cnt = q.front().cnt;
-	//	cout <<"x"<< x << "," <<"y"<< y << "," <<"cnt"<< cnt << "," << "ÁøÀÔ" << endl;
-		if (flag == -1 && cnt != 0 && map[x][y] != 0 &&map[x][y] < current_size) // Ã³À½ ÇÃ·¡±× ¹Ù²Ü¶§
+	//	cout <<"x"<< x << "," <<"y"<< y << "," <<"cnt"<< cnt << "," << "ì§„ì…" << endl;
+		if (flag == -1 && cnt != 0 && map[x][y] != 0 &&map[x][y] < current_size) // ì²˜ìŒ í”Œë˜ê·¸ ë°”ê¿€ë•Œ
 		{
-			//cout << "Ã³À½ÇÃ·¡±×¹Ù²Ü‹š"<<cnt << endl;
+			//cout << "ì²˜ìŒí”Œë˜ê·¸ë°”ê¿€Â‹Âš"<<cnt << endl;
 			flag = cnt;
 			info final = { x, y, cnt };
 			pq.push(final);
 			q.pop();
 			continue;
 		}
-		if (cnt == flag && map[x][y] != 0 && map[x][y] < current_size) //ÈÄº¸ Ãß°¡
+		if (cnt == flag && map[x][y] != 0 && map[x][y] < current_size) //í›„ë³´ ì¶”ê°€
 		{
-			//cout << "ÈÄº¸ Ãß°¡" << endl;
+			//cout << "í›„ë³´ ì¶”ê°€" << endl;
 			info final = { x, y, cnt };
 			pq.push(final);
 			q.pop();
 			continue;
 		}
-		if (flag != -1 && cnt > flag) //´õÀÌ»óº¼ÇÊ¿ä ¾ø´Â°Å
+		if (flag != -1 && cnt > flag) //ë”ì´ìƒë³¼í•„ìš” ì—†ëŠ”ê±°
 		{
-			//cout << "´õÀÌ»ó º¼ÇÊ¿ä x" << endl;
+			//cout << "ë”ì´ìƒ ë³¼í•„ìš” x" << endl;
 			q.pop();
 			continue;
 		}
@@ -68,7 +68,7 @@ void bfs()
 					if (x + i >= 0 && x + i < N && y + j >= 0 && y + j < N)
 						if (visit[x + i][y + j] == 0 && map[x + i][y + j] <= current_size)
 						{
-							//cout << "Ä¼" << endl;
+							//cout << "ìº¬" << endl;
 							visit[x + i][y + j] = 1;
 							info next = {x + i, y + j, cnt + 1};
 							q.push(next);
@@ -119,8 +119,8 @@ int main()
 	while (1)
 	{
 		flag = -1;
-		/*cout << "¤»¤»¤»¤»¤»¤»¤»¤»¤»¤»¤»" << endl;
-		cout << "»ó¾îÁö±İÀ§Ä¡:" << now_x << "," << now_y << endl;
+		/*cout << "ã…‹ã…‹ã…‹ã…‹ã…‹ã…‹ã…‹ã…‹ã…‹ã…‹ã…‹" << endl;
+		cout << "ìƒì–´ì§€ê¸ˆìœ„ì¹˜:" << now_x << "," << now_y << endl;
 		cout << "time:" << time << endl;*/
 		bfs();
 		if (flag == -1)
