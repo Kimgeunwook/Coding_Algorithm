@@ -15,7 +15,7 @@ int min_way = 987654321;
 void bfs()
 {
 	int cur_x, cur_y,cur_way;
-	int cur_max_way = 0; //Áö¿ªº¯¼ö¿¡¼± °¡ÀåÅ«°Å Ã£°í ³¡³¯¶§´Â minway¶û ºñ±³
+	int cur_max_way = 0; //ì§€ì—­ë³€ìˆ˜ì—ì„  ê°€ì¥í°ê±° ì°¾ê³  ëë‚ ë•ŒëŠ” minwayë‘ ë¹„êµ
 	while (!q.empty())
 	{
 		cur_x = q.front().x;
@@ -40,7 +40,7 @@ void bfs()
 						}
 		q.pop();
 	}
-	//ºóÄ­ ÀÖ´ÂÁö Ã£´Â°Å
+	//ë¹ˆì¹¸ ìˆëŠ”ì§€ ì°¾ëŠ”ê±°
 	int flag = 0;
 	int ret = 0;
 	for (int i = 0; i < N; i++)
@@ -51,7 +51,7 @@ void bfs()
 	if (ret == 0)
 		flag = 1;
 	
-	//ºóÄ­ ¾øÀ»¶§¸¸ ÃÖ¼Ò°ª Ã¼Å©
+	//ë¹ˆì¹¸ ì—†ì„ë•Œë§Œ ìµœì†Œê°’ ì²´í¬
 	if(flag == 1)
 		if (cur_max_way < min_way)
 		{
@@ -64,24 +64,24 @@ void dfs(int cnt)
 {
 	if (temp.size() == M)
 	{
-		//visit ¹è¿­ ÃÊ±âÈ­
+		//visit ë°°ì—´ ì´ˆê¸°í™”
 		for (int i = 0; i < N; i++)
 			for (int j = 0; j < N; j++)
 				visit[i][j] = 0;
 
-		//q»ç¿ëÀü ÃÊ±âÈ­
+		//qì‚¬ìš©ì „ ì´ˆê¸°í™”
 		while (!q.empty())
 		{
 			q.pop();
 		}
 
-		//q¿¡ ³Ö¾îÁÖ±â
+		//qì— ë„£ì–´ì£¼ê¸°
 		for (int i = 0; i < M; i++)
 		{
 			visit[temp[i].x][temp[i].y] = 1;
 			q.push(temp[i]);
 		}
-		//bfs½ÃÀÛ
+		//bfsì‹œì‘
 		bfs();
 	}
 	else
