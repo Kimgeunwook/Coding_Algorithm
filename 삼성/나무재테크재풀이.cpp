@@ -5,11 +5,11 @@ using namespace std;
 struct TREE {
 	int x, y, age;
 };
-int N, M, K; //¸ÊÅ©±â, ³ª¹«¼ö, ¸î³âµÚÀÎÁö
+int N, M, K; //ë§µí¬ê¸°, ë‚˜ë¬´ìˆ˜, ëª‡ë…„ë’¤ì¸ì§€
 int map[11][11];
 int A[11][11];
-queue<TREE> dq; //ÇöÀç³ª¹«µé
-queue<TREE> nex; //³»³â¿¡ ³Ñ¾î°¥ ³ª¹«µé
+queue<TREE> dq; //í˜„ì¬ë‚˜ë¬´ë“¤
+queue<TREE> nex; //ë‚´ë…„ì— ë„˜ì–´ê°ˆ ë‚˜ë¬´ë“¤
 queue<TREE> fall;
 vector<TREE> dead;
 int main()
@@ -35,7 +35,7 @@ int main()
 	{
 
 
-		//º½ @@@@@nextÃÊ±âÈ­À§Ä¡
+		//ë´„ @@@@@nextì´ˆê¸°í™”ìœ„ì¹˜
 		while (!nex.empty()) nex.pop();
 		dead.clear();
 		while (!dq.empty())
@@ -57,7 +57,7 @@ int main()
 		}
 
 
-		//¿©¸§
+		//ì—¬ë¦„
 		for (int k = 0; k < dead.size(); k++)
 		{
 			TREE cur = dead[k];
@@ -65,7 +65,7 @@ int main()
 		}
 
 
-		//°¡À»
+		//ê°€ì„
 		while (!dq.empty()) dq.pop();
 		while (!fall.empty())
 		{
@@ -84,7 +84,7 @@ int main()
 		}
 
 
-		//°Ü¿ï
+		//ê²¨ìš¸
 		for (int a = 1; a <= N; a++)
 			for (int b = 1; b <= N; b++)
 				map[a][b] += A[a][b];
