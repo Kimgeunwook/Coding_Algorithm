@@ -5,7 +5,7 @@
 #include <queue>
 using namespace std;
 int N, M, K;
-int map[10][10], vitamin[10][10]; // ÁÖ¸Ê   ÀÔ·Â¾çºĞ¸Ê
+int map[10][10], vitamin[10][10]; // ì£¼ë§µ   ì…ë ¥ì–‘ë¶„ë§µ
 
 struct tree
 {
@@ -19,22 +19,22 @@ struct compare {
 		return a.age > b.age;
 	}
 };
-queue<tree> newbie, curyear, mother,dead, nextyear; //¹ø½Ä ¿ÃÇØ ¾ö¸¶ ³»³â
+queue<tree> newbie, curyear, mother,dead, nextyear; //ë²ˆì‹ ì˜¬í•´ ì—„ë§ˆ ë‚´ë…„
 priority_queue<tree, vector<tree>, compare> pqtree;
 
 int main()
 {
-	cin >> N >> M >> K; //¸ÊÅ©±â   ³ª¹«°³¼ö   ¸î³âÁö³¯°ÇÁö
+	cin >> N >> M >> K; //ë§µí¬ê¸°   ë‚˜ë¬´ê°œìˆ˜   ëª‡ë…„ì§€ë‚ ê±´ì§€
 
-	for (int i = 0; i < N; i++) //Ã³À½ ³ª¹« ¾çºĞ5·Î ÃÊ±âÈ­
+	for (int i = 0; i < N; i++) //ì²˜ìŒ ë‚˜ë¬´ ì–‘ë¶„5ë¡œ ì´ˆê¸°í™”
 		for (int j = 0; j < N; j++)
 			map[i][j] = 5;
 
-	for (int i = 0; i < N; i++) //°Ü¿ï¾çºĞ
+	for (int i = 0; i < N; i++) //ê²¨ìš¸ì–‘ë¶„
 		for (int j = 0; j < N; j++)
 			cin >> vitamin[i][j];
 
-	for (int i = 0; i < M; i++)//////////////³ª¹« À§Ä¡ ÀÔ·Â¹Ş±â
+	for (int i = 0; i < M; i++)//////////////ë‚˜ë¬´ ìœ„ì¹˜ ì…ë ¥ë°›ê¸°
 	{
 		int x, y, age;
 		cin >> x >> y >> age;
@@ -42,20 +42,20 @@ int main()
 		pqtree.push(a);
 	}
 
-	//¿ÃÇØ Å¥ ¸¸µé±â
+	//ì˜¬í•´ í ë§Œë“¤ê¸°
 	while (!pqtree.empty())
 	{
 		curyear.push(pqtree.top());
 		pqtree.pop();
 	} 
 	
-	for (int p = 0; p < K; p++)////////K¹ø¹İº¹
+	for (int p = 0; p < K; p++)////////Kë²ˆë°˜ë³µ
 	{
 		int curx, cury, curage;
 		tree temp;
 
-		//´ººñµé µ¹¸®´ÂÅ¸ÀÓ
-		/*cout << "´ººñµ¹¸®´ÂÁß"<<p << endl;
+		//ë‰´ë¹„ë“¤ ëŒë¦¬ëŠ”íƒ€ì„
+		/*cout << "ë‰´ë¹„ëŒë¦¬ëŠ”ì¤‘"<<p << endl;
 		cout << newbie.size() << endl;
 		cout << curyear.size() << endl;
 		cout << nextyear.size() << endl;*/
@@ -73,14 +73,14 @@ int main()
 			cury = newbie.front().y;
 			curage = newbie.front().age;
 			///////////////////
-			if (curage <= map[curx][cury]) //¾çºĞ ¸ÔÀ»¼öÀÖ´Ù.
+			if (curage <= map[curx][cury]) //ì–‘ë¶„ ë¨¹ì„ìˆ˜ìˆë‹¤.
 			{
 				map[curx][cury] -= 1;
 				curage += 1;
 				temp = { curx,cury,curage };
 				nextyear.push(temp);
 			}
-			else //¾çºĞ ¸ÔÀ»¼ö ¾ø´Ù.
+			else //ì–‘ë¶„ ë¨¹ì„ìˆ˜ ì—†ë‹¤.
 			{
 				temp = { curx, cury, curage };
 				dead.push(temp);
@@ -89,8 +89,8 @@ int main()
 			newbie.pop();
 		}
 
-		//¿ÃÇØ¾Öµé µ¹¸®±â
-		/*cout << "¿ÃÇØ¾Öµéµ¹¸®´ÂÁß"<<p << endl;
+		//ì˜¬í•´ì• ë“¤ ëŒë¦¬ê¸°
+		/*cout << "ì˜¬í•´ì• ë“¤ëŒë¦¬ëŠ”ì¤‘"<<p << endl;
 		cout << newbie.size() << endl;
 		cout << curyear.size() << endl;
 		cout << nextyear.size() << endl;*/
@@ -103,7 +103,7 @@ int main()
 			curx = curyear.front().x;
 			cury = curyear.front().y;
 			curage = curyear.front().age;
-			if (curage <= map[curx][cury]) //¾çºĞ ¸ÔÀ»¼öÀÖ´Ù.
+			if (curage <= map[curx][cury]) //ì–‘ë¶„ ë¨¹ì„ìˆ˜ìˆë‹¤.
 			{
 				map[curx][cury] -= curage;
 				curage += 1;
@@ -114,7 +114,7 @@ int main()
 				}
 				nextyear.push(temp);
 			}
-			else //¾çºĞ ¸ÔÀ»¼ö ¾ø´Ù.
+			else //ì–‘ë¶„ ë¨¹ì„ìˆ˜ ì—†ë‹¤.
 			{
 				temp = { curx, cury, curage};
 				dead.push(temp);
@@ -122,8 +122,8 @@ int main()
 			curyear.pop();
 		}
 
-		//¹ø½Ä¾ö¸¶Å¸ÀÓ
-		/*cout << "¹ø½Äµ¹¸®´ÂÁß" <<p<< endl;
+		//ë²ˆì‹ì—„ë§ˆíƒ€ì„
+		/*cout << "ë²ˆì‹ëŒë¦¬ëŠ”ì¤‘" <<p<< endl;
 		cout << newbie.size() << endl;
 		cout << curyear.size() << endl;
 		cout << nextyear.size() << endl;*/
@@ -146,8 +146,8 @@ int main()
 			mother.pop();
 		}
 
-		//Á×Àº¾Öµé->¾çºĞÅ¸ÀÓ
-		/*cout << "Á×Àº¾Öµé ºÎÈ°Å¸ÀÓ"<<p << endl;
+		//ì£½ì€ì• ë“¤->ì–‘ë¶„íƒ€ì„
+		/*cout << "ì£½ì€ì• ë“¤ ë¶€í™œíƒ€ì„"<<p << endl;
 		cout << newbie.size() << endl;
 		cout << curyear.size() << endl;
 		cout << nextyear.size() << endl;*/
@@ -160,8 +160,8 @@ int main()
 			dead.pop();
 		}
 
-		//º¸ÃæÅ¸ÀÓ
-		/*cout << "°Ü¿ïº¸ÃæÅ¸ÀÓ" <<p<< endl;
+		//ë³´ì¶©íƒ€ì„
+		/*cout << "ê²¨ìš¸ë³´ì¶©íƒ€ì„" <<p<< endl;
 		cout << newbie.size() << endl;
 		cout << curyear.size() << endl;
 		cout << nextyear.size() << endl;*/
