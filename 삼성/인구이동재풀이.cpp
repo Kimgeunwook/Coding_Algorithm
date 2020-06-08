@@ -30,7 +30,7 @@ void dfs(int x, int y)
 }
 int simulation()
 {
-	for (int i = 0; i < N; i++) //visit¹è¿­ ÃÊ±âÈ­
+	for (int i = 0; i < N; i++) //visitë°°ì—´ ì´ˆê¸°í™”
 		for (int j = 0; j < N; j++)
 			visit[i][j] = 0;
 
@@ -65,7 +65,7 @@ int main()
 	{
 		int ret = simulation();
 
-		if (ret == -1) // ÀÌµ¿ ¾ø¾úÀ¸¸é
+		if (ret == -1) // ì´ë™ ì—†ì—ˆìœ¼ë©´
 			break;
 		answer++;
 	}
