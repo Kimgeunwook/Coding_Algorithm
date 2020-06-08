@@ -49,14 +49,14 @@ void dfs(int cnt,int idx)
 {
 	if (cnt == 3)
 	{
-		for (int a = 0; a < N; a++) //¸Êº¹»ç
+		for (int a = 0; a < N; a++) //Â¸ÃŠÂºÂ¹Â»Ã§
 			for (int b = 0; b < M; b++)
 			{
 				visit[a][b] = 0;
 				fmap[a][b] = map[a][b];
 			}
 				
-		for (int a = 0; a < 3; a++) //º®¼¼¿ì±â
+		for (int a = 0; a < 3; a++) //ÂºÂ®Â¼Â¼Â¿Ã¬Â±Ã¢
 		{
 			fmap[temp[a].first][temp[a].second] = 1;
 		}
