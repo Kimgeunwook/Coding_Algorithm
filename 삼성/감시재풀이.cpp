@@ -17,9 +17,9 @@ void check(int x, int y, int dir)
 {
 	while (1)
 	{
-		if (fmap[x + dx[dir]][y + dy[dir]] == 6 || x + dx[dir] < 0 || x + dx[dir] >= N || y + dy[dir] < 0 || y + dy[dir] >= M) //case º®
+		if (fmap[x + dx[dir]][y + dy[dir]] == 6 || x + dx[dir] < 0 || x + dx[dir] >= N || y + dy[dir] < 0 || y + dy[dir] >= M) //case ÂºÂ®
 			break;
-		else if (fmap[x + dx[dir]][y + dy[dir]] == 0) //case ºóÄ­
+		else if (fmap[x + dx[dir]][y + dy[dir]] == 0) //case ÂºÃ³Ã„Â­
 		{
 			fmap[x + dx[dir]][y + dy[dir]] = -1;
 			x += dx[dir];
