@@ -4,8 +4,8 @@ using namespace std;
 struct info {
 	int x, y, dir, num;
 };
-int T, N, M, K;//ÃÑ Å×ÄÉ  ,  ¸ÊÅ©±â   ,   ½Ã°£  ,  ±ºÁı¼ö
-//1 ºÏ    2 ³²   3 ¼­  4¿ì
+int T, N, M, K;//ì´ í…Œì¼€  ,  ë§µí¬ê¸°   ,   ì‹œê°„  ,  êµ°ì§‘ìˆ˜
+//1 ë¶    2 ë‚¨   3 ì„œ  4ìš°
 int dx[5] = {0, -1, 1, 0, 0 };
 int dy[5] = {0, 0, 0, -1, 1};
 int rdir[5] = { 0, 2, 1, 4, 3 };
@@ -21,15 +21,15 @@ void simulation()
 		while (!q.empty())
 		{
 			/*cout << endl;
-			cout << i<<"Â÷·Ê" << endl;*/
+			cout << i<<"ì°¨ë¡€" << endl;*/
 			
 			info cur = q.front();
 			/*cout << map[cur.x][cur.y].size() << endl;
 			cout << cur.x << "," << cur.y <<","<< cur.dir<<","<< cur.num<< endl;*/
 			q.pop();
-			if (cur.x + dx[cur.dir] == 0 || cur.x + dx[cur.dir] == N - 1 || cur.y + dy[cur.dir] == 0 || cur.y + dy[cur.dir] == N - 1) //»¡°£±¸¿ªÀÌ¸é
+			if (cur.x + dx[cur.dir] == 0 || cur.x + dx[cur.dir] == N - 1 || cur.y + dy[cur.dir] == 0 || cur.y + dy[cur.dir] == N - 1) //ë¹¨ê°„êµ¬ì—­ì´ë©´
 			{
-				//cout << "2¹ø" << endl;
+				//cout << "2ë²ˆ" << endl;
 				map[cur.x][cur.y].pop();
 				info temp = { cur.x + dx[cur.dir], cur.y + dy[cur.dir], rdir[cur.dir], cur.num / 2 };
 				if (cur.num / 2 != 0)
@@ -40,18 +40,18 @@ void simulation()
 			}
 			else
 			{
-				if (visit[cur.x + dx[cur.dir]][cur.y + dy[cur.dir]] == 0) //  ºóÄ­ÀÌ¸é
+				if (visit[cur.x + dx[cur.dir]][cur.y + dy[cur.dir]] == 0) //  ë¹ˆì¹¸ì´ë©´
 				{
-				//	cout << "3¹ø" << endl;
+				//	cout << "3ë²ˆ" << endl;
 					map[cur.x][cur.y].pop();
 					info temp = { cur.x + dx[cur.dir], cur.y + dy[cur.dir], cur.dir, cur.num };
 					map[cur.x + dx[cur.dir]][cur.y + dy[cur.dir]].push(temp);
 					visit[cur.x + dx[cur.dir]][cur.y + dy[cur.dir]] = 1;
 				}
-				else // ´Ù¸¥±ºÁıÀÌ¶û °ãÃÄÁö¸é
+				else // ë‹¤ë¥¸êµ°ì§‘ì´ë‘ ê²¹ì³ì§€ë©´
 				{
 					visit[cur.x + dx[cur.dir]][cur.y + dy[cur.dir]] = 2;
-				//	cout << "4¹ø" << endl;
+				//	cout << "4ë²ˆ" << endl;
 					map[cur.x][cur.y].pop();
 					info temp = { cur.x + dx[cur.dir], cur.y + dy[cur.dir], cur.dir, cur.num };
 					map[cur.x + dx[cur.dir]][cur.y + dy[cur.dir]].push(temp);
@@ -62,9 +62,9 @@ void simulation()
 		for(int i = 0; i <= N - 1; i++)
 			for (int j = 0; j <= N - 1; j++)
 			{
-				if (visit[i][j] == 2) //°ãÄ£°÷
+				if (visit[i][j] == 2) //ê²¹ì¹œê³³
 				{
-					//cout << "°ãÄ£°÷:" << i << "," << j << endl;
+					//cout << "ê²¹ì¹œê³³:" << i << "," << j << endl;
 					int sum = 0;
 					int max_n = 0, max_d;
 					while (!map[i][j].empty())
@@ -83,7 +83,7 @@ void simulation()
 					map[i][j].push(temp);
 					q.push(temp);
 				}
-				else if (visit[i][j] == 1) //°ãÄ¡Áö ¾Ê°í Ã¼Å©ÇØ³õÀ¸°÷
+				else if (visit[i][j] == 1) //ê²¹ì¹˜ì§€ ì•Šê³  ì²´í¬í•´ë†“ìœ¼ê³³
 				{
 					q.push(map[i][j].front());
 				}
@@ -94,7 +94,7 @@ void simulation()
 				visit[i][j] = 0;
 	}
 }
-////////////////////////visitÃÊ±âÈ­
+////////////////////////visitì´ˆê¸°í™”
 int main()
 {
 	cin >> T;
