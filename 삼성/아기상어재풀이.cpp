@@ -49,7 +49,7 @@ void bfs()
 							visit[cur.x + i][cur.y + j] = 1;
 							info temp = { cur.x + i  , cur.y + j, cur.cnt + 1 };
 							q.push(temp);
-							if (map[cur.x + i][cur.y + j] < cur_shark_size && map[cur.x + i][cur.y + j] != 0) //¸ÔÀ»¼ö ÀÖ´Â¹°°í±â°í ºóÄ­ÀÌ¾Æ´Ï¸é
+							if (map[cur.x + i][cur.y + j] < cur_shark_size && map[cur.x + i][cur.y + j] != 0) //ë¨¹ì„ìˆ˜ ìžˆëŠ”ë¬¼ê³ ê¸°ê³  ë¹ˆì¹¸ì´ì•„ë‹ˆë©´
 							{
 								FISH a = { cur.x + i , cur.y + j , cur.cnt + 1 };
 								if (cur.cnt + 1 < _min) _min = cur.cnt + 1;
@@ -92,7 +92,7 @@ int main()
 		
 		bfs(); 
 		
-		if (pq.size() == 0) break; //¸ÔÀ»¼ö ÀÖ´Â ¹°°í±âX
+		if (pq.size() == 0) break; //ë¨¹ì„ìˆ˜ ìžˆëŠ” ë¬¼ê³ ê¸°X
 		shark_x = pq.top().x;
 		shark_y = pq.top().y;
 		
