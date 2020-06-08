@@ -2,11 +2,11 @@
 #include <queue>
 using namespace std;
 int visit[102][102];
-int R, C, M;//Çà  ¿­  »ó¾î°³Ã¼¼ö
-int r, c, s, d, z;// À§Ä¡r À§Ä¡c ¼Ó·Â ¹æÇâ Å©±â
+int R, C, M;//í–‰  ì—´  ìƒì–´ê°œì²´ìˆ˜
+int r, c, s, d, z;// ìœ„ì¹˜r ìœ„ì¹˜c ì†ë ¥ ë°©í–¥ í¬ê¸°
 int cur_x, cur_y, cur_speed, cur_dir, cur_size;
 int flag = 0, answer = 0;
-bool mem[2200];//ÀÌµ¿Ä­ °è»êÇÏ±âÀ§ÇØ
+bool mem[2200];//ì´ë™ì¹¸ ê³„ì‚°í•˜ê¸°ìœ„í•´
 struct SHARK {
 	int r, c, s, d, z;
 };
@@ -26,9 +26,9 @@ struct compare2 {
 	}
 };
 
-priority_queue <SHARK, vector<SHARK>, compare> pq; //»çÀÌÁî ³»¸²Â÷¼ø
-queue<SHARK> temp; //»çÀÌÁî ³»¸²Â÷¼ø
-priority_queue <SHARK, vector<SHARK>, compare2> pqcol; //¿­ Å©±â·Î Á¤·Ä(¿­ °°À¸¸é Çàº¸±â)
+priority_queue <SHARK, vector<SHARK>, compare> pq; //ì‚¬ì´ì¦ˆ ë‚´ë¦¼ì°¨ìˆœ
+queue<SHARK> temp; //ì‚¬ì´ì¦ˆ ë‚´ë¦¼ì°¨ìˆœ
+priority_queue <SHARK, vector<SHARK>, compare2> pqcol; //ì—´ í¬ê¸°ë¡œ ì •ë ¬(ì—´ ê°™ìœ¼ë©´ í–‰ë³´ê¸°)
 
 int main()
 {
@@ -36,7 +36,7 @@ int main()
 
 	for (int i = 0; i < M; i++)
 	{
-		cin >> r >> c >> s >> d >> z; //»ó¾î Å©±âº°·Î ÀÔ·Â
+		cin >> r >> c >> s >> d >> z; //ìƒì–´ í¬ê¸°ë³„ë¡œ ì…ë ¥
 		SHARK next = { r,c,s,d,z };
 		pqcol.push(next);
 	}
@@ -44,12 +44,12 @@ int main()
 	for (int k = 1; k <= C; k++)
 	{
 		flag = 0;
-		//»ó¾î Àâ´Â ºÎºĞ
+		//ìƒì–´ ì¡ëŠ” ë¶€ë¶„
 		while (!pqcol.empty())
 		{
 			if (k == pqcol.top().c && flag == 0)
 			{
-				//cout << "»ó¾îÀâÀ½" << pqcol.top().r << "," << pqcol.top().c << "," << pqcol.top().z << endl;
+				//cout << "ìƒì–´ì¡ìŒ" << pqcol.top().r << "," << pqcol.top().c << "," << pqcol.top().z << endl;
 				flag = 1;
 				answer += pqcol.top().z;
 				pqcol.pop();
@@ -59,13 +59,13 @@ int main()
 			pqcol.pop();
 		}
 
-		//visit¹è¿­ ÃÊ±âÈ­
+		//visitë°°ì—´ ì´ˆê¸°í™”
 		for (int i = 1; i <= R; i++)
 			for (int j = 1; j <= C; j++)
 				visit[i][j] = 0;
 
 
-		//@@@@@@@@»ó¾îµé ÀÌµ¿½ÃÅ°±â temp -> pq¤¡¤¡¤¡
+		//@@@@@@@@ìƒì–´ë“¤ ì´ë™ì‹œí‚¤ê¸° temp -> pqã„±ã„±ã„±
 		while (!temp.empty())
 		{
 			cur_x = temp.front().r;
@@ -74,7 +74,7 @@ int main()
 			cur_dir = temp.front().d;
 			cur_size = temp.front().z;
 			int next_location;
-			if (cur_dir == 1)//À§
+			if (cur_dir == 1)//ìœ„
 			{
 				if (cur_x - cur_speed < 1)
 				{
@@ -95,12 +95,12 @@ int main()
 					cur_x -= cur_speed;
 				}
 			}
-			else if (cur_dir == 2)//¾Æ·¡
+			else if (cur_dir == 2)//ì•„ë˜
 			{
 				if (cur_x + cur_speed > R)
 				{
 					next_location = (cur_x + cur_speed - R) % (R - 1);
-					if (((cur_x + cur_speed - R) / (R - 1)) % 2 == 0) //¿ª
+					if (((cur_x + cur_speed - R) / (R - 1)) % 2 == 0) //ì—­
 					{
 						cur_x = R - next_location;
 						cur_dir = 1;
@@ -115,12 +115,12 @@ int main()
 					cur_x = cur_x + cur_speed;
 				}
 			}
-			else if (cur_dir == 3)//¿À
+			else if (cur_dir == 3)//ì˜¤
 			{
 				if (cur_y + cur_speed > C)
 				{
 					next_location = (cur_y + cur_speed - C) % (C - 1);
-					if (((cur_y + cur_speed - C) / (C - 1)) % 2 == 0) // ¿ª¹æÇâ
+					if (((cur_y + cur_speed - C) / (C - 1)) % 2 == 0) // ì—­ë°©í–¥
 					{
 						cur_y = C - next_location;
 						cur_dir = 4;
@@ -136,7 +136,7 @@ int main()
 				}
 				
 			}
-			else if (cur_dir == 4)//¿Ş
+			else if (cur_dir == 4)//ì™¼
 			{
 				if (cur_y - cur_speed < 1)
 				{
@@ -162,13 +162,13 @@ int main()
 			temp.pop();
 		}
 
-		//pqcolÃÊ±âÈ­
+		//pqcolì´ˆê¸°í™”
 		while (!pqcol.empty())
 		{
 			pqcol.pop();
 		}
 
-		// ÀÌµ¿ÈÄ °°ÀºÄ­¿¡ ÀÖ´Â¾Öµé °Å¸£±â
+		// ì´ë™í›„ ê°™ì€ì¹¸ì— ìˆëŠ”ì• ë“¤ ê±°ë¥´ê¸°
 		while (!pq.empty())
 		{
 			cur_x = pq.top().r;
