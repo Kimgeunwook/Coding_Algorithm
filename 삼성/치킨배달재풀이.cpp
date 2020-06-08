@@ -3,7 +3,7 @@
 #include <math.h>
 #include <algorithm>
 using namespace std;
-int N, M; //¹è¿­Å©±â ³²À»Ä¡Å²Áı¼ö
+int N, M; //ë°°ì—´í¬ê¸° ë‚¨ì„ì¹˜í‚¨ì§‘ìˆ˜
 int map[50][50];
 int _min = 987654321;
 int temp[13];
@@ -41,9 +41,9 @@ int main()
 		for (int j = 0; j < N; j++)
 		{
 			cin >> map[i][j];
-			if (map[i][j] == 1)//Áı
+			if (map[i][j] == 1)//ì§‘
 				house.push_back(make_pair(i, j));
-			if (map[i][j] == 2) //Ä¡Å²
+			if (map[i][j] == 2) //ì¹˜í‚¨
 				chicken.push_back(make_pair(i, j));
 		}
 
