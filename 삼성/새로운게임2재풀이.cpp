@@ -2,10 +2,10 @@
 using namespace std;
 #include <vector>
 struct info {
-	int x, y, dir, num, location; // ÁÂÇ¥ , ¹æÇâ, ¿øº»¸î¹øÂ°ÀÎÁö , ¸Ê¿¡¼­ ¸î¹øÂ°À§Ä¡ÀÎÁö
+	int x, y, dir, num, location; // ì¢Œí‘œ , ë°©í–¥, ì›ë³¸ëª‡ë²ˆì§¸ì¸ì§€ , ë§µì—ì„œ ëª‡ë²ˆì§¸ìœ„ì¹˜ì¸ì§€
 };
-vector<info> v_original; // ¼ø¼­À¯Áö¹è¿­
-vector<info> v_map[13][13]; //°¢ Ä­¿¡ ¸î°³ ½×ÀÎÁö
+vector<info> v_original; // ìˆœì„œìœ ì§€ë°°ì—´
+vector<info> v_map[13][13]; //ê° ì¹¸ì— ëª‡ê°œ ìŒ“ì¸ì§€
 vector<info> temp;
 int map[13][13], N, K;
 int dx[5] = {0, 0, 0, -1, 1};
@@ -26,9 +26,9 @@ int simulation()
 		
 		if (cur.x + dx[cur.dir] >= 1 && cur.x + dx[cur.dir] <= N && cur.y + dy[cur.dir] >= 1 && cur.y + dy[cur.dir] <= N)
 		{
-			if (map[cur.x + dx[cur.dir]][cur.y + dy[cur.dir]] == 0)//Èò
+			if (map[cur.x + dx[cur.dir]][cur.y + dy[cur.dir]] == 0)//í°
 			{
-				//cout << "Èò" << endl;
+				//cout << "í°" << endl;
 				temp.clear();
 				for (int j = 0; j < cur.location; j++)
 					temp.push_back(v_map[cur.x][cur.y][j]);
@@ -52,9 +52,9 @@ int simulation()
 				flag = 0;
 			}
 
-			else if (map[cur.x + dx[cur.dir]][cur.y + dy[cur.dir]] == 1) // »¡
+			else if (map[cur.x + dx[cur.dir]][cur.y + dy[cur.dir]] == 1) // ë¹¨
 			{
-				//cout << "»¡" << endl;
+				//cout << "ë¹¨" << endl;
 				temp.clear();
 				for (int j = 0; j < cur.location; j++)
 					temp.push_back(v_map[cur.x][cur.y][j]);
@@ -79,24 +79,24 @@ int simulation()
 				flag = 0;
 			}
 
-			else if (map[cur.x + dx[cur.dir]][cur.y + dy[cur.dir]] == 2) //ÆÄ
+			else if (map[cur.x + dx[cur.dir]][cur.y + dy[cur.dir]] == 2) //íŒŒ
 			{
-				//cout << "ÆÄ" << endl;
-				if (flag == 1) // ¹İ´ëÂÊµµ ÆÄ¶õ»öÀÌ¸é
+				//cout << "íŒŒ" << endl;
+				if (flag == 1) // ë°˜ëŒ€ìª½ë„ íŒŒë€ìƒ‰ì´ë©´
 				{
 					flag = 0;
 					continue;
 				}
-				//flag = 1ÇØÁÖ´ÂºÎºĞ
+				//flag = 1í•´ì£¼ëŠ”ë¶€ë¶„
 				v_original[cur.num].dir = dir_reverse[cur.dir];
 				flag = 1;
 				i--;
 			}
 		}
-		else // ¹üÀ§ ¹ş¾î³ª¸é
+		else // ë²”ìœ„ ë²—ì–´ë‚˜ë©´
 		{
-			//cout <<"¹üÀ§¹ş¾î³²" << endl;
-			if (flag == 1) // ¹İ´ëÂÊµµ ÆÄ¶õ»öÀÌ¸é
+			//cout <<"ë²”ìœ„ë²—ì–´ë‚¨" << endl;
+			if (flag == 1) // ë°˜ëŒ€ìª½ë„ íŒŒë€ìƒ‰ì´ë©´
 			{
 				flag = 0;
 				continue;
