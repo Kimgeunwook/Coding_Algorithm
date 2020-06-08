@@ -2,7 +2,7 @@
 using namespace std;
 int N, map[51][51];
 int _min = 987654321;
-int point[51][2]; //°æ°è¼± ¹è¿­
+int point[51][2]; //ê²½ê³„ì„  ë°°ì—´
 int sum = 0;
 int calc(int x, int y, int d1, int d2)
 {
@@ -17,11 +17,11 @@ int calc(int x, int y, int d1, int d2)
 				else
 					num[2] += map[i][j];
 			}
-			if (x <= i && i < x + d1 && j < point[i][0]) // 1±¸¿ª
+			if (x <= i && i < x + d1 && j < point[i][0]) // 1êµ¬ì—­
 			{
 				num[1] += map[i][j];
 			}
-			if (x <= i && i <= x + d2 && j > point[i][1]) //2±¸¿ª
+			if (x <= i && i <= x + d2 && j > point[i][1]) //2êµ¬ì—­
 			{
 				num[2] += map[i][j];
 			}
@@ -73,7 +73,7 @@ void search()
 				for (int d1 = 1; d1 <= d1d2 - 1; d1++)
 				{
 					int d2 = d1d2 - d1;
-					if (y - d1 < 1 || y + d2 > N) // d1, d2°¡ ¹üÀ§¿¡ ¾È¸ÂÀ¸¸é
+					if (y - d1 < 1 || y + d2 > N) // d1, d2ê°€ ë²”ìœ„ì— ì•ˆë§ìœ¼ë©´
 						continue;
 					check(x, y, d1, d2);
 					int ret = calc(x, y, d1, d2);
