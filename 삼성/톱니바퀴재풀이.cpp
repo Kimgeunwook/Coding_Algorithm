@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 int map[5][8];
-int same[4]; //°°À¸¸é 1 ´Ù¸£¸é0
+int same[4]; //Â°Â°Ã€Â¸Â¸Ã© 1 Â´Ã™Â¸Â£Â¸Ã©0
 int visit[5];
 void rotate(int n, int dir)
 {
@@ -9,7 +9,7 @@ void rotate(int n, int dir)
 	if (visit[n] == 1 || n == 0 || n == 5)
 		return;
 	visit[n] = 1;
-	if (dir == 1)//½Ã°è
+	if (dir == 1)//Â½ÃƒÂ°Ã¨
 	{
 		temp = map[n][7];
 		for (int i = 7; i >= 1; i--)
