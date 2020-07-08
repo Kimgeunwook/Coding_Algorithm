@@ -1,24 +1,19 @@
 #include <iostream>
 using namespace std;
-int arr[10001];
-int sum[10001];
-int N, M;
+int N, M, s = 0, e = 0,sum,answer = 0;
+int arr[10000];
 int main()
 {
 	cin >> N >> M;
-	int answer = 0;
-	for (int i = 1; i <= N; i++)
-	{
+	for (int i = 0; i < N; i++)
 		cin >> arr[i];
-		sum[i] = sum[i - 1] + arr[i];
+	while (1)
+	{
+		if (sum >= M) sum -= arr[s++];
+		else if (e == N) break;
+		else sum += arr[e++];
+		if (sum == M) answer++;
 	}
-
-	for(int i = 0; i <= N ;i++)
-		for (int j = 0; j <= N; j++)
-		{
-			if (sum[j] - sum[i] == M) answer++;
-		}
 	cout << answer << endl;
-
 	return 0;
 }
