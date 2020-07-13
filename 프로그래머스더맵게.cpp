@@ -6,7 +6,7 @@ using namespace std;
 #include <vector>
 #include <queue>
 struct compare {
-	bool operator()(int a, int b) //오름차순
+	bool operator()(int a, int b) //오름차순정렬
 	{
 		return a > b;
 	}
