@@ -21,7 +21,7 @@ int main()
 	}
 
 	fill(dist.begin(), dist.end(), INF);
-	
+
 	dist[N] = 0;
 	pq.push(make_pair(0, N)); //(cost, 목적지)순 (cost순 오름차순 위해)
 
@@ -41,13 +41,13 @@ int main()
 				dist[next] = dist[cur] + nextcost;
 				pq.push(make_pair(dist[next], next));
 			}
-			
+
 		}
 	}
 	for (int i = 1; i <= V; i++)
 	{
-		if (dist[i] == INF) cout << "INF" << endl;
-		else cout << dist[i] << endl;
+		if (dist[i] == INF) cout << "INF" << "\n";
+		else cout << dist[i] << "\n";
 	}
 
 }
