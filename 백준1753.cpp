@@ -1,4 +1,3 @@
-//20Ω√ Ω√¿€
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -28,7 +27,7 @@ int main()
 	while (!pq.empty())
 	{
 		int cur = pq.top().second;
-		int cur_cost = pq.top().first;
+
 		pq.pop();
 
 		for (int i = 0; i < v[cur].size(); i++)
