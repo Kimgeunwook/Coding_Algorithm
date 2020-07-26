@@ -1,48 +1,38 @@
-//19:50시작
 #include <iostream>
 #include <string>
 #include <set>
 #include <vector>
-#include <map>
 #include <algorithm>
 using namespace std;
 set<char> _s;
-string s[10], answer[10];
+string s[10];
 vector<char> v;
 int N;
 int arr[10];
 int visit[10];
 int temp[10];
-int _max = -1;
-map<char, int> m;
+int alphabet[26];
+int ans = 0;
 void dfs(int cnt)
 {
 	if (cnt == v.size())
 	{
-		
+
 		for (int i = 0; i < v.size(); i++)
-			m[v[i]] = temp[i];
+			alphabet[v[i] - 'A'] = temp[i];
 
-		for (int i = 0; i < N; i++)
-			answer[i] = "";
-
+		int sum = 0;
 		for (int i = 0; i < N; i++)
 		{
-			for (int j = 0; j < s[i].length(); j++)
+			int len = s[i].length();
+			int res = 0;
+			for (int j = 0; j < len; j++)
 			{
-				//cout << char(s[i][j]) <<":"<< m[char(s[i][j])] <<" ";
-				answer[i] += to_string(m[char(s[i][j])]);
+				res = res * 10 + alphabet[s[i][j] - 'A']; //문자열 길이만큼 돌면서 숫자 만들기...아이디어 미쳤따!
 			}
+			sum += res;
 		}
-		/*for (int i = 0; i < N; i++)
-			cout << answer[i] << " ";
-		cout << endl;*/
-		int totalsum = 0;
-		for (int i = 0; i < N; i++)
-		{
-			totalsum += stoi(answer[i]);
-		}
-		_max = max(_max, totalsum);
+		if (sum > ans) ans = sum;
 	}
 	else
 	{
@@ -58,7 +48,9 @@ void dfs(int cnt)
 }
 int main()
 {
-
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
 	cin >> N;
 	for (int i = 0; i < 10; i++)
 		arr[i] = 9 - i;
@@ -69,8 +61,10 @@ int main()
 		for (int j = 0; j < s[i].length(); j++)
 		{
 			_s.insert(s[i][j]);
-		}	
+		}
 	}
+
+	//몇가지 종류 알파벳이 있는지 알아내기
 	set<char>::iterator it;
 	for (it = _s.begin(); it != _s.end(); it++)
 	{
@@ -78,6 +72,6 @@ int main()
 	}
 
 	dfs(0);
-	cout << _max << endl;
+	cout << ans << "\n";
 	return 0;
 }
