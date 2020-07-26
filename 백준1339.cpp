@@ -17,7 +17,7 @@ void dfs(int cnt)
 {
 	if (cnt == v.size())
 	{
-
+		//각 알파벳마다 숫자 부여
 		for (int i = 0; i < v.size(); i++)
 			alphabet[v[i] - 'A'] = temp[i];
 
