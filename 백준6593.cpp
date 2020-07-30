@@ -32,7 +32,6 @@ void bfs()
 			int nc = cur.c + dir[i][2];
 			if (na >= 0 && na < L && nb >= 0 && nb < R && nc >= 0 && nc < C && visit[na][nb][nc] == 0 && map[na][nb][nc] != '#')
 			{
-
 				visit[na][nb][nc] = 1;
 				info temp = { na, nb, nc, cur.depth + 1 };
 				q.push(temp);
@@ -46,7 +45,6 @@ int main()
 	{
 		//Input
 		cin >> L >> R >> C;
-
 		if (L == 0 && R == 0 && C == 0) break;
 		for (int k = 0; k < L; k++)
 			for (int i = 0; i < R; i++)
