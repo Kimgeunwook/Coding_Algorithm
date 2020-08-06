@@ -1,4 +1,4 @@
-//2028시작
+//소수찾기 + 투포인터
 #include <iostream>
 #include <vector>
 using namespace std;
