@@ -5,7 +5,7 @@
 using namespace std;
 bool isend[10001];
 struct info {
-	int idx, isstart, dist; // true  ½ÃÀÛ
+	int idx, isstart, dist; // true  ì‹œì‘
 };
 struct comp {
 	bool operator()(info a, info b) {
@@ -30,16 +30,16 @@ int solution(vector<vector<int>> routes) {
 		info cur = pq.top();
 		pq.pop();
 		
-		if (cur.isstart == 1)//½ÃÀÛÁ¡ÀÌ¸é
+		if (cur.isstart == 1)//ì‹œì‘ì ì´ë©´
 		{
 			v.push_back(cur.idx);
 		}
 		else
 		{
-			if (isend[cur.idx]) continue; //ÀÌ¹ÌÁ×Àº¾Ö¸é ¹«½Ã
+			if (isend[cur.idx]) continue; //ì´ë¯¸ì£½ì€ì• ë©´ ë¬´ì‹œ
 			else
 			{
-				isend[cur.idx] = true; //Á×ÀºÇ¥½Ã
+				isend[cur.idx] = true; //ì£½ì€í‘œì‹œ
 				answer++;
 				for (int i = 0; i < v.size(); i++) isend[v[i]] = true;
 				v.clear();
