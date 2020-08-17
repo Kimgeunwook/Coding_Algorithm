@@ -1,9 +1,9 @@
-//¼Ò¼öÃ£±â + ÅõÆ÷ÀÎÅÍ
+//ì†Œìˆ˜ì°¾ê¸° + íˆ¬í¬ì¸í„°
 #include <iostream>
 #include <vector>
 using namespace std;
 int N;
-vector<bool> check(4000000); //false°¡ ¼Ò¼ö
+vector<bool> check(4000000); //falseê°€ ì†Œìˆ˜
 vector<int> p;
 void getPrime(int N)
 {
