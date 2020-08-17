@@ -1,4 +1,4 @@
-//1446½ÃÀÛ
+//1446Â½ÃƒÃ€Ã›
 #include <iostream>
 using namespace std;
 #include <string>
