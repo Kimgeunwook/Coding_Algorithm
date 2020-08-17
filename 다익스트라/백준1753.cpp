@@ -16,13 +16,13 @@ int main()
 	for (int i = 0; i < E; i++)
 	{
 		cin >> start >> dest >> weight;
-		v[start].push_back(make_pair(dest, weight)); //start¿¡¼­ dest±îÁö weightÀÌ´Ù == v[start] = {dest,weight}
+		v[start].push_back(make_pair(dest, weight)); //startì—ì„œ destê¹Œì§€ weightì´ë‹¤ == v[start] = {dest,weight}
 	}
 
 	fill(dist.begin(), dist.end(), INF);
 
 	dist[N] = 0;
-	pq.push(make_pair(0, N)); //(cost, ¸ñÀûÁö)¼ø (cost¼ø ¿À¸§Â÷¼ø À§ÇØ)
+	pq.push(make_pair(0, N)); //(cost, ëª©ì ì§€)ìˆœ (costìˆœ ì˜¤ë¦„ì°¨ìˆœ ìœ„í•´)
 
 	while (!pq.empty())
 	{
