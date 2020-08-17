@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 using namespace std;
-bool visit[32]; //true�� �Ȱ����¾ֵ�
+bool visit[32]; //true°¡ ¾È°¡Á®¿Â¾Öµé
 bool visit_res[32];
 int solution(int n, vector<int> lost, vector<int> reserve) {
 	int answer = n - lost.size();
