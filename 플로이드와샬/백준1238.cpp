@@ -1,4 +1,4 @@
-//21:40½ÃÀÛ
+//21:40Â½ÃƒÃ€Ã›
 
 #include <iostream>
 #include <algorithm>
