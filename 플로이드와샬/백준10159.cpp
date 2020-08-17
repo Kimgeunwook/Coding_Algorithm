@@ -11,7 +11,7 @@ int main()
 	for (int i = 0; i < M; i++)
 	{
 		cin >> a >> b;
-		floyd[a][b] = 1; //a°¡ bº¸´Ù ¹«°Å¿ò
+		floyd[a][b] = 1; //aÂ°Â¡ bÂºÂ¸Â´Ã™ Â¹Â«Â°Ã…Â¿Ã²
 		floyd[b][a] = -1;
 	}
 	for(int k = 1; k <= N; k++)
