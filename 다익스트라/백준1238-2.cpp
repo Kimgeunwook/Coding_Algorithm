@@ -1,4 +1,4 @@
-////19:20Ω√¿€
+////19:20¬Ω√É√Ä√õ
 //#include <iostream>
 //#include <vector>
 //#include <queue>
