@@ -1,4 +1,4 @@
-//17:23½ÃÀÛ
+//17:23ì‹œì‘
 #include <iostream>
 using namespace std;
 #include <algorithm>
@@ -37,20 +37,20 @@ void dfs(int x, int y,int cnt)
 		for (int j = 1; j <= 10; j++)
 		{
 			if (temp[i][j] == 0 || cnt >= _min) continue;
-			else //Á¶°Ç + Àç±Í
+			else //ì¡°ê±´ + ì¬ê·€
 			{
 				for(int  a = 5; a >= 1; a-- )
 				{
-					if (measure(i, j, a)) { //a»çÀÌÁî ºÙÀÏ ¼ö ÀÖÀ¸¸é
-						attach(i, j, a); // ºÙÀÌ°í
-						dfs(i, j, cnt + 1); //´ÙÀ½´Ü°è °í°í
-						detach(i, j, a); //¶¼±â
+					if (measure(i, j, a)) { //aì‚¬ì´ì¦ˆ ë¶™ì¼ ìˆ˜ ìˆìœ¼ë©´
+						attach(i, j, a); // ë¶™ì´ê³ 
+						dfs(i, j, cnt + 1); //ë‹¤ìŒë‹¨ê³„ ê³ ê³ 
+						detach(i, j, a); //ë–¼ê¸°
 					}
 				}
 				return;
 			}
 		}
-	// Á¾·áÁ¶°Ç
+	// ì¢…ë£Œì¡°ê±´
 	int flag = 0;
 	for (int i = 1; i <= 10; i++)
 		for (int j = 1; j <= 10; j++)
@@ -66,11 +66,11 @@ int main()
 	for (int i = 1; i <= 10; i++)
 		for (int j = 1; j <= 10; j++)
 		{
-			cin >> map[i][j]; //¿øº»¸Ê
-			temp[i][j] = map[i][j]; // ¶Ã´Ù ºÙ¿´´Ù ÇÒ ¸Ê
+			cin >> map[i][j]; //ì›ë³¸ë§µ
+			temp[i][j] = map[i][j]; // ë—ë‹¤ ë¶™ì˜€ë‹¤ í•  ë§µ
 		}
 
-	dfs(1, 1, 0); // 1,1 ¿¡¼­ 0°³ ºÙÀÎ °ÍÀ¸·Î ½ÃÀÛ
+	dfs(1, 1, 0); // 1,1 ì—ì„œ 0ê°œ ë¶™ì¸ ê²ƒìœ¼ë¡œ ì‹œì‘
 	if (_min == 987654321) cout << -1 << endl;
 	else cout << _min << endl;
 	
