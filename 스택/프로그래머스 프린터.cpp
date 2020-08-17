@@ -4,7 +4,7 @@ using namespace std;
 #include <vector>
 using namespace std;
 
-int visit[100]; // ÀÌ¹Ì ³ª¿Â¾Öµé Ãß°¡
+int visit[100]; // ì´ë¯¸ ë‚˜ì˜¨ì• ë“¤ ì¶”ê°€
 int solution(vector<int> priorities, int location) {
     int answer = 0;
     while (!visit[location])
@@ -20,9 +20,9 @@ int solution(vector<int> priorities, int location) {
                 {
 
                     flag = 1;
-                    break; //µÚ¿¡ ÀÚ±âº¸´Ù Å« ¼ıÀÚ°¡ ³ª¿À¸é
+                    break; //ë’¤ì— ìê¸°ë³´ë‹¤ í° ìˆ«ìê°€ ë‚˜ì˜¤ë©´
                 }
-                //visitÃ¼Å©µÇ´Â¾Ö°¡ locationÀÌ¸é ³ª¿À±â
+                //visitì²´í¬ë˜ëŠ”ì• ê°€ locationì´ë©´ ë‚˜ì˜¤ê¸°
             }
             if (flag == 0)
             {
