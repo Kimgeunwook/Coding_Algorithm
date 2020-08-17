@@ -1,4 +1,4 @@
-//1315½ÃÀÛ
+//1315ì‹œìž‘
 #include <iostream>
 #include <string>
 #include <vector>
@@ -7,13 +7,13 @@ using namespace std;
 struct info {
 	int idx, val;
 };
-struct comp { //³»¸²Â÷¼ø
+struct comp { //ë‚´ë¦¼ì°¨ìˆœ
 	bool operator()(info a, info b)
 	{
 		return a.val < b.val; 
 	}
 };
-struct comp2 { //¿À¸§Â÷¼ø
+struct comp2 { //ì˜¤ë¦„ì°¨ìˆœ
 	bool operator()(info a, info b)
 	{
 		return a.val > b.val;
@@ -26,7 +26,7 @@ vector<int> solution(vector<string> operations) {
 	vector<int> answer;
 	for (int i = 0; i < operations.size(); i++)
 	{
-		if (operations[i][0] == 'I') //³Ö´Â °Í
+		if (operations[i][0] == 'I') //ë„£ëŠ” ê²ƒ
 		{
 			if (operations[i][2] == '-')
 			{
@@ -45,7 +45,7 @@ vector<int> solution(vector<string> operations) {
 		}
 		else
 		{
-			if (operations[i][2] == '-') //ÃÖ¼Ò°ª »©´Â°Í
+			if (operations[i][2] == '-') //ìµœì†Œê°’ ë¹¼ëŠ”ê²ƒ
 			{
 				while (!pq2.empty())
 				{
@@ -62,7 +62,7 @@ vector<int> solution(vector<string> operations) {
 					}
 				}
 			}
-			else //ÃÖ´ë°ª »©´Â°Í
+			else //ìµœëŒ€ê°’ ë¹¼ëŠ”ê²ƒ
 			{
 				while (!pq.empty())
 				{
