@@ -1,4 +1,4 @@
-//1520����
+//1520½ÃÀÛ
 #include <iostream>
 #include <string>
 #include <vector>
@@ -30,7 +30,7 @@ int solution(int n, vector<vector<int>> edge) {
 		q.pop();
 		for (int i = 0; i < v[cur.x].size(); i++)
 		{
-			if (visit[v[cur.x][i]] == 0) // �湮�Ѱ��� �ƴϸ�
+			if (visit[v[cur.x][i]] == 0) // ¹æ¹®ÇÑ°÷ÀÌ ¾Æ´Ï¸é
 			{
 				visit[v[cur.x][i]] = 1;
 				info newbie = { v[cur.x][i]  , cur.depth + 1};
