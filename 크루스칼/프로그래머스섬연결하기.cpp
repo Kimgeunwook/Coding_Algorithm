@@ -1,4 +1,4 @@
-//1418½ÃÀÛ
+//1418Â½ÃƒÃ€Ã›
 #include <iostream>
 #include <string>
 #include <vector>
