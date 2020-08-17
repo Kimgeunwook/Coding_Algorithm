@@ -38,6 +38,6 @@ vector<string> solution(vector<vector<string>> tickets) {
     {
         answer.push_back(min_path.substr(i, 3));
     }
-    //answer¿¡ ¼¼°³¾¿ Ãß°¡ÇÏ±â
+    //answerÂ¿Â¡ Â¼Â¼Â°Â³Â¾Â¿ ÃƒÃŸÂ°Â¡Ã‡ÃÂ±Ã¢
     return answer;
 }
