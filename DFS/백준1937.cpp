@@ -1,4 +1,4 @@
-//15:48½ÃÀÛ
+//15:48Â½ÃƒÃ€Ã›
 #include <iostream>
 using namespace std;
 #include <algorithm>
