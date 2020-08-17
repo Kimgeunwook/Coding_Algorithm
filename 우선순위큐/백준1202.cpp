@@ -16,7 +16,7 @@ bool comp(info a, info b)
 }
 int main()
 {
-	//ÀÔ·Â
+	//ìž…ë ¥
 	cin >> N >> K;
 	int a, b;
 	for (int i = 0; i < N; i++)
@@ -31,9 +31,9 @@ int main()
 		bags.push_back(a);
 	}
 
-	//¹«°Ô ¿À¸§Â÷¼ø ¼ÒÆÃ
+	//ë¬´ê²Œ ì˜¤ë¦„ì°¨ìˆœ ì†ŒíŒ…
 	sort(v.begin(), v.end(),comp);
-	//¹«°Ô ¿À¸§Â÷¼ø ¼ÒÆÃ
+	//ë¬´ê²Œ ì˜¤ë¦„ì°¨ìˆœ ì†ŒíŒ…
 	sort(bags.begin(), bags.end());
 
 	int idx = 0;
