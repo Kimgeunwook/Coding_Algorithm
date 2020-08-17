@@ -11,14 +11,14 @@ int solution(int n, vector<vector<int>> results) {
 
 	for (int i = 1; i <= n; i++)
 		for (int j = 1; j <= n; j++)
-			arr[i][j] = INF; //INF = ½ÂºÎ¸¦ ¸íÈ®È÷ ¾Ë ¼ö ¾ø´Â °ü°è
+			arr[i][j] = INF; //INF = ìŠ¹ë¶€ë¥¼ ëª…í™•ížˆ ì•Œ ìˆ˜ ì—†ëŠ” ê´€ê³„
 
 	for (int i = 0; i < results.size(); i++)
 	{
 		int winner = results[i][0];
 		int loser = results[i][1];
-		arr[winner][loser] = 1; //1 = ÀÌ±ä °ü°è
-		arr[loser][winner] = -1; // -1 = Áø °ü°è
+		arr[winner][loser] = 1; //1 = ì´ê¸´ ê´€ê³„
+		arr[loser][winner] = -1; // -1 = ì§„ ê´€ê³„
 	}
 
 	for (int k = 1; k <= n; k++)
