@@ -10,28 +10,28 @@ struct info {
 
 bool comp(vector<int> x, vector<int> y)
 {
-    if (x[0] != y[0]) //µé¾î¿Â ½Ã°£¼ø ¼ÒÆÃ ½Ã°£°°À¸¸é ³¡³ª´Â ½Ã°£ ÂªÀº°Ô ¸ÕÀú
+    if (x[0] != y[0]) //ë“¤ì–´ì˜¨ ì‹œê°„ìˆœ ì†ŒíŒ… ì‹œê°„ê°™ìœ¼ë©´ ëë‚˜ëŠ” ì‹œê°„ ì§§ì€ê²Œ ë¨¼ì €
         return x[0] < y[0];
     else
         return x[1] < y[1];
 }
 
-struct comp2 { //ÀÏ ÇÒ ÈÄº¸µé
+struct comp2 { //ì¼ í•  í›„ë³´ë“¤
     bool operator()(info x, info y)
     {
         return x.b > y.b;
     }
 };
-priority_queue<info, vector<info>, comp2> pq_ready; //ÇöÀç ½Ã°£³»¿¡ µé¾î¿Í¼­ ½ÇÇàÇÒ ¼ö ÀÖ´Â ÀÛ¾÷
+priority_queue<info, vector<info>, comp2> pq_ready; //í˜„ì¬ ì‹œê°„ë‚´ì— ë“¤ì–´ì™€ì„œ ì‹¤í–‰í•  ìˆ˜ ìˆëŠ” ì‘ì—…
 
 int solution(vector<vector<int>> jobs) {
-    int answer = 0, cur_time = 0, idx = 0; // Á¤´ä, ÇöÀç ½Ã°£, ÇöÀç ³¡³ª±â·Î ¿¹¾àµÇ¾îÀÖ´Â ½Ã°£     
-    int left_jobs = jobs.size(); //³²Àº ÀÏ¼ö
+    int answer = 0, cur_time = 0, idx = 0; // ì •ë‹µ, í˜„ì¬ ì‹œê°„, í˜„ì¬ ëë‚˜ê¸°ë¡œ ì˜ˆì•½ë˜ì–´ìˆëŠ” ì‹œê°„     
+    int left_jobs = jobs.size(); //ë‚¨ì€ ì¼ìˆ˜
    
     sort(jobs.begin(), jobs.end(), comp);
     while (left_jobs > 0)
     {
-        //pq¿¡¼­ pq_ready·Î ³Ñ¾î°¥¼ö ÀÖ´Â¾Öµé ´Ù ³Ñ±â±â
+        //pqì—ì„œ pq_readyë¡œ ë„˜ì–´ê°ˆìˆ˜ ìˆëŠ”ì• ë“¤ ë‹¤ ë„˜ê¸°ê¸°
         while ((idx < jobs.size()) && jobs[idx][0] <= cur_time)
         {
             info newbie = { jobs[idx][0] , jobs[idx][1] };
@@ -45,7 +45,7 @@ int solution(vector<vector<int>> jobs) {
             left_jobs--;
             pq_ready.pop();
         }
-        else //pq_ready¿¡¼­ ½ÇÇàÇÒ ¾Ö ¾øÀ¸¸é ½Ã°£¸¸ ++
+        else //pq_readyì—ì„œ ì‹¤í–‰í•  ì•  ì—†ìœ¼ë©´ ì‹œê°„ë§Œ ++
         {
             cur_time++;
         }
