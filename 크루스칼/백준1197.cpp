@@ -28,11 +28,11 @@ void Union(int a, int b)
 int main()
 {
 	cin >> V >> E;
-	//Ã³À½¿¡ ÀÚ±â ºÎ¸ð ÀÚ±âÀÚ½ÅÀ¸·Î ÃÊ±âÈ­
+	//ì²˜ìŒì— ìžê¸° ë¶€ëª¨ ìžê¸°ìžì‹ ìœ¼ë¡œ ì´ˆê¸°í™”
 	for (int i = 1; i <= V; i++)
 		parent[i] = i;
 
-	//ÀÔ·Â
+	//ìž…ë ¥
 	int a, b, c;
 	for (int i = 0; i < E; i++)
 	{
@@ -41,7 +41,7 @@ int main()
 		v.push_back(newbie);
 	}
 
-	//weight ¿À¸§Â÷¼øÀ¸·Î Á¤·Ä
+	//weight ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬
 	sort(v.begin(), v.end(), comp);
 
 	for (int i = 0; i < v.size(); i++)
