@@ -1,4 +1,4 @@
-//21:31½ÃÀÛ
+//21:31ì‹œìž‘
 #include <iostream>
 #include <queue>
 #include <algorithm>
@@ -72,11 +72,11 @@ int main()
 		visit[start[0]][start[1]][start[2]] = 1;
 		bfs();
 
-		//Á¤´ä Ãâ·Â
+		//ì •ë‹µ ì¶œë ¥
 		if (_min == INF) cout << "Trapped!" << endl;
 		else cout << "Escaped in " << _min << " minute(s)." << endl;
 
-		//visitÃÊ±âÈ­ min°ª ÃÊ±âÈ­
+		//visitì´ˆê¸°í™” minê°’ ì´ˆê¸°í™”
 		for (int k = 0; k < L; k++)
 			for (int i = 0; i < R; i++)
 				for (int j = 0; j < C; j++)
