@@ -1,4 +1,4 @@
-//1945½ÃÀÛ
+//1945ì‹œì‘
 #include <iostream>
 #include <string>
 #include <vector>
@@ -17,17 +17,17 @@ int solution(int bridge_length, int weight, vector<int> truck_weights) {
 	int cur_weight = 0;
 	while(1)
 	{
-		if (pq.empty() && ready_q.empty()) break; //´Ù¸®¿¡µµ ¾ø°í ·¹µğ¿¡µµ ¾øÀ¸¸é
+		if (pq.empty() && ready_q.empty()) break; //ë‹¤ë¦¬ì—ë„ ì—†ê³  ë ˆë””ì—ë„ ì—†ìœ¼ë©´
 
-		if (pq.empty()) //´Ù¸®¿¡ ¾Æ¹«µµ ¾øÀ¸¸é
+		if (pq.empty()) //ë‹¤ë¦¬ì— ì•„ë¬´ë„ ì—†ìœ¼ë©´
 		{
 			info temp = { answer, ready_q.front()};
 			pq.push(temp);
 			cur_weight += ready_q.front();
-			cout << answer << "¿¡" << temp.weight << "ÁøÀÔ" << endl;
+			cout << answer << "ì—" << temp.weight << "ì§„ì…" << endl;
 			ready_q.pop();
 		}
-		else //´Ù¸® Â÷ ÀÖÀ¸¸é »çÀÌÁî°Ë»ç
+		else //ë‹¤ë¦¬ ì°¨ ìˆìœ¼ë©´ ì‚¬ì´ì¦ˆê²€ì‚¬
 		{
 			info late = pq.front();
 			if (answer - bridge_length == late.time)
@@ -38,13 +38,13 @@ int solution(int bridge_length, int weight, vector<int> truck_weights) {
 			if (!ready_q.empty())
 			{
 				int cur = ready_q.front();
-				if (cur + cur_weight <= weight) //´õ ÅÂ¿ï¼ö ÀÖÀ¸¸é
+				if (cur + cur_weight <= weight) //ë” íƒœìš¸ìˆ˜ ìˆìœ¼ë©´
 				{
 					
 					info temp = { answer, cur };
 					pq.push(temp);
 					cur_weight += cur;
-					cout << answer << "¿¡" << temp.weight << "ÁøÀÔ" << endl;
+					cout << answer << "ì—" << temp.weight << "ì§„ì…" << endl;
 					ready_q.pop();
 				}
 			}
