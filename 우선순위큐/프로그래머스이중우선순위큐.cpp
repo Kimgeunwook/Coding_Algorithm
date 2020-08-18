@@ -102,15 +102,11 @@ vector<int> solution(vector<string> operations) {
 		}
 		pq2.pop();
 	}
-	if (answer.size() == 2) {
-		cout << answer[0] << " " << answer[1] << endl;
-		return answer;
-	}
+	if (answer.size() == 2) return answer;
 	else
 	{
 		answer.push_back(0);
 		answer.push_back(0);
-		cout << answer[0] << " " << answer[1] << endl;
 		return answer;
 	}
 	

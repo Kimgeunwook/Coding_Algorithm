@@ -8,7 +8,7 @@ using namespace std;
 int arr[241];
 int solution(vector<int> people, int limit) {
 	int answer = 0;
-	/**/
+	/*
 	int l = 0, r = people.size() - 1;
 	sort(people.begin(), people.end(), greater<int>());
 	while (l < r)

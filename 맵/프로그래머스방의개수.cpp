@@ -4,11 +4,13 @@
 #include <vector>
 #include <map>
 using namespace std;
+
 int dx[8] = { -1, -1, 0, 1, 1, 1, 0, -1 };
 int dy[8] = { 0, 1, 1, 1, 0, -1, -1, -1 };
 typedef pair<int, int> Pair;
 map<Pair, bool> visitNode;
 map< pair< Pair, Pair>, bool> visitDirect;
+
 int solution(vector<int> arrows) {
 	int answer = 0;
 	int curX = 0, curY = 0;

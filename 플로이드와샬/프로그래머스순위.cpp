@@ -17,22 +17,19 @@ int solution(int n, vector<vector<int>> results) {
 	{
 		int winner = results[i][0];
 		int loser = results[i][1];
+<<<<<<< Updated upstream:플로이드와샬/프로그래머스순위.cpp
 		arr[winner][loser] = 1; //1 = 이긴 관계
 		arr[loser][winner] = -1; // -1 = 진 관계
+=======
+		arr[winner][loser] = 1; //1 = �̱� ����
+>>>>>>> Stashed changes:프로그래머스순위.cpp
 	}
 
 	for (int k = 1; k <= n; k++)
 		for (int i = 1; i <= n; i++)
 			for (int j = 1; j <= n; j++)
 			{
-				//if (arr[i][k] == 1 && arr[k][j] == 1) arr[i][j] = 1;
-				if (i == k || arr[i][j] == 1 || arr[i][j] == -1) continue;
-
-				arr[i][j] = min(arr[i][j], arr[i][k] + arr[k][j]);
-
-				if (arr[i][j] == 2) arr[i][j] = 1;
-				else if (arr[i][j] == -2) arr[i][j] = -1;
-				else if (arr[i][j] == 0) arr[i][j] = INF;
+				if (arr[i][k] == 1 && arr[k][j] == 1) arr[i][j] = 1;
 			}
 
 	for (int i = 1; i <= n; i++)
@@ -40,14 +37,11 @@ int solution(int n, vector<vector<int>> results) {
 		int flag = 0;
 		for (int j = 1; j <= n; j++)
 		{
-			//if (arr[i][j] == 1 || arr[j][i] == 1) flag++;
-			if (arr[i][j] == INF) flag++;
-			cout << arr[i][j] << " ";
+			if (arr[i][j] == 1 || arr[j][i] == 1) flag++;
 		}
 		if (flag == n - 1) answer++;
-		cout << endl;
 	}
-	
+
 	return answer;
 }
 int main()

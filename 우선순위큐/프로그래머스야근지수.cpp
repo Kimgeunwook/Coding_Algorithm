@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream:우선순위큐/프로그래머스야근지수.cpp
 //1446½ÃÀÛ
+=======
+//1446���� 1502��
+>>>>>>> Stashed changes:프로그래머스야근지수.cpp
 #include <iostream>
 using namespace std;
 #include <string>

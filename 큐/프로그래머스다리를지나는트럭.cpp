@@ -24,7 +24,10 @@ int solution(int bridge_length, int weight, vector<int> truck_weights) {
 			info temp = { answer, ready_q.front()};
 			pq.push(temp);
 			cur_weight += ready_q.front();
+<<<<<<< Updated upstream:큐/프로그래머스다리를지나는트럭.cpp
 			cout << answer << "에" << temp.weight << "진입" << endl;
+=======
+>>>>>>> Stashed changes:프로그래머스다리를지나는트럭.cpp
 			ready_q.pop();
 		}
 		else //다리 차 있으면 사이즈검사
@@ -44,14 +47,15 @@ int solution(int bridge_length, int weight, vector<int> truck_weights) {
 					info temp = { answer, cur };
 					pq.push(temp);
 					cur_weight += cur;
+<<<<<<< Updated upstream:큐/프로그래머스다리를지나는트럭.cpp
 					cout << answer << "에" << temp.weight << "진입" << endl;
+=======
+>>>>>>> Stashed changes:프로그래머스다리를지나는트럭.cpp
 					ready_q.pop();
 				}
 			}
 			
 		}
-
-
 		answer++;
 	}
 	return answer;

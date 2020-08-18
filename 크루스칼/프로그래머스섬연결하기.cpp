@@ -29,19 +29,22 @@ void _Union(int a, int b)
 priority_queue<info, vector<info>, comp> pq;
 bool visit[101];
 int solution(int n, vector<vector<int>> costs) {
-	
+	for (int i = 0; i <= 100; i++)
+		parent[i] = i;
 	int answer = 0;
 	for (int i = 0; i < costs.size(); i++) pq.push({ costs[i][0], costs[i][1], costs[i][2] });
 	while (!pq.empty())
 	{
 		info cur = pq.top();
 		pq.pop();
+
 		if (_find(cur.start) == _find(cur.des)) continue;
 
 		_Union(cur.start, cur.des);
 		answer += cur.val;
 	}
 	return answer;
+<<<<<<< Updated upstream:크루스칼/프로그래머스섬연결하기.cpp
 }
 int main()
 {
@@ -50,3 +53,6 @@ int main()
 	cout << solution(4, { {2, 3, 3},{2, 4, 4},{3, 4, 7},{3, 5, 3},{4, 5, 10} }) << endl;
 	return 0;
 }
+=======
+}
+>>>>>>> Stashed changes:프로그래머스섬연결하기.cpp

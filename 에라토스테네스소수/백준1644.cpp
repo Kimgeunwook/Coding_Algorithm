@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream:에라토스테네스소수/백준1644.cpp
 //소수찾기 + 투포인터
+=======
+//2028����
+>>>>>>> Stashed changes:백준1644.cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -8,14 +12,14 @@ vector<int> p;
 void getPrime(int N)
 {
 	check[1] = true;
-	for(int i = 2; i * i <= N; i++)
-		if (!check[i]) 
+	for (int i = 2; i * i <= N; i++)
+		if (!check[i])
 		{
 			for (int j = i + i; j <= N; j += i) {
 				check[j] = true;
 			}
 		}
-	
+
 	for (int i = 2; i <= N; i++)
 		if (!check[i]) p.push_back(i);
 }
@@ -28,7 +32,7 @@ int twoPointer(int N)
 	while (1)
 	{
 		if (temp >= N) temp -= p[s++];
-		if (e == p.size()) break;
+		else if (e == p.size()) break;
 		else temp += p[e++];
 		if (temp == N) answer++;
 	}

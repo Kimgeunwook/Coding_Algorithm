@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream:BFS/프로그래머스가장먼노드.cpp
 //1520½ÃÀÛ
+=======
+//1520���� //1542��
+>>>>>>> Stashed changes:프로그래머스가장먼노드.cpp
 #include <iostream>
 #include <string>
 #include <vector>
