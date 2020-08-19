@@ -8,6 +8,17 @@
     2. dx[4] dy[4] 이용한 4방향 검사
     3. visit 체크로 시간 메모리 줄이기
     4. 탐색시 map범위 넘어가는거 체크
+    5. visit 체크타이밍 중요 (push하기 전에 체크 (q.pop()하고 체크하면 메모리초과날 확률있다))
+	    ex)
+	    q.pop();
+	    @@@여기서 visit 체크하면 메모리초과 난 문제도 있었다@@@
+
+		for (int k = 0; k < 4; k++)
+			if (map[x + dx[k]][y + dy[k]] > 0 && !visit[x + dx[k]][y + dy[k]])
+			{
+				visit[x + dx[k]][y + dy[k]] = true;
+				q.push({ x + dx[k] , y + dy[k] });
+			}
 ```    
 </details>    
 
