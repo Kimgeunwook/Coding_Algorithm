@@ -68,3 +68,34 @@
 	}
 ```    
 </details>    
+
+
+
+<details markdown="1">    
+<summary>3. DP</summary>  
+    
+### 3.1 LIS(lower_bound방법 nlogn시간)  
+
+```    
+    -백준2352中-
+
+#include <algorithm> //lowerbound 위한 헤더 
+
+	v.push_back(arr[1]);
+	for (int i = 2; i <= N; i++)
+	{
+		if (arr[i] > v[v.size() - 1]) // 제일 뒤에 숫자보다 크면 push
+		{
+			v.push_back(arr[i]);
+			continue;
+		}
+		int it = lower_bound(v.begin(), v.end(), arr[i]) - v.begin(); //현재 숫자보다 '이상' 인곳에 현재숫자로 대체(= 손해볼일 없다)
+		v[it] = arr[i];
+	}
+
+	cout << v.size() << endl; //사이즈가 곧 최장거리
+	return 0;
+}
+    
+```    
+</details>    
