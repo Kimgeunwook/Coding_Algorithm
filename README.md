@@ -72,7 +72,7 @@
 
 
 <details markdown="1">    
-<summary>3. DP</summary>  
+<summary>3. LIS</summary>  
     
 ### 3.1 LIS(lower_bound방법 nlogn시간)  
 
@@ -96,6 +96,21 @@
 	cout << v.size() << endl; //사이즈가 곧 최장거리
 	return 0;
 }
+    
+```    
+### 3.1 LIS(N^2시간 방법)     
+
+```    
+    -백준11053中-
+
+for (int i = 1; i <= N; i++)
+	{
+		dp[i] = 1;
+		for (int j = 1; j < i; j++)
+		{
+			if (arr[i] > arr[j] && dp[j] + 1 > dp[i]) dp[i] = dp[j] + 1;
+		}
+	}
     
 ```    
 </details>    
