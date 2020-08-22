@@ -116,12 +116,41 @@ for (int i = 1; i <= N; i++)
 </details>    
 
 <details markdown="1">    
-<summary>1. 삼성기출</summary>  
+<summary>4. 삼성기출</summary>  
     
 ### 1.1 삼성 문제유형 풀때 주의사항 
 
 ```    
     1. 실제 시험장에서는 여러개 케이스를 한번에 돌리기 때문에 이전 케이스 실행시 선언했던 배열, 변수가 다음 케이스에 영향주는 부분을 체크
     ex ) 탈주범 검거 input에서 배열을 매번 전체크기돌며 초기화 시키는 것 처럼
+```    
+</details>    
+
+<details markdown="1">    
+<summary>5. 재귀</summary>  
+    
+### 1.1 재귀할때 백트래킹을 생각 안해도 되는방법 
+
+```    
+    void dfs(int cnt, int result)
+{
+	if (cnt >= SIZE)
+	{
+		_max = max(_max, result);
+	}
+	else
+	{
+		
+		dfs(cnt + 1, calc(result, vi[cnt + 1] , vc[cnt])); //이렇게 원본 배열을 건드리지말고 값을 생성해서 리턴값을 바로 넘기기 
+
+		
+		if (cnt + 2 <= SIZE)
+		{
+			int nextResult = calc(vi[cnt + 1], vi[cnt + 2], vc[cnt + 1]);
+			int curResult = calc(result, nextResult, vc[cnt]);
+			dfs(cnt + 2, curResult);
+		}
+	}
+}
 ```    
 </details>    
