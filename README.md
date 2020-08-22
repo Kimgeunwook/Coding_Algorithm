@@ -115,6 +115,14 @@ for (int i = 1; i <= N; i++)
 ```    
 </details>    
 
+
+<details markdown="1">    
+<summary>4. 그리디</summary>  
+    
+### dp와 마찬가지로 머리싸움인듯 하다. 
+
+</details>   
+
 <details markdown="1">    
 <summary>4. 삼성기출</summary>  
     
