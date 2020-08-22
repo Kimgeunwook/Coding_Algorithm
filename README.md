@@ -123,6 +123,56 @@ for (int i = 1; i <= N; i++)
 
 </details>   
 
+
+<details markdown="1">    
+<summary>5. 다익스트라</summary>  
+    
+### 다익스트라 유형 조건  
+```  
+    1. 간선이 모두 양수여야 한다.
+    2. 한 정점에서 모든점까지 최소거리를 알고싶을때 사용
+```  
+### 다익스트라 사용법  
+```  
+    1. 선언부분
+    	vector<int> dist(SIZE); //SIZE = v개수
+	vector<pair<int, int>> v[SIZE];
+	priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>> > pq;
+    2. 각 V끼리 간선 길이 입력부분
+	for (int i = 0; i < E; i++)
+	{
+		cin >> start >> dest >> weight;
+		v[start].push_back(make_pair(dest, weight)); //start에서 dest까지 weight이다 == v[start] = {dest,weight}
+	}
+    3. 중간 설정
+    	fill(dist.begin(), dist.end(), INF); // 거리 일단 INF로 초기화
+	dist[N] = 0; //출발지점 빼고 
+	pq.push(make_pair(0, N)); //(cost, 목적지)순 (cost순 오름차순 위해)
+    4. 메인 부분
+	while (!pq.empty())
+	{
+		int cur = pq.top().second; //목적지
+		pq.pop();
+
+		for (int i = 0; i < v[cur].size(); i++)
+		{
+			int next = v[cur][i].first;
+			int nextcost = v[cur][i].second;
+
+			if (dist[next] > dist[cur] + nextcost)
+			{
+				dist[next] = dist[cur] + nextcost;
+				pq.push(make_pair(dist[next], next));
+			}
+
+		}
+	}
+
+```  
+
+</details>   
+
+
 <details markdown="1">    
 <summary>4. 삼성기출</summary>  
     
