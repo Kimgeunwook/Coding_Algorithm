@@ -174,6 +174,24 @@ for (int i = 1; i <= N; i++)
 
 
 <details markdown="1">    
+<summary>6. 맵</summary>  
+    
+### TIP(두점 사이 VISIT체크할때)  
+```
+typedef pair<int, int> Pair;
+map<Pair, bool> visitNode;
+map< pair< Pair, Pair>, bool> visitDirect;
+
+이렇게 변수 선언하고
+
+visitNode[{curX, curY}] = true;
+visitDirect[{ {curX, curY}, { nextX, nextY } }] = true;
+이게 된다
+```
+
+</details> 
+
+<details markdown="1">    
 <summary>4. 삼성기출</summary>  
     
 ### 1.1 삼성 문제유형 풀때 주의사항 
