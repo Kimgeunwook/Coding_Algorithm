@@ -115,13 +115,119 @@ for (int i = 1; i <= N; i++)
 ```    
 </details>    
 
+
 <details markdown="1">    
-<summary>1. 삼성기출</summary>  
+<summary>4. 그리디</summary>  
+    
+### dp와 마찬가지로 머리싸움인듯 하다. 
+
+</details>   
+
+
+<details markdown="1">    
+<summary>5. 다익스트라</summary>  
+    
+### 다익스트라 유형 조건  
+```  
+    1. 간선이 모두 양수여야 한다.
+    2. 한 정점에서 모든점까지 최소거리를 알고싶을때 사용
+```  
+### 다익스트라 사용법  
+```  
+    1. 선언부분
+    	vector<int> dist(SIZE); //SIZE = v개수
+	vector<pair<int, int>> v[SIZE];
+	priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>> > pq;
+    2. 각 V끼리 간선 길이 입력부분
+	for (int i = 0; i < E; i++)
+	{
+		cin >> start >> dest >> weight;
+		v[start].push_back(make_pair(dest, weight)); //start에서 dest까지 weight이다 == v[start] = {dest,weight}
+	}
+    3. 중간 설정
+    	fill(dist.begin(), dist.end(), INF); // 거리 일단 INF로 초기화
+	dist[N] = 0; //출발지점 빼고 
+	pq.push(make_pair(0, N)); //(cost, 목적지)순 (cost순 오름차순 위해)
+    4. 메인 부분
+	while (!pq.empty())
+	{
+		int cur = pq.top().second; //목적지
+		pq.pop();
+
+		for (int i = 0; i < v[cur].size(); i++)
+		{
+			int next = v[cur][i].first;
+			int nextcost = v[cur][i].second;
+
+			if (dist[next] > dist[cur] + nextcost)
+			{
+				dist[next] = dist[cur] + nextcost;
+				pq.push(make_pair(dist[next], next));
+			}
+
+		}
+	}
+
+```  
+
+</details>   
+
+
+<details markdown="1">    
+<summary>6. 맵</summary>  
+    
+### TIP(두점 사이 VISIT체크할때)  
+```
+typedef pair<int, int> Pair;
+map<Pair, bool> visitNode;
+map< pair< Pair, Pair>, bool> visitDirect;
+
+이렇게 변수 선언하고
+
+visitNode[{curX, curY}] = true;
+visitDirect[{ {curX, curY}, { nextX, nextY } }] = true;
+이게 된다
+```
+
+</details> 
+
+<details markdown="1">    
+<summary>4. 삼성기출</summary>  
     
 ### 1.1 삼성 문제유형 풀때 주의사항 
 
 ```    
     1. 실제 시험장에서는 여러개 케이스를 한번에 돌리기 때문에 이전 케이스 실행시 선언했던 배열, 변수가 다음 케이스에 영향주는 부분을 체크
     ex ) 탈주범 검거 input에서 배열을 매번 전체크기돌며 초기화 시키는 것 처럼
+```    
+</details>    
+
+<details markdown="1">    
+<summary>5. 재귀</summary>  
+    
+### 1.1 재귀할때 백트래킹을 생각 안해도 되는방법 
+
+```    
+    void dfs(int cnt, int result)
+{
+	if (cnt >= SIZE)
+	{
+		_max = max(_max, result);
+	}
+	else
+	{
+		
+		dfs(cnt + 1, calc(result, vi[cnt + 1] , vc[cnt])); //이렇게 원본 배열을 건드리지말고 값을 생성해서 리턴값을 바로 넘기기 
+									// 그럼 밑에서 다른 방향으로 재귀를 갈때 값을 다시 변경해주고 시작안해도된다.(백트래킹이 필요없다)
+
+		
+		if (cnt + 2 <= SIZE)
+		{
+			int nextResult = calc(vi[cnt + 1], vi[cnt + 2], vc[cnt + 1]);
+			int curResult = calc(result, nextResult, vc[cnt]);
+			dfs(cnt + 2, curResult);
+		}
+	}
+}
 ```    
 </details>    
