@@ -325,6 +325,31 @@ void dfs(int cnt)
 
 
 
+<details markdown="1">    
+<summary>. 에라토스테네스 소수</summary>  
+    
+### 1. 기본   
+
+```    
+   	vector<bool> check(4000000); //false로 초기화
+	vector<int> p;
+	void getPrime(int N)
+	{
+		check[1] = true;
+		for (int i = 2; i * i <= N; i++)
+			if (!check[i])
+			{
+				for (int j = i + i; j <= N; j += i) {
+					check[j] = true;
+				}
+			}
+
+		for (int i = 2; i <= N; i++)
+			if (!check[i]) p.push_back(i);
+	}
+```    
+</details>   
+
 
 <details markdown="1">    
 <summary>9. 정렬</summary>  
