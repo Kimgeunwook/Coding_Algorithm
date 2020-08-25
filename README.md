@@ -233,6 +233,52 @@ visitDirect[{ {curX, curY}, { nextX, nextY } }] = true;
 </details>    
 
 <details markdown="1">    
+<summary>. 순열</summary>  
+    
+### 1. 중복없는 순열  
+
+```
+vector<int> v(5);
+v = {1, 2, 3, 4, 5};
+int temp[5];
+int visit[5];
+void dfs(int cnt)
+{
+	if (cnt == 5)
+	{
+		for (int i = 0; i < 5; i++)
+			cout << temp[i] << " ";
+		cout << endl;
+	}
+	else
+	{
+		for (int i = 0; i < 5; i++)
+		{
+			if (visit[i] == 1) continue;
+			visit[i] = 1;
+			temp[cnt] = v[i];
+			dfs(cnt + 1);
+			visit[i] = 0;
+		}
+	}
+}
+   실행결과
+   1 2 3 4 5
+   1 2 3 5 4
+   1 2 4 3 5
+   1 2 4 5 3
+   .
+   .
+   .
+   5 4 2 3 1
+   5 4 3 1 2
+   5 4 3 2 1
+```    
+</details>    
+
+
+
+<details markdown="1">    
 <summary>9. 정렬</summary>  
     
 ### 1. vector + comp (info 구조체를 size별 오름차순정렬)  
