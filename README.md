@@ -274,8 +274,56 @@ void dfs(int cnt)
    5 4 3 1 2
    5 4 3 2 1
 ```    
+### 2. combination    
+```
+5C3예시
+int temp[5];
+void dfs(int cnt, int idx)
+{
+	if (cnt == 3)
+	{
+		for (int i = 0; i < 3; i++)
+			cout << temp[i] << " ";
+		cout << endl;
+	}
+	else
+	{
+		for (int i = idx; i < 5; i++)
+		{
+			temp[cnt] = v[i];
+			dfs(cnt + 1, i + 1);
+		}
+	}
+}
+```
 </details>    
 
+
+### 2. permutation    
+```
+5P3예시
+void dfs(int cnt)
+{
+	if (cnt == 3)
+	{
+		for (int i = 0; i < 3; i++)
+			cout << temp[i] << " ";
+		cout << endl;
+	}
+	else
+	{
+		for (int i = 1; i <= 5; i++)
+		{
+			if (visit[i] == 1) continue;
+			visit[i] = 1;
+			temp[cnt] = i;
+			dfs(cnt + 1);
+			visit[i] = 0;
+		}
+	}
+}
+```
+</details>
 
 
 <details markdown="1">    
