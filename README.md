@@ -296,8 +296,6 @@ void dfs(int cnt, int idx)
 	}
 }
 ```
-</details>    
-
 
 ### 2. permutation    
 ```
@@ -323,7 +321,9 @@ void dfs(int cnt)
 	}
 }
 ```
-</details>
+</details>    
+
+
 
 
 <details markdown="1">    
