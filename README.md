@@ -192,7 +192,7 @@ visitDirect[{ {curX, curY}, { nextX, nextY } }] = true;
 </details> 
 
 <details markdown="1">    
-<summary>4. 삼성기출</summary>  
+<summary>7. 삼성기출</summary>  
     
 ### 1.1 삼성 문제유형 풀때 주의사항 
 
@@ -203,7 +203,7 @@ visitDirect[{ {curX, curY}, { nextX, nextY } }] = true;
 </details>    
 
 <details markdown="1">    
-<summary>5. 재귀</summary>  
+<summary>8. 재귀</summary>  
     
 ### 1.1 재귀할때 백트래킹을 생각 안해도 되는방법 
 
@@ -229,5 +229,40 @@ visitDirect[{ {curX, curY}, { nextX, nextY } }] = true;
 		}
 	}
 }
+```    
+</details>    
+
+<details markdown="1">    
+<summary>9. 정렬</summary>  
+    
+### 1. vector + comp (info 구조체를 size별 오름차순정렬)  
+
+```    
+	bool comp(info a, info b)
+	{
+		return a.size < b.size; // 사이즈별 오름차순
+	}
+  	sort(v.begin(), v.end(), comp);
+```    
+
+### 2. tip  
+
+```
+	입력이나 출력이 너무 크면 scanf, cout << << "\n"사용
+```    
+### 3. 투포인터  
+
+```
+ 	-백준 10800中-
+	for (int i = 0, j = 0; i < N; i++) //첨에 i , j 둘다 초기화하고 
+	{
+		while (v[j].size < v[i].size) //두번째 반복문에서는 j만 플러스하면 j를 0부터 다시 시작해야되는 시간낭비 안해도됐다.
+		{
+			sum += v[j].size;
+			colorsum[v[j].color] += v[j].size;
+			j++;
+		}
+		ans[v[i].idx] = sum - colorsum[v[i].color];
+	}
 ```    
 </details>    
