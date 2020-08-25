@@ -360,3 +360,28 @@ void dfs(int cnt)
 	}
 ```    
 </details>    
+
+<details markdown="1">    
+<summary>. 투포인터</summary>  
+    
+### 1. 기본
+
+```    
+    int twoPointer(int N)
+{
+	int s = 0, e = 0;
+	int answer = 0;
+	int temp = 0;
+
+	while (1)
+	{
+		if (temp >= N) temp -= p[s++];
+		else if (e == p.size()) break;
+		else temp += p[e++];
+		if (temp == N) answer++;
+	}
+
+	return answer;
+}
+```    
+</details>    
