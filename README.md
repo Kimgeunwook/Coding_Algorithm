@@ -233,6 +233,125 @@ visitDirect[{ {curX, curY}, { nextX, nextY } }] = true;
 </details>    
 
 <details markdown="1">    
+<summary>. 순열</summary>  
+    
+### 1. 중복없는 순열  
+
+```
+vector<int> v(5);
+v = {1, 2, 3, 4, 5};
+int temp[5];
+int visit[5];
+void dfs(int cnt)
+{
+	if (cnt == 5)
+	{
+		for (int i = 0; i < 5; i++)
+			cout << temp[i] << " ";
+		cout << endl;
+	}
+	else
+	{
+		for (int i = 0; i < 5; i++)
+		{
+			if (visit[i] == 1) continue;
+			visit[i] = 1;
+			temp[cnt] = v[i];
+			dfs(cnt + 1);
+			visit[i] = 0;
+		}
+	}
+}
+   실행결과
+   1 2 3 4 5
+   1 2 3 5 4
+   1 2 4 3 5
+   1 2 4 5 3
+   .
+   .
+   .
+   5 4 2 3 1
+   5 4 3 1 2
+   5 4 3 2 1
+```    
+### 2. combination    
+```
+5C3예시
+int temp[5];
+void dfs(int cnt, int idx)
+{
+	if (cnt == 3)
+	{
+		for (int i = 0; i < 3; i++)
+			cout << temp[i] << " ";
+		cout << endl;
+	}
+	else
+	{
+		for (int i = idx; i < 5; i++)
+		{
+			temp[cnt] = v[i];
+			dfs(cnt + 1, i + 1);
+		}
+	}
+}
+```
+
+### 2. permutation    
+```
+5P3예시
+void dfs(int cnt)
+{
+	if (cnt == 3)
+	{
+		for (int i = 0; i < 3; i++)
+			cout << temp[i] << " ";
+		cout << endl;
+	}
+	else
+	{
+		for (int i = 1; i <= 5; i++)
+		{
+			if (visit[i] == 1) continue;
+			visit[i] = 1;
+			temp[cnt] = i;
+			dfs(cnt + 1);
+			visit[i] = 0;
+		}
+	}
+}
+```
+</details>    
+
+
+
+<details markdown="1">    
+<summary>. 에라토스테네스 소수</summary>  
+    
+### 1. 기본   
+
+```    
+   	vector<bool> check(4000000); //false로 초기화
+	vector<int> p;
+	void getPrime(int N)
+	{
+		check[1] = true;
+		for (int i = 2; i * i <= N; i++)
+			if (!check[i])
+			{
+				for (int j = i + i; j <= N; j += i) {
+					check[j] = true;
+				}
+			}
+
+		for (int i = 2; i <= N; i++)
+			if (!check[i]) p.push_back(i);
+	}
+```    
+</details>   
+
+
+<details markdown="1">    
 <summary>9. 정렬</summary>  
     
 ### 1. vector + comp (info 구조체를 size별 오름차순정렬)  
@@ -264,5 +383,30 @@ visitDirect[{ {curX, curY}, { nextX, nextY } }] = true;
 		}
 		ans[v[i].idx] = sum - colorsum[v[i].color];
 	}
+```    
+</details>    
+
+<details markdown="1">    
+<summary>. 투포인터</summary>  
+    
+### 1. 기본
+
+```    
+    int twoPointer(int N)
+{
+	int s = 0, e = 0;
+	int answer = 0;
+	int temp = 0;
+
+	while (1)
+	{
+		if (temp >= N) temp -= p[s++];
+		else if (e == p.size()) break;
+		else temp += p[e++];
+		if (temp == N) answer++;
+	}
+
+	return answer;
+}
 ```    
 </details>    
