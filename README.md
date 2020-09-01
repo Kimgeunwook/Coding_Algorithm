@@ -67,6 +67,25 @@
 		}
 	}
 ```    
+### 1.3 visit체크 done체크
+
+```    
+...... 백준 9466中.......
+   void dfs(int n)
+{
+	visit[n] = true;
+	int next = arr[n];
+
+	if (!visit[next])
+		dfs(next);
+	else if (!check[next])
+	{
+		for (int i = next; i != n; i = arr[i]) ans++;
+		ans++;
+	}
+	check[n] = true;
+}
+```    
 </details>    
 
 
