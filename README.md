@@ -222,6 +222,27 @@ visitDirect[{ {curX, curY}, { nextX, nextY } }] = true;
 </details>    
 
 <details markdown="1">    
+<summary>. String</summary>  
+    
+### 1. 형 변환  
+
+```    
+    1. string - > int : stoi({스트링 변수})
+    2. int - > string : to_string({int 변수})
+```    
+
+### 2. 문자열 자르기  
+
+```    
+    string s = "abcdefg"; 
+    cout << s.substr(3) << endl; //defg
+    cout << s.substr(3, 2) << endl; //de
+    cout << s.substr(3, 200) << endl; //defg
+    cout << s.substr(100) << endl; //error
+```    
+</details>    
+
+<details markdown="1">    
 <summary>8. 재귀</summary>  
     
 ### 1.1 재귀할때 백트래킹을 생각 안해도 되는방법 
