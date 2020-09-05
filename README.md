@@ -207,6 +207,18 @@ visitNode[{curX, curY}] = true;
 visitDirect[{ {curX, curY}, { nextX, nextY } }] = true;
 이게 된다
 ```
+</details> 
+
+<details markdown="1">    
+<summary>. SQL</summary>  
+    
+### 1.1 삼성 문제유형 풀때 주의사항 
+
+```    
+  
+```    
+</details>    
+
 
 </details> 
 
