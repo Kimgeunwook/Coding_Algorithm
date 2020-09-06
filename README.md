@@ -483,3 +483,46 @@ void dfs(int cnt)
 }
 ```    
 </details>    
+<details markdown="1">    
+<summary>. 파이썬 문법</summary>  
+    
+### 1. 문법   
+
+```    
+	#1.완전 새로운 배열 만들고 싶을때
+   	import copy 
+	map2 = copy.deepcopy(map1)
+	
+	#2. 10x10 visit배열 선언시
+	_map = [ [0 for _ in range(10)] for _ in range(10)]
+	
+	#3.우선순위큐
+	from queue import PriorityQueue
+	que = PriorityQueue()
+	que.put(4)
+	print(que.get())  # 4
+
+	#4. deque
+	from _collections import deque
+	dq = deque()
+	
+	#5.sort
+	arr = [2,5,1,6,8,3,37,8,7631]
+	arr.sort(reverse = True)
+	
+	#6. element조건 sort
+	arr = [('a', 1), ('c', 100), ('b',300)]
+	arr.sort(key = lambda element : element[0],reverse=True)
+
+	#7.dict
+	dic = {}
+	dic['a'] = 3
+	dic['b'] = 5
+	dic[1] = 'hi'
+	print(dic[1])
+
+	#8. 조건sort
+	import functools
+	arr = sorted(배열이름, key = functools.cmp_to_key(함수이름))
+```    
+</details>   
