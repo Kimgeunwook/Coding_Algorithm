@@ -547,6 +547,18 @@ void dfs(int cnt)
 	q.put(1)
 	print(q.get()) #3
 	print(q.qsize()) #3
+	
+	#9. heapq  
+	import heapq  #import
+	heapq.heapify(scoville)  #list -> heap q로 만들기
+    
+        first = heapq.heappop(scoville) #큐에서 pop하는거랑 똑같
+
+        if len(scoville) == 0: #사이즈확인
+
+        heapq.heappush(scoville, first + 2 * second) #queue에서 push
+	    
+	
 
 ```    
 </details>   
