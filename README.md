@@ -524,5 +524,19 @@ void dfs(int cnt)
 	#8. 조건sort
 	import functools
 	arr = sorted(배열이름, key = functools.cmp_to_key(함수이름))
+	
+	def compare(x, y):
+	if(x[0] < y[0]): # x[0] 값이 y[0]값 보다 작으면
+		return 1 # y 내용을 앞으로 보냄
+	elif(x[0] > y[0]):
+		return -1
+	else: # x[0] 값이 y[0]값과 동일하면
+		if(x[1] < y[1]): # x[1]과 y[1]을 비교해서 y[1]이 크면
+			return -1 # x 내용을 앞으로 보냄
+		elif(x[1] > y[1]):
+			return 1
+		else:
+			return 0
+
 ```    
 </details>   
