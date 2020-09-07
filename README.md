@@ -537,6 +537,16 @@ void dfs(int cnt)
 			return 1
 		else:
 			return 0
+			
+	#8. queue
+	import queue
+	q = queue.Queue()
+	q.put(3)
+	q.put(5)
+	q.put(10)
+	q.put(1)
+	print(q.get()) #3
+	print(q.qsize()) #3
 
 ```    
 </details>   
