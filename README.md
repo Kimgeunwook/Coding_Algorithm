@@ -558,7 +558,10 @@ void dfs(int cnt)
 
         heapq.heappush(scoville, first + 2 * second) #queue에서 push
 	    
-	
+	#10. 입력
+
+	N = int(input())
+	arr = list(map(int,input().split()))
 
 ```    
 </details>   
