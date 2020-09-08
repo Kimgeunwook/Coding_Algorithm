@@ -562,6 +562,11 @@ void dfs(int cnt)
 
 	N = int(input())
 	arr = list(map(int,input().split()))
+	
+	#11. join
+
+	list = ['a','b','c','d']
+	print("".join(list)) #abcd
 
 ```    
 </details>   
