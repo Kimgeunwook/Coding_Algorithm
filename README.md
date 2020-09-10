@@ -501,10 +501,16 @@ void dfs(int cnt)
 	que = PriorityQueue()
 	que.put(4)
 	print(que.get())  # 4
-
+	while not que.empty():
+    	print(que.get())
+	
 	#4. deque
 	from _collections import deque
 	dq = deque()
+	append()
+	appendleft()
+	pop()
+	popleft()
 	
 	#5.sort
 	arr = [2,5,1,6,8,3,37,8,7631]
@@ -543,20 +549,24 @@ void dfs(int cnt)
 	q = queue.Queue()
 	q.put(3)
 	q.put(5)
-	q.put(10)
+	q.put(10)w
 	q.put(1)
 	print(q.get()) #3
 	print(q.qsize()) #3
+	while not que.empty():
+   	print(que.get())
 	
 	#9. heapq  
 	import heapq  #import
 	heapq.heapify(scoville)  #list -> heap q로 만들기
-    
+    	heap = []
+	heapq.heappush(heap, 4)
         first = heapq.heappop(scoville) #큐에서 pop하는거랑 똑같
-
         if len(scoville) == 0: #사이즈확인
-
         heapq.heappush(scoville, first + 2 * second) #queue에서 push
+	
+	while arr:
+  	print(heapq.heappop(arr))
 	    
 	#10. 입력
 
@@ -567,6 +577,13 @@ void dfs(int cnt)
 
 	list = ['a','b','c','d']
 	print("".join(list)) #abcd
+	
+	#12. type -> asci val
+	ord()
+	
+	#13. 재귀 제한주기
+	import sys
+	sys.setrecursionlimit(30000)
 
 ```    
 </details>   
