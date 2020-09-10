@@ -559,7 +559,8 @@ void dfs(int cnt)
 	#9. heapq  
 	import heapq  #import
 	heapq.heapify(scoville)  #list -> heap q로 만들기
-    
+    	heap = []
+	heapq.heappush(heap, 4)
         first = heapq.heappop(scoville) #큐에서 pop하는거랑 똑같
 
         if len(scoville) == 0: #사이즈확인
