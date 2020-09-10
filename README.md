@@ -562,10 +562,11 @@ void dfs(int cnt)
     	heap = []
 	heapq.heappush(heap, 4)
         first = heapq.heappop(scoville) #큐에서 pop하는거랑 똑같
-
         if len(scoville) == 0: #사이즈확인
-
         heapq.heappush(scoville, first + 2 * second) #queue에서 push
+	
+	while arr:
+  	print(heapq.heappop(arr))
 	    
 	#10. 입력
 
