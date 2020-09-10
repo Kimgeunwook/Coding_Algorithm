@@ -35,7 +35,7 @@ for idx in range(len(arr)):
     flag = 0
     for i in arr[idx]:
         for j in thief:
-            if Find(parent[i]) == Find(parent[j]):
+            if Find(i) == Find(j):
                 flag = 1
                 break
         if flag == 1:
