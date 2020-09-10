@@ -567,6 +567,9 @@ void dfs(int cnt)
 
 	list = ['a','b','c','d']
 	print("".join(list)) #abcd
+	
+	#12. type -> asci val
+	ord()
 
 ```    
 </details>   
