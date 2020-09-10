@@ -547,11 +547,12 @@ void dfs(int cnt)
 	q = queue.Queue()
 	q.put(3)
 	q.put(5)
-	q.put(10)
+	q.put(10)w
 	q.put(1)
 	print(q.get()) #3
 	print(q.qsize()) #3
-	
+	while not que.empty():
+   	print(que.get())
 	#9. heapq  
 	import heapq  #import
 	heapq.heapify(scoville)  #list -> heap q로 만들기
