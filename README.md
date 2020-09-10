@@ -501,7 +501,9 @@ void dfs(int cnt)
 	que = PriorityQueue()
 	que.put(4)
 	print(que.get())  # 4
-
+	while not que.empty():
+    	print(que.get())
+	
 	#4. deque
 	from _collections import deque
 	dq = deque()
@@ -553,6 +555,7 @@ void dfs(int cnt)
 	print(q.qsize()) #3
 	while not que.empty():
    	print(que.get())
+	
 	#9. heapq  
 	import heapq  #import
 	heapq.heapify(scoville)  #list -> heap q로 만들기
