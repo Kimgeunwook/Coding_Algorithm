@@ -570,6 +570,10 @@ void dfs(int cnt)
 	
 	#12. type -> asci val
 	ord()
+	
+	#13. 재귀 제한주기
+	import sys
+	sys.setrecursionlimit(30000)
 
 ```    
 </details>   
