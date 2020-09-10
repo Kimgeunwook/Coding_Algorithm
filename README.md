@@ -505,6 +505,10 @@ void dfs(int cnt)
 	#4. deque
 	from _collections import deque
 	dq = deque()
+	append()
+	appendleft()
+	pop()
+	popleft()
 	
 	#5.sort
 	arr = [2,5,1,6,8,3,37,8,7631]
