@@ -584,6 +584,11 @@ void dfs(int cnt)
 	#13. 재귀 제한주기
 	import sys
 	sys.setrecursionlimit(30000)
+	
+	#14. 다중비교
+	arr =[(1,'a'),(2,'b'),(2,'a'),(3,'a'),(4,'b')]
+	arr.sort(key = lambda x:(x[0], -1 * ord(x[1])))
+	print(arr) #[(1, 'a'), (2, 'a'), (2, 'b'), (3, 'a'), (4, 'b')]
 
 ```    
 </details>   
