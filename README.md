@@ -221,7 +221,15 @@ visitDirect[{ {curX, curY}, { nextX, nextY } }] = true;
 
 
 </details> 
+<details markdown="1">    
+<summary>. 위상정렬</summary>  
+    
+### 1.1 
 
+```    
+  
+```    
+</details>   
 <details markdown="1">    
 <summary>7. 삼성기출</summary>  
     
