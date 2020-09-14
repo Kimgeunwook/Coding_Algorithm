@@ -207,9 +207,29 @@ visitNode[{curX, curY}] = true;
 visitDirect[{ {curX, curY}, { nextX, nextY } }] = true;
 이게 된다
 ```
-
 </details> 
 
+<details markdown="1">    
+<summary>. SQL</summary>  
+    
+### 1.1 삼성 문제유형 풀때 주의사항 
+
+```    
+  
+```    
+</details>    
+
+
+</details> 
+<details markdown="1">    
+<summary>. 위상정렬</summary>  
+    
+### 1.1 
+
+```    
+  
+```    
+</details>   
 <details markdown="1">    
 <summary>7. 삼성기출</summary>  
     
@@ -471,3 +491,112 @@ void dfs(int cnt)
 }
 ```    
 </details>    
+<details markdown="1">    
+<summary>. 파이썬 문법</summary>  
+    
+### 1. 문법   
+
+```    
+	#1.완전 새로운 배열 만들고 싶을때
+   	import copy 
+	map2 = copy.deepcopy(map1)
+	
+	#2. 10x10 visit배열 선언시
+	_map = [ [0 for _ in range(10)] for _ in range(10)]
+	
+	#3.우선순위큐
+	from queue import PriorityQueue
+	que = PriorityQueue()
+	que.put(4)
+	print(que.get())  # 4
+	while not que.empty():
+    	print(que.get())
+	
+	#4. deque
+	from _collections import deque
+	dq = deque()
+	append()
+	appendleft()
+	pop()
+	popleft()
+	
+	#5.sort
+	arr = [2,5,1,6,8,3,37,8,7631]
+	arr.sort(reverse = True)
+	
+	#6. element조건 sort
+	arr = [('a', 1), ('c', 100), ('b',300)]
+	arr.sort(key = lambda element : element[0],reverse=True)
+
+	#7.dict
+	dic = {}
+	dic['a'] = 3
+	dic['b'] = 5
+	dic[1] = 'hi'
+	print(dic[1])
+
+	#8. 조건sort
+	import functools
+	arr = sorted(배열이름, key = functools.cmp_to_key(함수이름))
+	
+	def compare(x, y):
+	if(x[0] < y[0]): # x[0] 값이 y[0]값 보다 작으면
+		return 1 # y 내용을 앞으로 보냄
+	elif(x[0] > y[0]):
+		return -1
+	else: # x[0] 값이 y[0]값과 동일하면
+		if(x[1] < y[1]): # x[1]과 y[1]을 비교해서 y[1]이 크면
+			return -1 # x 내용을 앞으로 보냄
+		elif(x[1] > y[1]):
+			return 1
+		else:
+			return 0
+			
+	#8. queue
+	import queue
+	q = queue.Queue()
+	q.put(3)
+	q.put(5)
+	q.put(10)w
+	q.put(1)
+	print(q.get()) #3
+	print(q.qsize()) #3
+	while not que.empty():
+   	print(que.get())
+	
+	#9. heapq  
+	import heapq  #import
+	heapq.heapify(scoville)  #list -> heap q로 만들기
+    	heap = []
+	heapq.heappush(heap, 4)
+        first = heapq.heappop(scoville) #큐에서 pop하는거랑 똑같
+        if len(scoville) == 0: #사이즈확인
+        heapq.heappush(scoville, first + 2 * second) #queue에서 push
+	
+	while arr:
+  	print(heapq.heappop(arr))
+	    
+	#10. 입력
+
+	N = int(input())
+	arr = list(map(int,input().split()))
+	
+	#11. join
+
+	list = ['a','b','c','d']
+	print("".join(list)) #abcd
+	
+	#12. type -> asci val
+	ord()
+	
+	#13. 재귀 제한주기
+	import sys
+	sys.setrecursionlimit(30000)
+	
+	#14. 다중비교
+	arr =[(1,'a'),(2,'b'),(2,'a'),(3,'a'),(4,'b')]
+	arr.sort(key = lambda x:(x[0], -1 * ord(x[1])))
+	print(arr) #[(1, 'a'), (2, 'a'), (2, 'b'), (3, 'a'), (4, 'b')]
+
+```    
+</details>   
