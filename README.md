@@ -221,7 +221,15 @@ visitDirect[{ {curX, curY}, { nextX, nextY } }] = true;
 
 
 </details> 
+<details markdown="1">    
+<summary>. 위상정렬</summary>  
+    
+### 1.1 
 
+```    
+  
+```    
+</details>   
 <details markdown="1">    
 <summary>7. 삼성기출</summary>  
     
@@ -589,6 +597,8 @@ void dfs(int cnt)
 	arr =[(1,'a'),(2,'b'),(2,'a'),(3,'a'),(4,'b')]
 	arr.sort(key = lambda x:(x[0], -1 * ord(x[1])))
 	print(arr) #[(1, 'a'), (2, 'a'), (2, 'b'), (3, 'a'), (4, 'b')]
+	
+	#15. combination
 
 ```    
 </details>   
