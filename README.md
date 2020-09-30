@@ -468,7 +468,7 @@ void dfs(int cnt)
 </details>    
 
 <details markdown="1">    
-<summary>. 투포인터</summary>  
+<summary>13. 투포인터</summary>  
     
 ### 1. 기본
 
