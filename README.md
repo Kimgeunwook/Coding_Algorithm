@@ -238,6 +238,7 @@ visitDirect[{ {curX, curY}, { nextX, nextY } }] = true;
 ```    
     1. 실제 시험장에서는 여러개 케이스를 한번에 돌리기 때문에 이전 케이스 실행시 선언했던 배열, 변수가 다음 케이스에 영향주는 부분을 체크
     ex ) 탈주범 검거 input에서 배열을 매번 전체크기돌며 초기화 시키는 것 처럼
+    2. 단위 단위마다 함수로 
 ```    
 </details>    
 
@@ -468,7 +469,7 @@ void dfs(int cnt)
 </details>    
 
 <details markdown="1">    
-<summary>. 투포인터</summary>  
+<summary>13. 투포인터</summary>  
     
 ### 1. 기본
 
