@@ -588,7 +588,8 @@ void dfs(int cnt)
 	print("".join(list)) #abcd
 	
 	#12. type -> asci val
-	ord()
+	ord(), chr()
+	
 	
 	#13. 재귀 제한주기
 	import sys
