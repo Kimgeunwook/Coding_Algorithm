@@ -43,7 +43,7 @@ bool solution(vector<vector<int>> key, vector<vector<int>> lock) {
 	int keySize = key.size();
 	int lockSize = lock.size();
 
-	//Áß¾Ó¿¡ À§Ä¡ ½ÃÅ°±â
+	//ì¤‘ì•™ì— ìœ„ì¹˜ ì‹œí‚¤ê¸°
 	vector<vector<int>> board(2 * keySize + lockSize, vector<int>(2 * keySize + lockSize, 0));
 
 
@@ -52,7 +52,7 @@ bool solution(vector<vector<int>> key, vector<vector<int>> lock) {
 			board[keySize + i][keySize + j] = lock[i][j];
 
 
-	//4¹ø µ¹¸®°í
+	//4ë²ˆ ëŒë¦¬ê³ 
 	for (int k = 0; k < 4; k++)
 	{
 		vector<vector<int>> rotate_ret = rotate(key);
@@ -60,12 +60,12 @@ bool solution(vector<vector<int>> key, vector<vector<int>> lock) {
 		for (int i = 1; i < keySize + lockSize; i++)
 			for (int j = 1; j < keySize + lockSize; j++)
 			{
-				//rotate_key¸¦ lock¿¡ ºÙÀÌ°í
+				//rotate_keyë¥¼ lockì— ë¶™ì´ê³ 
 				board = attach(i, j, rotate_ret, board);
-				//ischecktrue¸é return true
+				//ischecktrueë©´ return true
 				if (isCheck(keySize, lockSize, board)) return true;
 
-				//rotate_key¸¦ lock¿¡¼­ ¶¼±â
+				//rotate_keyë¥¼ lockì—ì„œ ë–¼ê¸°
 				board = detach(i, j, rotate_ret, board);
 			}
 

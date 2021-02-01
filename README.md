@@ -492,6 +492,17 @@ void dfs(int cnt)
 }
 ```    
 </details>    
+
+<details markdown="1">    
+<summary>14. vector</summary>  
+    
+### 1. 2차원 벡터 선언
+
+```    
+10x10 0으로 채워진 2차원 벡터 선언
+  vector<vector<int>> v(10, vector<int>(10, 0));
+```    
+</details>    
 <details markdown="1">    
 <summary>. 파이썬 문법</summary>  
     
