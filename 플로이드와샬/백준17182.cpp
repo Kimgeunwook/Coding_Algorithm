@@ -1,5 +1,5 @@
-//1. floyd·Î min dist±¸ÇÏ±â
-//2. dfs·Î ¸ğµç °æ¿ì ´Ù ÇØº¸±â
+//1. floydë¡œ min distêµ¬í•˜ê¸°
+//2. dfsë¡œ ëª¨ë“  ê²½ìš° ë‹¤ í•´ë³´ê¸°
 #include <iostream>
 #include <algorithm>
 using namespace std;
@@ -14,7 +14,7 @@ void input()
 		for (int j = 0; j < N; j++)
 		{
 			cin >> dist[i][j];
-			//ÀÚ±â ÀÚ½ÅÀ¸·Î °¡´Â °ÍÀº °Å¸®¸¦ ¹«ÇÑ´ë·Î ¼³Á¤
+			//ìê¸° ìì‹ ìœ¼ë¡œ ê°€ëŠ” ê²ƒì€ ê±°ë¦¬ë¥¼ ë¬´í•œëŒ€ë¡œ ì„¤ì •
 			if (i == j) dist[i][j] = INF;
 		}
 }
@@ -36,12 +36,12 @@ void solve(int start, int sum, int depth)
 	}
 	for (int i = 0; i < N; i++)
 	{
-		//Áö±İ±îÁö ´õÇÑ °Å¸®°¡ °¡´É¼º ÀÖ°í, ¹æ¹®ÇÏÁö ¾ÊÀº°÷ÀÌ¸é
+		//ì§€ê¸ˆê¹Œì§€ ë”í•œ ê±°ë¦¬ê°€ ê°€ëŠ¥ì„± ìˆê³ , ë°©ë¬¸í•˜ì§€ ì•Šì€ê³³ì´ë©´
 		if (dist[start][i] + sum < answer && !visit[i])
 		{
 			visit[i] = true;
 			solve(i, sum + dist[start][i], depth + 1);
-			//¹éÆ®·¡Å·
+			//ë°±íŠ¸ë˜í‚¹
 			visit[i] = false;
 		}
 	}
@@ -50,7 +50,7 @@ int main()
 {
 	input();
 	floyd();
-	//Ã³À½¿¡´Â ¹æ¹® Ç¥½Ã
+	//ì²˜ìŒì—ëŠ” ë°©ë¬¸ í‘œì‹œ
 	visit[starting_point] = true;
 	solve(starting_point, 0, 1);
 	cout << answer << endl;
