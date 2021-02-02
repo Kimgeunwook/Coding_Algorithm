@@ -1,62 +1,58 @@
+//1. floyd로 min dist구하기
+//2. dfs로 모든 경우 다 해보기
 #include <iostream>
 #include <algorithm>
 using namespace std;
 #define INF 987654321
-
-int arr[10][10];
 int dist[10][10];
-int N, int starting_point;
-int answer = 0;
 bool visit[10];
+int N, starting_point, answer = 987654321;
 void input()
 {
-	//초기 거리 무한대로 초기화
-	for (int i = 0; i < N; i++)
-		for (int j = 0; j < N; j++)
-			dist[i][j] = INF;
-
-	//출발점 및 각 행간의 거리 입력 받기
 	cin >> N >> starting_point;
 	for (int i = 0; i < N; i++)
 		for (int j = 0; j < N; j++)
-			cin >> arr[i][j];
+		{
+			cin >> dist[i][j];
+			//자기 자신으로 가는 것은 거리를 무한대로 설정
+			if (i == j) dist[i][j] = INF;
+		}
 }
 void floyd()
 {
 	for (int k = 0; k < N; k++)
 		for (int i = 0; i < N; i++)
 			for (int j = 0; j < N; j++)
-			{
 				dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]);
-			}
-
+		
 }
-void solve(int strt)
+void solve(int start, int sum, int depth)
 {
-	int min_idx = INF;
-	int min_dist = INF;
-	bool flag = false;
+	if (depth == N)
+	{
+		answer = min(answer, sum);
+		
+		return;
+	}
 	for (int i = 0; i < N; i++)
 	{
-		if (!visit[i] && dist[strt][i] < min_dist)
+		//지금까지 더한 거리가 가능성 있고, 방문하지 않은곳이면
+		if (dist[start][i] + sum < answer && !visit[i])
 		{
-			flag = true;
-			min_idx = i;
 			visit[i] = true;
-			min_dist = dist[strt][i];
+			solve(i, sum + dist[start][i], depth + 1);
+			//백트래킹
+			visit[i] = false;
 		}
-	}
-	if (flag)
-	{
-		answer += min_dist;
-		solve(min_idx);
 	}
 }
 int main()
 {
 	input();
 	floyd();
-	solve(starting_point);
+	//처음에는 방문 표시
+	visit[starting_point] = true;
+	solve(starting_point, 0, 1);
 	cout << answer << endl;
 	return 0;
 }
