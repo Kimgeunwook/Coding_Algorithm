@@ -12,11 +12,8 @@ void input()
 	cin >> N >> starting_point;
 	for (int i = 0; i < N; i++)
 		for (int j = 0; j < N; j++)
-		{
 			cin >> dist[i][j];
-			//자기 자신으로 가는 것은 거리를 무한대로 설정
-			if (i == j) dist[i][j] = INF;
-		}
+		
 }
 void floyd()
 {
