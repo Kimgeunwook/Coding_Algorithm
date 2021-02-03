@@ -1,6 +1,6 @@
-//Ç®ÀÌ¹æ¹ı
-//½ÃÀÛÁ¡, ÁÖ¾îÁø µÎÁ¡¿¡¼­ ´ÙÀÍ½ºÆ®¶ó·Î ±¸ÇÏ±â
-//min(½ÃÀÛ->Á¤Á¡1->Á¤Á¡2->µµÂøÁ¡,½ÃÀÛ->Á¤Á¡2->Á¤Á¡1->µµÂøÁ¡)
+//í’€ì´ë°©ë²•
+//ì‹œì‘ì , ì£¼ì–´ì§„ ë‘ì ì—ì„œ ë‹¤ìµìŠ¤íŠ¸ë¼ë¡œ êµ¬í•˜ê¸°
+//min(ì‹œì‘->ì •ì 1->ì •ì 2->ë„ì°©ì ,ì‹œì‘->ì •ì 2->ì •ì 1->ë„ì°©ì )
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -9,10 +9,10 @@
 using namespace std;
 #define INF 987654321
 
-//¹®Á¦Ç®ÀÌ¿¡ ÇÊ¿äÇÑ º¯¼ö
+//ë¬¸ì œí’€ì´ì— í•„ìš”í•œ ë³€ìˆ˜
 int V_SIZE, E_SIZE, two_point_A, two_point_B;
 
-//´ÙÀÍ½ºÆ®¶ó¿¡ ÇÊ¿äÇÑ º¯¼ö
+//ë‹¤ìµìŠ¤íŠ¸ë¼ì— í•„ìš”í•œ ë³€ìˆ˜
 vector<int> dist(801);
 vector<pair<int, int>> v[801];
 priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>> > pq;
@@ -25,7 +25,7 @@ void input()
 	for (int i = 0; i < E_SIZE; i++)
 	{
 		cin >> start >> dest >> weight;
-		v[start].push_back(make_pair(dest, weight)); //start¿¡¼­ dest±îÁö weightÀÌ´Ù == v[start] = {dest,weight}
+		v[start].push_back(make_pair(dest, weight)); //startì—ì„œ destê¹Œì§€ weightì´ë‹¤ == v[start] = {dest,weight}
 		v[dest].push_back(make_pair(start, weight));
 	}
 
@@ -37,7 +37,7 @@ long long dijkstra(int start, int end)
 	fill(dist.begin(), dist.end(), INF);
 
 	dist[start] = 0;
-	pq.push(make_pair(0, start));//(cost, ¸ñÀûÁö)¼ø (cost¼ø ¿À¸§Â÷¼ø À§ÇØ)
+	pq.push(make_pair(0, start));//(cost, ëª©ì ì§€)ìˆœ (costìˆœ ì˜¤ë¦„ì°¨ìˆœ ìœ„í•´)
 
 	while (!pq.empty())
 	{
@@ -64,7 +64,7 @@ long long dijkstra(int start, int end)
 int main()
 {
 	input();
-	//Ãâ¹ßÁ¡ -> A -> B -> µµÂøÁ¡ VS Ãâ¹ßÁ¡ -> B -> A -> µµÂøÁ¡
+	//ì¶œë°œì  -> A -> B -> ë„ì°©ì  VS ì¶œë°œì  -> B -> A -> ë„ì°©ì 
 	long long answer = min(dijkstra(1, two_point_A) + dijkstra(two_point_A, two_point_B) + dijkstra(two_point_B, V_SIZE),
 		dijkstra(1, two_point_B) + dijkstra(two_point_B, two_point_A) + dijkstra(two_point_A, V_SIZE));
 	if (answer >= INF)
