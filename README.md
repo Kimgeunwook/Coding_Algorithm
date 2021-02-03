@@ -504,6 +504,19 @@ void dfs(int cnt)
 ```    
 </details>    
 <details markdown="1">    
+
+<details markdown="1">    
+<summary>15. floyd</summary>  
+    
+### 1. 언제 사용하면 좋은지
+
+```    
+1. 결국 모든 노드간의 최단거리를 알아야 할때
+2. O(N^3)을 해도 시간복잡도에 
+```    
+</details>    
+<details markdown="1">    
+
 <summary>. 파이썬 문법</summary>  
     
 ### 1. 문법   
