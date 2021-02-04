@@ -19,6 +19,9 @@
 				visit[x + dx[k]][y + dy[k]] = true;
 				q.push({ x + dx[k] , y + dy[k] });
 			}
+    
+    6. 묶음 단위로 BFS를 할때는 한 사이클 길이를 현재 묶음의 크기 만큼으로 하기
+    7. VISIT은 항상 습관화(특히 크기가 커질수록 )
 ```    
 </details>    
 
