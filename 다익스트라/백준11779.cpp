@@ -1,4 +1,4 @@
-//1. ÀÌ ¹®Á¦ Ç®ÀÌÀÇ ÇÙ½ÉÀº ´ÙÀÍ½º¶ó¿¡¼­ ÃÖ¼Ò°ª °»½Å ÇØÁÙ¶§ indegree¸¦ ¾÷µ« ÇØÁÖ´Â°Å
+//1. ì´ ë¬¸ì œ í’€ì´ì˜ í•µì‹¬ì€ ë‹¤ìµìŠ¤ë¼ì—ì„œ ìµœì†Œê°’ ê°±ì‹  í•´ì¤„ë•Œ indegreeë¥¼ ì—…ëƒ í•´ì£¼ëŠ”ê±°
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -19,7 +19,7 @@ void input()
 	for (int i = 0; i < E_size; i++)
 	{
 		cin >> s >> e >> weight;
-		v[s].push_back(make_pair(e, weight)); //start¿¡¼­ dest±îÁö weightÀÌ´Ù 
+		v[s].push_back(make_pair(e, weight)); //startì—ì„œ destê¹Œì§€ weightì´ë‹¤ 
 	}
 	cin >> Start >> End;
 
@@ -30,7 +30,7 @@ int dijkstra(int start, int end)
 	fill(dist.begin(), dist.end(), INF);
 
 	dist[start] = 0;
-	pq.push(make_pair(0, start));//(cost, ¸ñÀûÁö)¼ø (cost¼ø ¿À¸§Â÷¼ø À§ÇØ)
+	pq.push(make_pair(0, start));//(cost, ëª©ì ì§€)ìˆœ (costìˆœ ì˜¤ë¦„ì°¨ìˆœ ìœ„í•´)
 
 	while (!pq.empty())
 	{
@@ -47,7 +47,7 @@ int dijkstra(int start, int end)
 			{
 				dist[next] = dist[cur] + nextcost;
 				pq.push(make_pair(dist[next], next));
-				//¿©±â°¡ ÇÙ½É next±îÁö ¿À´Âµ¥ °¡Àå ÃÖ±Ù¿¡ ¹æ¹®Çß´ø vertex¸¦ ±â·ÏÇØ³õÀ½
+				//ì—¬ê¸°ê°€ í•µì‹¬ nextê¹Œì§€ ì˜¤ëŠ”ë° ê°€ì¥ ìµœê·¼ì— ë°©ë¬¸í–ˆë˜ vertexë¥¼ ê¸°ë¡í•´ë†“ìŒ
 				indegree[next] = cur;
 			}
 
