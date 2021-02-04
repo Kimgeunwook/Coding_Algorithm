@@ -1,8 +1,8 @@
-//1.  bfs¸¦ ÇÒ¶§ ¹­À½ ´ÜÀ§·Î ¿òÁ÷ÀÌ·Á¸é
-//    ÇöÀç ¹­À½ÀÇ Å©±â¸¸Å­ ÇÑ»çÀÌÅ¬·Î µ¹±â
+//1.  bfsë¥¼ í• ë•Œ ë¬¶ìŒ ë‹¨ìœ„ë¡œ ì›€ì§ì´ë ¤ë©´
+//    í˜„ìž¬ ë¬¶ìŒì˜ í¬ê¸°ë§Œí¼ í•œì‚¬ì´í´ë¡œ ëŒê¸°
 
-//2. ¸ÊÀÇ ÇüÅÂ°¡ Ä¿Áö¸é visit¹è¿­ÀÇ ¿ªÇÒµµ Áß¿äÇÔ
-//   ÀÏ´Ü ¹«Á¶°Ç visit¸¸µé¾î¼­ ¾îµð¿¡ ³ÖÀ»Áö »ý°¢
+//2. ë§µì˜ í˜•íƒœê°€ ì»¤ì§€ë©´ visitë°°ì—´ì˜ ì—­í• ë„ ì¤‘ìš”í•¨
+//   ì¼ë‹¨ ë¬´ì¡°ê±´ visitë§Œë“¤ì–´ì„œ ì–´ë””ì— ë„£ì„ì§€ ìƒê°
 #include <iostream>
 #include <queue>
 #include <algorithm>
@@ -32,7 +32,7 @@ void bfs(int num)
 	int depth = 0;
 	while (!q.empty())
 	{
-		//¿µ¿ªÀ» È®ÀåÇÏ±â À§ÇØ ÇÑ»çÀÌÅ¬ ±æÀÌ´Â ÇöÀç ¶¥ÀÇ Å©±â¸¸Å­ ¸¸µé¾î¾ßÇÔ
+		//ì˜ì—­ì„ í™•ìž¥í•˜ê¸° ìœ„í•´ í•œì‚¬ì´í´ ê¸¸ì´ëŠ” í˜„ìž¬ ë•…ì˜ í¬ê¸°ë§Œí¼ ë§Œë“¤ì–´ì•¼í•¨
 		int size = q.size();
 		for (int k = 0; k < size; k++)
 		{
@@ -47,13 +47,13 @@ void bfs(int num)
 
 				if (nx >= 0 && ny >= 0 && nx < N && ny < N)
 				{
-					// ´Ù¸¥ ±¸¿ª¼¶ ¸¸³ª¸é
+					// ë‹¤ë¥¸ êµ¬ì—­ì„¬ ë§Œë‚˜ë©´
 					if (nx_sect != num && nx_sect > 0)
 					{
 						answer = min(answer, depth);
 						return;
 					}
-					//¹Ù´Ù && ¹æ¹®ÇÏÁö ¾ÊÀº°÷ÀÌ¸é
+					//ë°”ë‹¤ && ë°©ë¬¸í•˜ì§€ ì•Šì€ê³³ì´ë©´
 					if (arr[nx][ny] == 0 && !visit[nx][ny])
 					{
 						visit[nx][ny] = true;
@@ -83,7 +83,7 @@ void dfs(int x, int y)
 	}
 }
 
-//°¢ À°Áö¸¶´Ù ¹øÈ£ ºÙ¿©ÁÖ±â
+//ê° ìœ¡ì§€ë§ˆë‹¤ ë²ˆí˜¸ ë¶™ì—¬ì£¼ê¸°
 void sectioning()
 {
 	for (int i = 0; i < N; i++)
@@ -110,7 +110,7 @@ void solve()
 int main()
 {
 	input();
-	sectioning();//¼¶ ±¸¿ª ³ª´©±â
+	sectioning();//ì„¬ êµ¬ì—­ ë‚˜ëˆ„ê¸°
 	solve();
 	cout << answer << endl;
 	return 0;
