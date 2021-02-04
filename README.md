@@ -189,6 +189,15 @@ for (int i = 1; i <= N; i++)
 
 		}
 	}
+### 다익스트라 경로 추적
+			...다익스트라 함수 안에서(11779참조)....
+			if (dist[next] > dist[cur] + nextcost)
+			{
+				dist[next] = dist[cur] + nextcost;
+				pq.push(make_pair(dist[next], next));
+				//여기서 next까지 오는데 가장 최근에 방문했던 vertex를 기록해놓음
+				indegree[next] = cur;
+			}
 
 ```  
 
