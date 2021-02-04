@@ -200,7 +200,7 @@ for (int i = 1; i <= N; i++)
 				indegree[next] = cur;
 			}
 
-```  
+```     
 
 </details>   
 
