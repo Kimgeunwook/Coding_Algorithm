@@ -638,7 +638,6 @@ void dfs(int cnt)
 	print(arr) #[(1, 'a'), (2, 'a'), (2, 'b'), (3, 'a'), (4, 'b')]
 
 	#15. 전역 변수
-	case 전역변수)
 	a = 3
 	def foo():
 		함수 안에서 전역변수 a를 사용하려면 global a선언 후 사용
