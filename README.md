@@ -637,7 +637,10 @@ void dfs(int cnt)
 	arr.sort(key = lambda x:(x[0], -1 * ord(x[1])))
 	print(arr) #[(1, 'a'), (2, 'a'), (2, 'b'), (3, 'a'), (4, 'b')]
 	
-	#15. combination
+	#15. 지역, 전역변수  
+	
+	
+	
 
 ```    
 </details>   
