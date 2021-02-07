@@ -516,8 +516,7 @@ void dfs(int cnt)
 10x10 0으로 채워진 2차원 벡터 선언
   vector<vector<int>> v(10, vector<int>(10, 0));
 ```    
-</details>    
-<details markdown="1">    
+</details>      
 
 <details markdown="1">    
 <summary>15. floyd</summary>  
