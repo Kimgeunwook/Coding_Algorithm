@@ -19,6 +19,9 @@
 				visit[x + dx[k]][y + dy[k]] = true;
 				q.push({ x + dx[k] , y + dy[k] });
 			}
+    
+    6. 묶음 단위로 BFS를 할때는 한 사이클 길이를 현재 묶음의 크기 만큼으로 하기
+    7. VISIT은 항상 습관화(특히 크기가 커질수록 )
 ```    
 </details>    
 
@@ -186,8 +189,19 @@ for (int i = 1; i <= N; i++)
 
 		}
 	}
+```
+### 다익스트라 경로추적  
+```
+			...다익스트라 함수 안에서(11779참조)....
+			if (dist[next] > dist[cur] + nextcost)
+			{
+				dist[next] = dist[cur] + nextcost;
+				pq.push(make_pair(dist[next], next));
+				//여기서 next까지 오는데 가장 최근에 방문했던 vertex를 기록해놓음
+				indegree[next] = cur;
+			}
 
-```  
+```     
 
 </details>   
 
@@ -492,7 +506,31 @@ void dfs(int cnt)
 }
 ```    
 </details>    
+
 <details markdown="1">    
+<summary>14. vector</summary>  
+    
+### 1. 2차원 벡터 선언
+
+```    
+10x10 0으로 채워진 2차원 벡터 선언
+  vector<vector<int>> v(10, vector<int>(10, 0));
+```    
+</details>    
+<details markdown="1">    
+
+<details markdown="1">    
+<summary>15. floyd</summary>  
+    
+### 1. 언제 사용하면 좋은지
+
+```    
+1. 결국 모든 노드간의 최단거리를 알아야 할때
+2. O(N^3)을 해도 시간복잡도에 
+```    
+</details>    
+<details markdown="1">    
+
 <summary>. 파이썬 문법</summary>  
     
 ### 1. 문법   
@@ -588,7 +626,8 @@ void dfs(int cnt)
 	print("".join(list)) #abcd
 	
 	#12. type -> asci val
-	ord()
+	ord(), chr()
+	
 	
 	#13. 재귀 제한주기
 	import sys
