@@ -530,6 +530,54 @@ void dfs(int cnt)
 </details>    
 <details markdown="1">    
 
+
+<details markdown="1">   
+<summary>16. Binary Search, lowerBound, upperBound</summary>  
+    
+### 1. Binary Search
+
+```    
+	start = 0, end = length - 1
+
+	while(start <= end) {
+        mid = (start + end) / 2;
+
+        if (arr[mid] == target)
+            return mid;
+        else if (arr[mid] > target)
+            end = mid - 1;
+        else
+            start = mid + 1;
+    	}
+```    
+### 2. lowerBound
+
+```    
+	start = 0, end = length 
+	while (end > start) 
+	{
+		mid = (start + end) / 2; 
+		if (arr[mid] >= target) 
+			end = mid;
+		else start = mid + 1; 
+	}
+```    
+### 3. upperBound
+
+```    
+	start = 0, end = length 
+	while (end > start) 
+	{
+		mid = (start + end) / 2; 
+		if (arr[mid] > target) 
+			end = mid;
+		else start = mid + 1; 
+	}
+```    
+</details>    
+<details markdown="1">    
+
+
 <summary>. 파이썬 문법</summary>  
     
 ### 1. 문법   
