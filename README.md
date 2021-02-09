@@ -636,8 +636,20 @@ void dfs(int cnt)
 	arr =[(1,'a'),(2,'b'),(2,'a'),(3,'a'),(4,'b')]
 	arr.sort(key = lambda x:(x[0], -1 * ord(x[1])))
 	print(arr) #[(1, 'a'), (2, 'a'), (2, 'b'), (3, 'a'), (4, 'b')]
+
+	#15. 전역 변수
+	a = 3
+	def foo():
+		함수 안에서 전역변수 a를 사용하려면 global a선언 후 사용
+	a = 3
+	def foo():
+    	global a
+    	a = a + 5
+
+	print(a) #3
+	foo()
+	print(a) #8 (만약 foo함수에서 global a 선언 안하고 a = 3이렇게하면) 이줄에서는 걍 3 출력
 	
-	#15. combination
 
 ```    
 </details>   
