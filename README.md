@@ -534,7 +534,7 @@ void dfs(int cnt)
 <details markdown="1">   
 <summary>16. Binary Search, lowerBound, upperBound</summary>  
     
-### 1. Binary Search
+### 1. Binary Search (정확히 어떤 값을 찾아야 할때)
 
 ```    
 	start = 0, end = length - 1
@@ -550,7 +550,7 @@ void dfs(int cnt)
             start = mid + 1;
     	}
 ```    
-### 2. lowerBound
+### 2. lowerBound (해당하는 key이상의 값중 최소인값 찾을때)
 
 ```    
 	start = 0, end = length 
@@ -562,7 +562,7 @@ void dfs(int cnt)
 		else start = mid + 1; 
 	}
 ```    
-### 3. upperBound
+### 3. upperBound (해당하는 key 초과 값중 최소인값 찾을때)
 
 ```    
 	start = 0, end = length 
