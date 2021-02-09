@@ -528,7 +528,7 @@ void dfs(int cnt)
 2. O(N^3)을 해도 시간복잡도에 
 ```    
 </details>    
-<details markdown="1">    
+
 
 
 <details markdown="1">   
@@ -575,9 +575,9 @@ void dfs(int cnt)
 	}
 ```    
 </details>    
+
+
 <details markdown="1">    
-
-
 <summary>. 파이썬 문법</summary>  
     
 ### 1. 문법   
