@@ -189,8 +189,19 @@ for (int i = 1; i <= N; i++)
 
 		}
 	}
+```
+### 다익스트라 경로추적  
+```
+			...다익스트라 함수 안에서(11779참조)....
+			if (dist[next] > dist[cur] + nextcost)
+			{
+				dist[next] = dist[cur] + nextcost;
+				pq.push(make_pair(dist[next], next));
+				//여기서 next까지 오는데 가장 최근에 방문했던 vertex를 기록해놓음
+				indegree[next] = cur;
+			}
 
-```  
+```     
 
 </details>   
 
@@ -505,8 +516,7 @@ void dfs(int cnt)
 10x10 0으로 채워진 2차원 벡터 선언
   vector<vector<int>> v(10, vector<int>(10, 0));
 ```    
-</details>    
-<details markdown="1">    
+</details>      
 
 <details markdown="1">    
 <summary>15. floyd</summary>  
@@ -518,8 +528,56 @@ void dfs(int cnt)
 2. O(N^3)을 해도 시간복잡도에 
 ```    
 </details>    
-<details markdown="1">    
 
+
+
+<details markdown="1">   
+<summary>16. Binary Search, lowerBound, upperBound</summary>  
+    
+### 1. Binary Search (정확히 어떤 값을 찾아야 할때)
+
+```    
+	start = 0, end = length - 1
+
+	while(start <= end) {
+        mid = (start + end) / 2;
+
+        if (arr[mid] == target)
+            return mid;
+        else if (arr[mid] > target)
+            end = mid - 1;
+        else
+            start = mid + 1;
+    	}
+```    
+### 2. lowerBound (해당하는 key이상의 값중 최소인값 찾을때)
+
+```    
+	start = 0, end = length 
+	while (end > start) 
+	{
+		mid = (start + end) / 2; 
+		if (arr[mid] >= target) 
+			end = mid;
+		else start = mid + 1; 
+	}
+```    
+### 3. upperBound (해당하는 key 초과 값중 최소인값 찾을때)
+
+```    
+	start = 0, end = length 
+	while (end > start) 
+	{
+		mid = (start + end) / 2; 
+		if (arr[mid] > target) 
+			end = mid;
+		else start = mid + 1; 
+	}
+```    
+</details>    
+
+
+<details markdown="1">    
 <summary>. 파이썬 문법</summary>  
     
 ### 1. 문법   
@@ -626,8 +684,20 @@ void dfs(int cnt)
 	arr =[(1,'a'),(2,'b'),(2,'a'),(3,'a'),(4,'b')]
 	arr.sort(key = lambda x:(x[0], -1 * ord(x[1])))
 	print(arr) #[(1, 'a'), (2, 'a'), (2, 'b'), (3, 'a'), (4, 'b')]
+
+	#15. 전역 변수
+	a = 3
+	def foo():
+		함수 안에서 전역변수 a를 사용하려면 global a선언 후 사용
+	a = 3
+	def foo():
+    	global a
+    	a = a + 5
+
+	print(a) #3
+	foo()
+	print(a) #8 (만약 foo함수에서 global a 선언 안하고 a = 3이렇게하면) 이줄에서는 걍 3 출력
 	
-	#15. combination
 
 ```    
 </details>   
