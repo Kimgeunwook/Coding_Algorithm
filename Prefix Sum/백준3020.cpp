@@ -1,9 +1,9 @@
-//13:48╫цюш
+//13:48Л▀°Л·▒
 #include <iostream>
 using namespace std;
 #define INF 987654321
 int N, H;
-int sum[500001], up[500002], down[500002]; //цжа╬ ╠╦╟ёгу ╠╦гр ╧Х©╜, ю╖©║╪╜ Ё╩╥а©ю╢б╬ж ц╪е╘гр ╧Х©╜, ╬ф╥║©║╪╜ ©ц╤С©б╬ж ц╪е╘гр ╧Х©╜
+int sum[500001], up[500002], down[500002]; //Л╣°Л╒┘ Й╣╛Й╟└М∙╘ Й╣╛М∙═ К╟╟Л≈╢, Л°└Л≈░Л└° К┌╢К═╓Л≤╓К┼■Л∙═ Л╡╢М│╛М∙═ К╟╟Л≈╢, Л∙└К·≤Л≈░Л└° Л≤╛К²╪Л≤╗Л∙═ Л╡╢М│╛М∙═ К╟╟Л≈╢
 int _min = INF, mincnt = 0;
 void input()
 {
@@ -57,12 +57,12 @@ int main()
 	
 	solveUp();
 	solveDown();
-	/*cout << "╧Х©╜╨╦©╘аж╠Б" << endl;
+	/*cout << "К╟╟Л≈╢КЁ╢Л≈╛Лё╪Й╦╟" << endl;
 	for (int i = H; i >= 1; i--)
 	{
 		cout << sum[i] << endl;
 	}
-	cout << "╧Х©╜╨╦©╘аж╠Б" << endl;*/
+	cout << "К╟╟Л≈╢КЁ╢Л≈╛Лё╪Й╦╟" << endl;*/
 	getAnswer();
 	cout << _min << " " << mincnt << endl;
 	return 0;
