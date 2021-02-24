@@ -8,7 +8,7 @@ int _min = 987654321;
 queue<pair<string,int>> q;
 void get_prime()
 {
-	//falseÀÎ°Ô ¼Ò¼ö 
+	//falseì¸ê²Œ ì†Œìˆ˜ 
 	for (int i = 2; i * i <= 10000; i++)
 		if (!prime[i])
 		{
@@ -37,9 +37,9 @@ int bfs()
 			for (int j = 0; j < 10; j++)
 			{
 				temp_string = cur_s;
-				temp_string[i] = '0' + j; //string¿¡¼­ idx°ª º¯°æÀ§ÇØ charÇü½ÄÀ¸·Î ³Ö¾îÁÖ±â
+				temp_string[i] = '0' + j; //stringì—ì„œ idxê°’ ë³€ê²½ìœ„í•´ charí˜•ì‹ìœ¼ë¡œ ë„£ì–´ì£¼ê¸°
 
-				//4ÀÚ¸®¼ö && ¼Ò¼öÀÌ°í && ¹æ¹®ÇÑÀû ¾øÀ¸¸é
+				//4ìë¦¬ìˆ˜ && ì†Œìˆ˜ì´ê³  && ë°©ë¬¸í•œì  ì—†ìœ¼ë©´
 				if (1000 <= stoi(temp_string) && stoi(temp_string) < 10000 && !(prime[stoi(temp_string)]) && !visit[stoi(temp_string)])
 				{
 					visit[stoi(temp_string)] = true;
