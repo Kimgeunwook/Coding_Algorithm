@@ -25,6 +25,15 @@
 ```    
 </details>    
 
+<details markdown="1">    
+<summary>1. Stack</summary>  
+    
+### 1.1 Stack은 언제쓰나?  
+
+```    
+    1.보통 모든 원소에 대해 그 원소를 기준으로 오른쪽/왼쪽에 어떤 조건을 만족하는 첫번째 원소를 구하라는 문제
+```    
+</details>  
 
 
 <details markdown="1">    
