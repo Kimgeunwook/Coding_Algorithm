@@ -1,4 +1,4 @@
-//08:00½ÃÀÛ
+//08:00Â½ÃƒÃ€Ã›
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -6,7 +6,7 @@ using namespace std;
 vector<int> v, positive_v, negative_v, zero_v;
 bool comp(int a, int b)
 {
-	return abs(a) > abs(b); // »çÀÌÁîº° ¿À¸§Â÷¼ø
+	return abs(a) > abs(b); // Â»Ã§Ã€ÃŒÃÃ®ÂºÂ° Â¿Ã€Â¸Â§Ã‚Ã·Â¼Ã¸
 }
 
 void input()
