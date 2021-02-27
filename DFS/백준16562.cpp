@@ -1,10 +1,10 @@
-//16:55½ÃÀÛ
-//17:10³¡
+//16:55Â½ÃƒÃ€Ã›
+//17:10Â³Â¡
 #include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
-int N, M, K, friend_money[10001]; // input°ü·Ã º¯¼ö
+int N, M, K, friend_money[10001]; // inputÂ°Ã¼Â·Ãƒ ÂºÂ¯Â¼Ã¶
 #define INF 987654321
 int _min ,  answer = 0;
 vector<int> v[10001], visit(10001);
