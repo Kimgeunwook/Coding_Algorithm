@@ -685,9 +685,9 @@ void dfs(int cnt)
 	ord(), chr()
 	
 	
-	#13. 재귀 제한주기
+	#13. dfs문제 풀때 재귀 제한주기
 	import sys
-	sys.setrecursionlimit(30000)
+	sys.setrecursionlimit(10**6) #보통 10^6으로줌
 	
 	#14. 다중비교
 	arr =[(1,'a'),(2,'b'),(2,'a'),(3,'a'),(4,'b')]
@@ -705,7 +705,10 @@ void dfs(int cnt)
 
 	print(a) #3
 	foo()
-	print(a) #8 (만약 foo함수에서 global a 선언 안하고 a = 3이렇게하면) 이줄에서는 걍 3 출력
+	print(a) #8 (만약 foo함수에서 global a 선언 안하고 a = 3이렇게하면) 이줄에서는 걍 3 출력  
+	
+	#16. 입력 받기  
+	https://velog.io/@yeseolee/Python-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%9E%85%EB%A0%A5-%EC%A0%95%EB%A6%ACsys.stdin.readline
 	
 
 ```    
