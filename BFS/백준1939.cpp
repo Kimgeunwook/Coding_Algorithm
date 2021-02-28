@@ -1,90 +1,69 @@
-#include<iostream>
-#include<vector>
-#include<queue>
-#include<cstring>
-
-#define endl "\n"
-#define MAX 100000 + 1
+//12:41시작
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <queue>
 using namespace std;
-
-int N, M, Max_Cost, Start, End;
-bool Visit[MAX];
-vector<pair<int, int>> V[MAX];
-
-int Bigger(int A, int B) { if (A > B) return A; return B; }
-
-void Input()
+#define MAX 1000000000
+int N, M, A, B, C, factory_A, factory_B;
+int s = 1, e, mid;
+int Max_Cost = 0;
+int answer;
+vector< pair<int, int>> v[10001];
+bool visit[100001];
+queue<int> q;
+void bfs(int mid)
 {
-    cin >> N >> M;
-    for (int i = 0; i < M; i++)
-    {
-        int Pos1, Pos2, Cost;
-        cin >> Pos1 >> Pos2 >> Cost;
-        V[Pos1].push_back(make_pair(Pos2, Cost));
-        V[Pos2].push_back(make_pair(Pos1, Cost));
+	for (int i = 1; i <= 100000; i++)
+		visit[i] = false;
 
-        Max_Cost = Bigger(Max_Cost, Cost);
-    }
+	visit[factory_A] = true;
+	q.push(factory_A);
 
-    cin >> Start >> End;
+	while (!q.empty())
+	{
+		int cur = q.front();
+		q.pop();
+		for (int i = 0; i < v[cur].size(); i++)
+		{
+			if (v[cur][i].second >= mid && visit[v[cur][i].first] == false)
+			{
+				q.push(v[cur][i].first);
+				visit[v[cur][i].first] = true;
+			}
+
+		}
+
+
+	}
 }
-
-bool BFS(int Cur_Cost)
+int main()
 {
-    queue<int> Q;
-    Q.push(Start);
-    Visit[Start] = true;
+	cin >> N >> M;
+	for (int i = 0; i < M; i++)
+	{
+		cin >> A >> B >> C;
+		v[A].push_back({ B, C });
+		v[B].push_back({ A, C });
+		Max_Cost = max(Max_Cost, C);
+	}
+	cin >> factory_A >> factory_B;
+	e = Max_Cost;
+	while (s <= e)
+	{
+		mid = (s + e) / 2;
+		bfs(mid);
+		if (visit[factory_B])// 최대치 mid로 했을때 길이 있으면
+		{
+			answer = max(answer, mid);
+			s = mid + 1;
+		}
+		else
+		{
+			e = mid - 1;
+		}
+	}
 
-    while (Q.empty() == 0)
-    {
-        int Cur_Factory = Q.front();
-        Q.pop();
-
-        if (Cur_Factory == End) return true;
-
-        for (int i = 0; i < V[Cur_Factory].size(); i++)
-        {
-            int Next_Factory = V[Cur_Factory][i].first;
-            int Next_Factory_Cost = V[Cur_Factory][i].second;
-
-            if (Visit[Next_Factory] == false && Cur_Cost <= Next_Factory_Cost)
-            {
-                Visit[Next_Factory] = true;
-                Q.push(Next_Factory);
-            }
-        }
-    }
-    return false;
-}
-
-void Solution()
-{
-    int Low = 0;
-    int High = Max_Cost;
-    while (Low <= High)
-    {
-        memset(Visit, false, sizeof(Visit));
-        int Mid = (Low + High) / 2;
-        if (BFS(Mid) == true) Low = Mid + 1;
-        else High = Mid - 1;
-    }
-    cout << High << endl;
-}
-
-void Solve()
-{
-    Input();
-    Solution();
-}
-
-int main(void)
-{
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-
-    //freopen("Input.txt", "r", stdin);
-    Solve();
-
-    return 0;
+	cout << answer << endl;
+	return 0;
 }
