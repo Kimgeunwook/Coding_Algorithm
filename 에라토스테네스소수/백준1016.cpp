@@ -2,7 +2,7 @@
 bool flag[1000001];
 #include <cmath>
 using namespace std;
-long long _start2 = 0, _end = 0; //º¯¼ö·Î _start¾²´Ï±î ÄÄÆÄÀÏ ¿¡·¯¶¹À½
+long long _start2 = 0, _end = 0; //ë³€ìˆ˜ë¡œ _startì“°ë‹ˆê¹Œ ì»´íŒŒì¼ ì—ëŸ¬ë–´ìŒ
 void solve() {
 	for (long long i = 2; i <= sqrt(_end); i++) {
 		long long divide_num = i * i;
