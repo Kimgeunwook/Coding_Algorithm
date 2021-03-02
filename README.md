@@ -406,19 +406,7 @@ void dfs(int cnt)
 }
 ```
 </details>    
-
-<details markdown="1">    
-<summary>. 스택</summary>  
-    
-### 1. 배열 스택기본
-
-```    
-1.기본 top = -1
-2 push : stack[++top]
-3. pop : stack[top--]
-4. isempty ? : if(top < 0)
-```    
-</details>    
+ 
 
 <details markdown="1">    
 <summary>. 에라토스테네스 소수</summary>  
