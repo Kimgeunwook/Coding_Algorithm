@@ -1,4 +1,4 @@
-// 1. mst·Î ÀÛÀº °Å ºÎÅÍ ¿¬°áÇÏ´Ù°¡ ´Ù ¿¬°áµÇ¸é ±×¶§ ÇÕ»ê Á¡¼ö°¡ ´ä
+// 1. mstë¡œ ì‘ì€ ê±° ë¶€í„° ì—°ê²°í•˜ë‹¤ê°€ ë‹¤ ì—°ê²°ë˜ë©´ ê·¸ë•Œ í•©ì‚° ì ìˆ˜ê°€ ë‹µ
 #include <iostream>
 #include <queue>
 using namespace std;
@@ -29,7 +29,7 @@ bool input()
 
 	init();
 
-	if (M == 0 && N == 0) return false; //Á¾·á Á¶°Ç
+	if (M == 0 && N == 0) return false; //ì¢…ë£Œ ì¡°ê±´
 
 	int a, b, c;
 	for (int i = 0; i < N; i++)
@@ -80,7 +80,7 @@ void solve()
 		pq.pop();
 		if (_find(cur.a) != _find(cur.b))
 		{
-			cout << cur.a << "¿Í" << cur.b << "ÀÌ¾ú´Ù" << endl;
+			cout << cur.a << "ì™€" << cur.b << "ì´ì—ˆë‹¤" << endl;
 			_union(cur.a, cur.b);
 		}
 		else {

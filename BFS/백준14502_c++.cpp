@@ -1,4 +1,4 @@
-//1011½ÃÀÛ
+//1011ì‹œì‘
 #include <iostream>
 #include <queue>
 using namespace std;
@@ -16,7 +16,7 @@ void input()
 			cin >> arr[i][j];
 			if (arr[i][j] == 2)
 			{
-				//¹ÙÀÌ·¯½º À§Ä¡ ÀúÀå
+				//ë°”ì´ëŸ¬ìŠ¤ ìœ„ì¹˜ ì €ì¥
 				copy_q.push({ i,j });
 			}
 		}
@@ -50,7 +50,7 @@ void bfs()
 		pair<int, int> cur = q.front();
 		
 		//show();
-		//cout << "ÇöÀç : " << cur.first << " , " << cur.second << endl;
+		//cout << "í˜„ì¬ : " << cur.first << " , " << cur.second << endl;
 		q.pop();
 		for (int i = 0; i < 4; i++)
 		{
@@ -60,7 +60,7 @@ void bfs()
 				if (copy_arr[nextx][nexty] == 0)
 				{
 					copy_arr[nextx][nexty] = 2;
-					//cout << "´ÙÀ½ : " << nextx << " , " << nexty << endl;
+					//cout << "ë‹¤ìŒ : " << nextx << " , " << nexty << endl;
 					q.push({nextx, nexty});
 				}
 		}
@@ -90,7 +90,7 @@ void comb(int cnt)
 			{
 				if (arr[i][j] == 0)
 				{
-					//cout << cnt << "ÀÏ¶§ " << i << "," << j << endl;
+					//cout << cnt << "ì¼ë•Œ " << i << "," << j << endl;
 					arr[i][j] = 1;
 					comb(cnt + 1);
 					arr[i][j] = 0;
