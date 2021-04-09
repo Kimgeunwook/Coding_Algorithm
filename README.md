@@ -616,7 +616,7 @@ void dfs(int cnt)
 	dic['a'] = 3
 	dic['b'] = 5
 	dic[1] = 'hi'
-	print(dic[1])
+	for key, value in dic.items(): #dic 순회
 
 	#8. 조건sort
 	import functools
