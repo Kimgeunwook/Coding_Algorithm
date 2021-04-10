@@ -322,30 +322,21 @@ visitDirect[{ {curX, curY}, { nextX, nextY } }] = true;
 ### 1. 중복없는 순열  
 
 ```
-vector<int> v(5);
-v = {1, 2, 3, 4, 5};
-int temp[5];
-int visit[5];
-void dfs(int cnt)
-{
-	if (cnt == 5)
-	{
-		for (int i = 0; i < 5; i++)
-			cout << temp[i] << " ";
-		cout << endl;
-	}
-	else
-	{
-		for (int i = 0; i < 5; i++)
-		{
-			if (visit[i] == 1) continue;
-			visit[i] = 1;
-			temp[cnt] = v[i];
-			dfs(cnt + 1);
-			visit[i] = 0;
-		}
-	}
-}
+arr = [1, 2, 3, 4, 5]
+answer = [0 for _ in range(5)]
+visit = [False for _ in range(5)]
+def comb(cnt):
+    if cnt == 5:
+        print(answer)
+    else:
+        for idx in range(5):
+            if visit[idx] == False:
+                visit[idx] = True
+                answer[cnt] = arr[idx]
+                comb(cnt + 1)
+                visit[idx] = False
+comb(0)
+
    실행결과
    1 2 3 4 5
    1 2 3 5 4
@@ -358,53 +349,31 @@ void dfs(int cnt)
    5 4 3 1 2
    5 4 3 2 1
 ```    
-### 2. combination    
+### 2. 중복있는 수열    
 ```
-5C3예시
-int temp[5];
-void dfs(int cnt, int idx)
-{
-	if (cnt == 3)
-	{
-		for (int i = 0; i < 3; i++)
-			cout << temp[i] << " ";
-		cout << endl;
-	}
-	else
-	{
-		for (int i = idx; i < 5; i++)
-		{
-			temp[cnt] = v[i];
-			dfs(cnt + 1, i + 1);
-		}
-	}
-}
+5!예시
+arr = [1,2,3,4,5]
+answer = [0 for _ in range(5)]
+def comb(cnt):
+    if cnt ==5 :
+        print(answer)
+    else:
+        for idx in range(5):
+            answer[cnt] = arr[idx]
+            comb(cnt + 1)
+
+comb(0)
+
+실행결과
+   1 1 1 1 1
+   1 1 1 1 2
+   .
+   .
+   .
+   5 5 5 5 5
 ```
 
-### 2. permutation    
-```
-5P3예시
-void dfs(int cnt)
-{
-	if (cnt == 3)
-	{
-		for (int i = 0; i < 3; i++)
-			cout << temp[i] << " ";
-		cout << endl;
-	}
-	else
-	{
-		for (int i = 1; i <= 5; i++)
-		{
-			if (visit[i] == 1) continue;
-			visit[i] = 1;
-			temp[cnt] = i;
-			dfs(cnt + 1);
-			visit[i] = 0;
-		}
-	}
-}
-```
+
 </details>    
  
 
